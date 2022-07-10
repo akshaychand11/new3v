@@ -81,6 +81,14 @@
             "description": "Username of a Support Group / ADMIN. ( Should be username without @ and not ID)",
             "value": "m_house786",
             "required": false
+        },
+        "IMDB_TEMPLATE": {
+            "description": "Customize Yor imdb Result,",
+            "required": false
+        },
+        "CUSTOM_FILE_CAPTION": {
+            "description": "change your file cation,",
+            "required": false
         }
     },
     "addons": [],
