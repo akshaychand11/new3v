@@ -51,7 +51,7 @@ You can deploy this bot anywhere.
 <p>
 <br>
 
-<a href="https://heroku.com/deploy?template=https://github.com/malik7983/file-filter-bot">
+<a href="https://heroku.com/deploy?template=https://github.com/sahidmalik07/movies-house-bot">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </p>
