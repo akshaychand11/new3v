@@ -276,7 +276,8 @@ _𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 𝐅𝐨𝐫 𝐊𝐧𝐨𝐰 𝐀𝐛�
 ☀️ Search Movies  in The Given From Example:    
 (1) Avengers.. ✅
 (2) Avengers Hindi. ✅
-(3) Don't Tipe Avengers Hindi Dubbed..❌
+(3) Avengers movie ❌
+(4) Don't Tipe Avengers Hindi Dubbed..❌
 
 ☀️Don't Do Any Self Promotion.
 
