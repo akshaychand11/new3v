@@ -18,7 +18,7 @@ class script(object):
 - <a href=https://t.me/sahid_malik>Sahid malik</a>"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
-- Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message
+- Filter is the feature were users can set automated replies for a particular keyword and Movies house will respond whenever a keyword is found the message
 
 <b>NOTE:</b>
 1. movies house 🏠 have admin privillage.
@@ -297,8 +297,11 @@ MALIK_PHH = """<b>Hay 👋 {}.... 🌷 ❤️
 
 😎 You Can Find 🔍 Movies / Series / Animes etc. From Here. Enjoy 😉...
 
-If you have any question then contact us below  👇</b>"""
+🙏 Plz do You not request the owner for the movie.. or else you will be blocked directly...⚠️
 
+⚙ If there is any problem with the bot then contact the owner..
+
+If you have any question then contact us below  👇</b>"""
 ALURT_FND = """<b>.
 
 CHECK YOUR MOVIE ON THE GIVEN LIST AND SELECT YOUR MOVIE.. 
