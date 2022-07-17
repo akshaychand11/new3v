@@ -428,11 +428,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Search inline', switch_inline_query_current_chat=''),
             InlineKeyboardButton('❤️ Donation ❤️', callback_data='dinette')
             ],[
-            InlineKeyboardButton('🚀 Download YouTube video 🛰', callback_data='videos')
-            ],[
             InlineKeyboardButton('🔗 Url Shortner 🔗', callback_data='urlshortn')
             ],[
-            InlineKeyboardButton('✅ Subscribe my YouTube channel ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
+            InlineKeyboardButton('✅ Subscribe my YT channel ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -451,12 +449,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🏠 𝗛𝗼𝗺𝗲 ', callback_data='start'),
             InlineKeyboardButton(' SONGS ', callback_data='songs')
         ], [
-            InlineKeyboardButton('♻️ 𝗦𝘁𝗮𝘁𝘀 ♻️', callback_data='stats'),
-            InlineKeyboardButton('𝚄𝚁𝙻 𝚂𝙷𝙾𝚁𝚃', callback_data='urlshort'),
+            InlineKeyboardButton('♻️ STATS ♻️', callback_data='stats'),
+            InlineKeyboardButton('VIDEO', callback_data='video'),
             InlineKeyboardButton(' 𝗢𝗪𝗡𝗘𝗥', url='https://t.me/sahid_malik')
         ], [
             InlineKeyboardButton('𝚈𝚃-𝚃𝙷𝚄𝙼𝙱', callback_data='ytthumb'),
-            InlineKeyboardButton('video', callback_data='video'),
+            InlineKeyboardButton('URL SHORT', callback_data='urlshort'),
             InlineKeyboardButton('File-Store', callback_data='malikk')
         ], [
             InlineKeyboardButton('🚶‍♀ 𝙱𝙰𝙲𝙺 🚶‍♀', callback_data='start')
