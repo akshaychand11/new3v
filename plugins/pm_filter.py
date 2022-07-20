@@ -450,13 +450,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🏠 𝗛𝗼𝗺𝗲 ', callback_data='start'),
             InlineKeyboardButton(' SONGS ', callback_data='songs')
         ], [
-            InlineKeyboardButton('♻️ STATS ♻️', callback_data='stats'),
-            InlineKeyboardButton('VIDEO', callback_data='video'),
+            InlineKeyboardButton('𝗦𝘁𝗮𝘁𝘀', callback_data='stats'),
+            InlineKeyboardButton('𝚄𝚁𝙻 𝚂𝙷𝙾𝚁𝚃', callback_data='urlshort'),
             InlineKeyboardButton(' 𝗢𝗪𝗡𝗘𝗥', url='https://t.me/sahid_malik')
         ], [
             InlineKeyboardButton('𝚈𝚃-𝚃𝙷𝚄𝙼𝙱', callback_data='ytthumb'),
-            InlineKeyboardButton('URL SHORT', callback_data='urlshort'),
+            InlineKeyboardButton('video', callback_data='video'),
             InlineKeyboardButton('File-Store', callback_data='malikk')
+        ], [
+            InlineKeyboardButton(' MUTE ', callback_data='mute'),
+            InlineKeyboardButton('𝚁𝙴𝙿𝙾𝚁𝚃', callback_data='report'),
+            InlineKeyboardButton('PURGE', callback_data='purges'),
         ], [
             InlineKeyboardButton('🚶‍♀ 𝙱𝙰𝙲𝙺 🚶‍♀', callback_data='start')
         ]]
@@ -507,6 +511,39 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.URLSHORT_TXT,
+            disable_web_page_preview=True,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "report":
+        buttons = [[
+            InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.REPORT_TXT,
+            disable_web_page_preview=True,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "mute":
+        buttons = [[
+            InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.MUTE_TXT,
+            disable_web_page_preview=True,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "purges":
+        buttons = [[
+            InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.PURGE_TXT,
             disable_web_page_preview=True,
             reply_markup=reply_markup,
             parse_mode='html'
