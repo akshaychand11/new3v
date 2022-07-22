@@ -60,8 +60,6 @@ async def start(client, message):
             InlineKeyboardButton('Search inline', switch_inline_query_current_chat=''),
             InlineKeyboardButton('❤️ Donation ❤️', callback_data='dinette')
             ],[
-            InlineKeyboardButton('🔗 Url Shortner 🔗', callback_data='urlshortn')
-            ],[
             InlineKeyboardButton('✅ Subscribe my YouTube channel  ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -110,8 +108,6 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('Search inline', switch_inline_query_current_chat=''),
             InlineKeyboardButton('❤️ Donation ❤️', callback_data='dinette')
-            ],[
-            InlineKeyboardButton('🔗 Url Shortner 🔗', callback_data='urlshortn')
             ],[
             InlineKeyboardButton('✅ Subscribe my YouTube channel  ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
         ]]
