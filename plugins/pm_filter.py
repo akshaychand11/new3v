@@ -143,7 +143,7 @@ async def advantage_spoll_choker(bot, query):
                text=(M_NT_FND),
                reply_markup=InlineKeyboardMarkup(
                                       [[
-                                        InlineKeyboardButton('💢 Request to admin 💢', url="https://t.me/m_admins"),
+                                        InlineKeyboardButton('💢 Request 💢', url="https://t.me/m_admins"),
                                                                          
                                       ]]
                ),
@@ -429,8 +429,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Search inline', switch_inline_query_current_chat=''),
             InlineKeyboardButton('❤️ Donation ❤️', callback_data='dinette')
             ],[
-            InlineKeyboardButton('🔗 Url Shortner 🔗', callback_data='urlshortn')
-            ],[
             InlineKeyboardButton('✅ Subscribe my YT channel ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -451,7 +449,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton(' SONGS ', callback_data='songs')
         ], [
             InlineKeyboardButton('𝗦𝘁𝗮𝘁𝘀', callback_data='stats'),
-            InlineKeyboardButton('𝚄𝚁𝙻 𝚂𝙷𝙾𝚁𝚃', callback_data='urlshort'),
             InlineKeyboardButton(' 𝗢𝗪𝗡𝗘𝗥', url='https://t.me/sahid_malik')
         ], [
             InlineKeyboardButton('𝚈𝚃-𝚃𝙷𝚄𝙼𝙱', callback_data='ytthumb'),
@@ -998,7 +995,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    m = await msg.reply(f"<b>Hey, {msg.from_user.mention}...😎\n\nCHECK YOUR MOVIE ON THE GIVEN LIST AND SELECT YOUR MOVIE.. \n\n दी गई सूची में अपनी फिल्म देखें और अपनी फिल्म चुनें 👇👇👇</b>",
+    m = await msg.reply(f"<b>Hey, {msg.from_user.mention}...😎\n\nᴄʜᴇᴄᴋ ᴀɴᴅ sᴇʟᴇᴄᴛ ᴛʜᴇ ᴍᴏᴠɪᴇ ғʀᴏᴍ ᴛʜᴇ ɢɪᴠᴇɴ ʟɪsᴛ.. \n\n दी गई सूची में अपनी फिल्म देखें और अपनी फिल्म चुनें 👇👇👇</b>",
                     reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(300)
     await m.delete()
