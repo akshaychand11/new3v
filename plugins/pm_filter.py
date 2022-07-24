@@ -3,13 +3,13 @@ import asyncio
 import re
 import ast
 
-from plugins.malik.extra import GHHMT, STTS, PPC, REPORT, PURGE, MUTE
+from plugins.malik.extra import GHHMT, STTS, SMART_PIC, MQTT, MQTTP, PPC, REPORT, PURGE, MUTE
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script, ALURT_FND, M_NT_FND
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import ADMINS, AUTH_CHANNEL, VIDEO_VD, AUTH_USERS, M_NT_F, SMART_PIC, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
+from info import ADMINS, AUTH_CHANNEL, VIDEO_VD, AUTH_USERS, M_NT_F, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
@@ -954,9 +954,20 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(8)
-        await k.delete()
+        reply = query.replace(" ", '+')  
+        reply_markup = InlineKeyboardMarkup([[
+        InlineKeyboardButton("🔍 Click To Check Spilling ✅", url=f"https://www.google.com/search?q={reply}")
+        ],[
+        InlineKeyboardButton("🔍 Click To Check Release Date 📅", url=f"https://www.google.com/search?q={reply}+release+date")
+        ]]  
+        )    
+        a = await msg.reply_photo(
+            photo=(MQTTP),
+            caption=(MQTT.format(msg.from_user.mention, query)),
+            reply_markup=reply_markup                 
+        )
+        await asyncio.sleep(100) 
+        await a.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
@@ -983,9 +994,20 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("I couldn't find anything related to that. Check your spelling")
-        await asyncio.sleep(8)
-        await k.delete()
+        reply = query.replace(" ", '+')  
+        reply_markup = InlineKeyboardMarkup([[
+        InlineKeyboardButton("🔍 Click To Check Spilling ✅", url=f"https://www.google.com/search?q={reply}")
+        ],[
+        InlineKeyboardButton("🔍 Click To Check Release Date 📅", url=f"https://www.google.com/search?q={reply}+release+date")
+        ]]  
+        )    
+        a = await msg.reply_photo(
+            photo=(MQTTP),
+            caption=(MQTT.format(msg.from_user.mention, query)),
+            reply_markup=reply_markup                 
+        )
+        await asyncio.sleep(100) 
+        await a.delete()
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
