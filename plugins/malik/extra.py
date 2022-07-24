@@ -8,14 +8,40 @@ from info import PHT, ADMINS, AUTH_USERS
 from Script import script
 import time
 from typing import List
+from pyrogram.types.messages_and_media import message
 from pyrogram.types import Message, ChatPermissions, InlineKeyboardButton
 from database.users_chats_db import db
 from database.ia_filterdb import Media
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from utils import temp, get_size
+import json
+from collections import defaultdict
+from typing import Dict, List, Union
 
-@Client.on_message(filters.command("starr") & filters.incoming & ~filters.edited)
+class evamaria(Client):
+    filterstore: Dict[str, Dict[str, str]] = defaultdict(dict)
+    warndatastore: Dict[
+        str, Dict[str, Union[str, int, List[str]]]
+    ] = defaultdict(dict)
+    warnsettingsstore: Dict[str, str] = defaultdict(dict)
+
+    def __init__(self):
+        name = self.__class__.__name__.lower()
+        super().__init__(
+            ":memory:",
+            plugins=dict(root=f"{name}/plugins"),
+            workdir=TMP_DOWNLOAD_DIRECTORY,
+            api_id=APP_ID,
+            api_hash=API_HASH,
+            bot_token=BOT_TOKEN,
+            parse_mode="html",
+            sleep_threshold=60
+        )
+
+
+
+@Client.on_message(filters.command("star") & filters.incoming & ~filters.edited)
 async def star(client, message):
     if len(message.command):
         buttons = [[
@@ -37,9 +63,7 @@ async def get_ststs(bot, message):
                text=(GHHMT.format(total_users)),
                reply_markup=InlineKeyboardMarkup(
                                       [[
-                                        InlineKeyboardButton('💢 Request to admin 💢', url="https://t.me/m_admins"),
-                                        InlineKeyboardButton('💢 Request to admin 💢', url="https://t.me/m_admins")
-                                                                         
+                                        InlineKeyboardButton('🌐 Add Me To Your Groups 🌐', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                                       ]]
                ),
                parse_mode='html'
@@ -448,6 +472,9 @@ async def report_user(bot, message):
         if success:
             await message.reply_text("𝖱𝖾𝗉𝗈𝗋𝗍𝖾𝖽 𝗍𝗈 𝖠𝖽𝗆𝗂𝗇𝗌!")
 
+
+
+
 REPORT = """➤ 𝐇𝐞𝐥𝐩: Report ⚠️
 
 𝚃𝚑𝚒𝚜 𝚌𝚘𝚖𝚖𝚊𝚗𝚍 𝚑𝚎𝚕𝚙𝚜 𝚢𝚘𝚞 𝚝𝚘 𝚛𝚎𝚙𝚘𝚛𝚝 𝚊 𝚖𝚎𝚜𝚜𝚊𝚐𝚎 𝚘𝚛 𝚊 𝚞𝚜𝚎𝚛 𝚝𝚘 𝚝𝚑𝚎 𝚊𝚍𝚖𝚒𝚗𝚜 𝚘𝚏 𝚝𝚑𝚎 𝚛𝚎𝚜𝚙𝚎𝚌𝚝𝚒𝚟𝚎 𝚐𝚛𝚘𝚞𝚙. 𝙳𝚘𝚗'𝚝 𝚖𝚒𝚜𝚞𝚜𝚎 𝚝𝚑𝚒𝚜 𝚌𝚘𝚖𝚖𝚊𝚗𝚍.
@@ -485,6 +512,29 @@ MUTE = """➤ <b>𝐇𝐞𝐥𝐩: Mute 🚫
  • 𝗁 = 𝗁𝗈𝗎𝗋𝗌
  • 𝖽 = 𝖽𝖺𝗒𝗌</b>"""
 
+MQTT = """<b>⚠️ Hey, {}!.. 
+
+Your word</b> 👉 <s>{}</S>...
+<b>is No Movie/Series Related to the Given Word Was Found 🥺
+Please Go to Google and Confirm the Correct Spelling 🥺</b> <b><a href=https://www.google.com>Google</a></b>"""
+
+
+WCM = """<b>Hey {} .!   
+
+🔹 Welcome to Our Group.. <s>{}</s>
+
+🔹 This is a Movie Group
+
+🔹 All Categories Of Movies
+      Available Here. .
+
+🔹 Just Tipe The Movie Name
+
+🔹 Our Will Send Your Movie..
+
+🔹 please read group rules
+
+🔹 ©Mantained by: sahid malik</b>"""
 
 STTS = """<b>🗂𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
 👨‍👩‍👧‍👧 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
@@ -511,7 +561,10 @@ Thanks For Your Support...
 
 ⚙ More Features Adding Soon</b> 😎"""
 
-
+TMP_DOWNLOAD_DIRECTORY = environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
 PPC = environ.get("PPC", "https://telegra.ph/file/3b6afd6c6fcd09606ea9f.jpg")
+MQTTP = environ.get("MQTTP", "https://telegra.ph/file/f8a3c7a57376427646f39.jpg")
 TG_MAX_SELECT_LEN = environ.get("TG_MAX_SELECT_LEN", "100")
+WCM_P = environ.get("WCM_P", "https://telegra.ph/file/bdaa63ddf255fd3506f0a.jpg")
+SMART_PIC = environ.get("SMART_PIC", "https://telegra.ph/file/7cf564b255461abfc75fe.jpg")
 
