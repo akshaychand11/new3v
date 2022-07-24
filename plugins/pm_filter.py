@@ -2,7 +2,7 @@
 import asyncio
 import re
 import ast
-from plugins.malik.extra import GHHMT, SMART_PIC, STTS, MQTT, MQTTP, PPC, REPORT, PURGE, MUTE
+from plugins.malik.extra import GHHMT, SMART_PIC, STTS, MQTT, TEL, MQTTP, PPC, REPORT, PURGE, MUTE
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script, ALURT_FND, M_NT_FND
 import pyrogram
@@ -447,7 +447,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🏠 𝗛𝗼𝗺𝗲 ', callback_data='start'),
             InlineKeyboardButton(' SONGS ', callback_data='songs')
         ], [
-            InlineKeyboardButton('𝗦𝘁𝗮𝘁𝘀', callback_data='stats'),
+            InlineKeyboardButton('Stats', callback_data='stats'),
+            InlineKeyboardButton('Telegraph', callback_data='tel'),
             InlineKeyboardButton(' 𝗢𝗪𝗡𝗘𝗥', url='https://t.me/sahid_malik')
         ], [
             InlineKeyboardButton('𝚈𝚃-𝚃𝙷𝚄𝙼𝙱', callback_data='ytthumb'),
@@ -540,6 +541,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=(PURGE),
+            disable_web_page_preview=True,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "tel":
+        buttons = [[
+            InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=(TEL),
             disable_web_page_preview=True,
             reply_markup=reply_markup,
             parse_mode='html'
