@@ -894,7 +894,18 @@ FETCHING_INFO = """<b>wait...</b>"""
 STATUS = """{}\n<b>Chat Member Status</b>**\n\n```<i>Recently``` - {}\n```Within Week``` - {}\n```Within Month``` - {}\n```Long Time Ago``` - {}\nDeleted Account - {}\nBot - {}\nUnCached - {}</i>
 """
 
+TEL = """<b>⚙ HELP: Telegraph 🏞
 
+Do as you wish with telegra.ph module!
+
+USAGE:
+
+📲 /telegraph, /tel. - Send me Picture or Vide Under (5MB)
+
+NOTE:
+
+• This Command Is Available in goups and pms
+• This Command Can be used by everyone</b>"""
 
 
 
