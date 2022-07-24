@@ -1,13 +1,31 @@
-#malik
+#sahid malik
+from __future__ import unicode_literals
+import math
+import wget
+import time
 import re
 import os
-import pyrogram
+import json
+import yt_dlp
 import asyncio
+import asyncio
+import aiohttp
+import aiofiles
+import pyrogram
+import requests
+import youtube_dl
 from os import environ
-from info import PHT, ADMINS, AUTH_USERS
-from Script import script
-import time
 from typing import List
+from Script import script
+from yt_dlp import YoutubeDL
+from time import time, sleep
+from info import PHT, ADMINS, AUTH_USERS
+from pyrogram.errors import FloodWait
+from pyrogram.errors import FloodWait, MessageNotModified
+from youtube_search import YoutubeSearch
+from youtubesearchpython import SearchVideos
+from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
+from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired, UserAdminInvalid
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import Message, ChatPermissions, InlineKeyboardButton
 from database.users_chats_db import db
@@ -15,7 +33,6 @@ from database.ia_filterdb import Media
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from utils import temp, get_size
-import json
 from collections import defaultdict
 from typing import Dict, List, Union
 
@@ -472,6 +489,322 @@ async def report_user(bot, message):
         if success:
             await message.reply_text("𝖱𝖾𝗉𝗈𝗋𝗍𝖾𝖽 𝗍𝗈 𝖠𝖽𝗆𝗂𝗇𝗌!")
 
+#get file id
+
+def get_file_id(msg: Message):
+    if msg.media:
+        for message_type in (
+            "photo",
+            "animation",
+            "audio",
+            "document",
+            "video",
+            "video_note",
+            "voice",
+            # "contact",
+            # "dice",
+            # "poll",
+            # "location",
+            # "venue",
+            "sticker"
+        ):
+            obj = getattr(msg, message_type)
+            if obj:
+                setattr(obj, "message_type", message_type)
+                return obj
+
+
+# cust. file id
+
+
+USE_AS_BOT = os.environ.get("USE_AS_BOT", True)
+
+def f_sudo_filter(filt, client, message):
+    return bool(
+        message.from_user.id in AUTH_USERS
+    )
+
+
+sudo_filter = filters.create(
+    func=f_sudo_filter,
+    name="SudoFilter"
+)
+
+
+def onw_filter(filt, client, message):
+    if USE_AS_BOT:
+        return bool(
+            True # message.from_user.id in ADMINS
+        )
+    else:
+        return bool(
+            message.from_user and
+            message.from_user.is_self
+        )
+
+
+f_onw_fliter = filters.create(
+    func=onw_filter,
+    name="OnwFilter"
+)
+
+
+async def admin_filter_f(filt, client, message):
+    return await admin_check(message)
+
+
+admin_fliter = filters.create(
+    func=admin_filter_f,
+    name="AdminFilter"
+)
+
+# song and video py
+
+def time_to_seconds(time):
+    stringt = str(time)
+    return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
+
+
+@Client.on_message(filters.command('song') & ~filters.private & ~filters.channel)
+def song(client, message):
+
+    user_id = message.from_user.id 
+    user_name = message.from_user.first_name 
+    rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
+
+    query = ''
+    for i in message.command[1:]:
+        query += ' ' + str(i)
+    print(query)
+    m = message.reply("**Searching Your ѕσng...!**")
+    ydl_opts = {"format": "bestaudio[ext=m4a]"}
+    try:
+        results = YoutubeSearch(query, max_results=1).to_dict()
+        link = f"https://youtube.com{results[0]['url_suffix']}"
+        #print(results)
+        title = results[0]["title"][:40]       
+        thumbnail = results[0]["thumbnails"][0]
+        thumb_name = f'thumb{title}.jpg'
+        thumb = requests.get(thumbnail, allow_redirects=True)
+        open(thumb_name, 'wb').write(thumb.content)
+
+
+        performer = f"[movies 🏠 bot]" 
+        duration = results[0]["duration"]
+        url_suffix = results[0]["url_suffix"]
+        views = results[0]["views"]
+
+    except Exception as e:
+        m.edit(
+            "**𝙵𝙾𝚄𝙽𝙳 𝙽𝙾𝚃𝙷𝙸𝙽𝙶 𝙿𝙻𝙴𝙰𝚂𝙴 𝙲𝙾𝚁𝚁𝙴𝙲𝚃 𝚃𝙷𝙴 𝚂𝙿𝙴𝙻𝙻𝙸𝙽𝙶 𝙾𝚁 𝚂𝙴𝙰𝚁𝙲𝙷 𝙰𝙽𝚈 𝙾𝚃𝙷𝙴𝚁 𝚂𝙾𝙽𝙶**"
+        )
+        print(str(e))
+        return
+    m.edit("**Dσwnlσαdíng Your ѕσng plz wait 3 minutes...!**")
+    try:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(link, download=False)
+            audio_file = ydl.prepare_filename(info_dict)
+            ydl.process_info(info_dict)
+        rep = '**𝚂𝚄𝙱𝚂𝙲𝚁𝙸𝙱𝙴 ›› [Movies 🏠](https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A)**\n**𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 ›› [Movies 🏠](https://t.me/sahid_malik)**'
+        secmul, dur, dur_arr = 1, 0, duration.split(':')
+        for i in range(len(dur_arr)-1, -1, -1):
+            dur += (int(dur_arr[i]) * secmul)
+            secmul *= 60
+        message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name)
+        m.delete()
+    except Exception as e:
+        m.edit("**🚫 𝙴𝚁𝚁𝙾𝚁 🚫**")
+        print(e)
+
+    try:
+        os.remove(audio_file)
+        os.remove(thumb_name)
+    except Exception as e:
+        print(e)
+
+def get_text(message: Message) -> [None,str]:
+    text_to_return = message.text
+    if message.text is None:
+        return None
+    if " " not in text_to_return:
+        return None
+    try:
+        return message.text.split(None, 1)[1]
+    except IndexError:
+        return None
+
+
+@Client.on_message(filters.command(["video", "mp4"]))
+async def vsong(client, message: Message):
+    urlissed = get_text(message)
+
+    pablo = await client.send_message(
+        message.chat.id, f"**FINDING YOUR VIDEO PLZ WAIT** `{urlissed}`"
+    )
+    if not urlissed:
+        await pablo.edit("Invalid Command Syntax Please Check help Menu To Know More!")
+        return
+
+    search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
+    mi = search.result()
+    mio = mi["search_result"]
+    mo = mio[0]["link"]
+    thum = mio[0]["title"]
+    fridayz = mio[0]["id"]
+    mio[0]["channel"]
+    kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
+    await asyncio.sleep(0.6)
+    url = mo
+    sedlyf = wget.download(kekme)
+    opts = {
+        "format": "best",
+        "addmetadata": True,
+        "key": "FFmpegMetadata",
+        "prefer_ffmpeg": True,
+        "geo_bypass": True,
+        "nocheckcertificate": True,
+        "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
+        "outtmpl": "%(id)s.mp4",
+        "logtostderr": False,
+        "quiet": True,
+    }
+    try:
+        with YoutubeDL(opts) as ytdl:
+            ytdl_data = ytdl.extract_info(url, download=True)
+    except Exception as e:
+        await event.edit(event, f"**𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 𝙵𝚊𝚒𝚕𝚎𝚍 𝙿𝚕𝚎𝚊𝚜𝚎 𝚃𝚛𝚢 𝙰𝚐𝚊𝚒𝚗..♥️** \n**Error :** `{str(e)}`")
+        return
+    c_time = time.time()
+    file_stark = f"{ytdl_data['id']}.mp4"
+    capy = f"""
+**𝚃𝙸𝚃𝙻𝙴 :** [{thum}]({mo})
+**𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}
+"""
+    await client.send_video(
+        message.chat.id,
+        video=open(file_stark, "rb"),
+        duration=int(ytdl_data["duration"]),
+        file_name=str(ytdl_data["title"]),
+        thumb=sedlyf,
+        caption=capy,
+        supports_streaming=True,        
+        reply_to_message_id=message.message_id 
+    )
+    await pablo.delete()
+    for files in (sedlyf, file_stark):
+        if files and os.path.exists(files):
+            os.remove(files)
+
+
+# kick py
+
+@Client.on_message(filters.incoming & ~filters.private & filters.command('inkick'))
+def inkick(client, message):
+  user = client.get_chat_member(message.chat.id, message.from_user.id)
+  if user.status == ("creator"):
+    if len(message.command) > 1:
+      input_str = message.command
+      sent_message = message.reply_text(START_KICK)
+      sleep(20)
+      sent_message.delete()
+      message.delete()
+      count = 0
+      for member in client.iter_chat_members(message.chat.id):
+        if member.user.status in input_str and not member.status in ('administrator', 'creator'):
+          try:
+            client.kick_chat_member(message.chat.id, member.user.id, int(time() + 45))
+            count += 1
+            sleep(1)
+          except (ChatAdminRequired, UserAdminInvalid):
+            sent_message.edit(ADMIN_REQUIRED)
+            client.leave_chat(message.chat.id)
+            break
+          except FloodWait as e:
+            sleep(e.x)
+      try:
+        sent_message.edit(KICKED.format(count))
+        sleep(15)
+        sent_message.delete()
+        message.delete()
+      except ChatWriteForbidden:
+        pass
+    else:
+      sent_message = message.reply_text(INPUT_REQUIRED)
+      sleep(15)
+      sent_message.delete()
+      message.delete()
+  else:
+    sent_message = message.reply_text(CREATOR_REQUIRED)
+    sleep(5)
+    sent_message.delete()
+    message.delete()
+
+@Client.on_message(filters.incoming & ~filters.private & filters.command('dkick'))
+def dkick(client, message):
+  user = client.get_chat_member(message.chat.id, message.from_user.id)
+  if user.status == ("creator"):
+    sent_message = message.reply_text(START_KICK)
+    sleep(20)
+    sent_message.delete()
+    message.delete()
+    count = 0
+    for member in client.iter_chat_members(message.chat.id):
+      if member.user.is_deleted and not member.status in ('administrator', 'creator'):
+        try:
+          client.kick_chat_member(message.chat.id, member.user.id, int(time() + 45))
+          count += 1
+          sleep(1)
+        except (ChatAdminRequired, UserAdminInvalid):
+          sent_message.edit(ADMIN_REQUIRED)
+          client.leave_chat(message.chat.id)
+          break
+        except FloodWait as e:
+          sleep(e.x)
+    try:
+      sent_message.edit(DKICK.format(count))
+    except ChatWriteForbidden:
+      pass
+  else:
+    sent_message = message.reply_text(CREATOR_REQUIRED)
+    sleep(5)
+    sent_message.delete()
+    message.delete()
+
+@Client.on_message(filters.incoming & ~filters.private & filters.command('instatus'))
+def instatus(client, message):
+  user = client.get_chat_member(message.chat.id, message.from_user.id)
+  if user.status in ('administrator', 'creator', 'ADMINS'):
+    sent_message = message.reply_text(FETCHING_INFO)
+    recently = 0
+    within_week = 0
+    within_month = 0
+    long_time_ago = 0
+    deleted_acc = 0
+    uncached = 0
+    bot = 0
+    for member in client.iter_chat_members(message.chat.id):
+      user = member.user
+      if user.is_deleted:
+        deleted_acc += 1
+      elif user.is_bot:
+        bot += 1
+      elif user.status == "recently":
+        recently += 1
+      elif user.status == "within_week":
+        within_week += 1
+      elif user.status == "within_month":
+        within_month += 1
+      elif user.status == "long_time_ago":
+        long_time_ago += 1
+      else:
+        uncached += 1
+    sent_message.edit(STATUS.format(message.chat.title, recently, within_week, within_month, long_time_ago, deleted_acc, bot, uncached))
+    sleep(60)
+    sent_message.delete()
+    message.delete()
+
+
 
 
 
@@ -541,6 +874,28 @@ STTS = """<b>🗂𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
 🤿 𝚃𝙾𝚃𝙰𝙻 𝙲𝙷𝙰𝚃𝚂: <code>{}</code>
 ⏳ 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱
 ⌛️ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱</b> """
+
+# kick opinion 
+
+CREATOR_REQUIRED = """❗<b>You have To Be The Group Creator To Do That.</b>"""
+      
+INPUT_REQUIRED = "❗ **Arguments Required**"
+      
+KICKED = """✔️ Successfully Kicked {} Members According To The Arguments Provided."""
+      
+START_KICK = """🚮 Removing Inactive Members This May Take A While..."""
+      
+ADMIN_REQUIRED = """❗<b>I will not go to the place where I am not made Admin.. Add Me Again with all admin rights.</b>"""
+      
+DKICK = """✔️ Kicked {} Deleted Accounts Successfully."""
+      
+FETCHING_INFO = """<b>wait...</b>"""
+      
+STATUS = """{}\n<b>Chat Member Status</b>**\n\n```<i>Recently``` - {}\n```Within Week``` - {}\n```Within Month``` - {}\n```Long Time Ago``` - {}\nDeleted Account - {}\nBot - {}\nUnCached - {}</i>
+"""
+
+
+
 
 
 GHHMT = """<b>Thanks For {}.User... 💖 
