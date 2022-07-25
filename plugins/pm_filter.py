@@ -1037,7 +1037,7 @@ async def advantage_spell_chok(msg):
     InlineKeyboardButton("🔍 Click To Check Release Date 📅", url=f"https://www.google.com/search?q={reply}+release+date")
     ]]  
     )    
-    a = await msg.reply_photo(
+    abb = await msg.reply_photo(
         photo=(MQTTP),
         caption=(MQTT.format(msg.from_user.mention, query)),
         reply_markup=reply_markup 
@@ -1045,7 +1045,7 @@ async def advantage_spell_chok(msg):
     await asyncio.sleep(300)
     await m.delete()               
     await asyncio.sleep(60) 
-    await a.delete()
+    await abb.delete()
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
