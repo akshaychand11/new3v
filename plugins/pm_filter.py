@@ -1035,6 +1035,8 @@ async def advantage_spell_chok(msg):
     InlineKeyboardButton("🔍 Click To Check Spilling ✅", url=f"https://www.google.com/search?q={reply}")
     ],[
     InlineKeyboardButton("🔍 Click To Check Release Date 📅", url=f"https://www.google.com/search?q={reply}+release+date")
+    ],[
+    InlineKeyboardButton("🔍 Click To Check Ott Release Date 🖥", url=f"https://www.google.com/search?q={reply}+ott+release+date")
     ]]  
     )    
     dl = await msg.reply_photo(
@@ -1042,7 +1044,7 @@ async def advantage_spell_chok(msg):
         caption=(MQTT.format(msg.from_user.mention, query)),
         reply_markup=reply_markup 
     ) 
-    await asyncio.sleep(60)
+    await asyncio.sleep(40)
     await dl.delete()
     await asyncio.sleep(300)
     await dll.delete()             
