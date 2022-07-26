@@ -114,7 +114,7 @@ I'm ⚡️ Powerful Auto-Filter Bot...
 Its Easy To Use Me; Just Add Me To Your Group As Admin, Thats All, i will Provide Movies There...😎
 ⚠️ More Help Check Help Button Below
 
-©️Mantained Bʏ  @sahid_malik</b>"""
+©️Mantained Bʏ  sahid malik</b>"""
 
     GHHM_TXT = """<b>7k User 💖 Thanks For Your Support...
 
@@ -165,7 +165,7 @@ _𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 𝐅𝐨𝐫 𝐊𝐧𝐨𝐰 𝐀𝐛�
 ✮ 𝗣𝗮𝘆𝗣𝗮𝗹
 
 _𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐌𝐞 𝐅𝐨𝐫 𝐊𝐧𝐨𝐰 𝐀𝐛𝐨𝐮𝐭 𝐓𝐡𝐞 𝐏𝐚𝐲𝐦𝐞𝐧𝐭 𝐈𝐧𝐟𝐨_
-━━━━━━━━━━━━᚜ <a href=https://t.me/sahid_malik><b>sahid malik</b></a> ᚛━━━━━━━━━━━━"""
+━━━━━━━━━━━━᚜ <a href=https://t.me/sahid_malik><b>CLICK HERE</b></a> ᚛━━━━━━━━━━━━"""
 
 
     URLSHORT_TXT = """<b>➤ 𝐇𝐞𝐥𝐩: 𝖴𝗋𝗅 𝗌𝗁𝗈𝗋𝗍𝗇𝖾𝗋
@@ -321,7 +321,7 @@ I'm ⚡️ Powerful Auto-Filter Bot...
 Its Easy To Use Me; Just Add Me To Your Group As Admin, Thats All, i will Provide Movies There...😎
 ⚠️ More Help Check Help Button Below
 
-©️Mantained Bʏ  @sahid_malik</b>"""
+©️Mantained Bʏ sahid malik</b>"""
 
 M_NT_FND = """<b>⭕️ This Movie Not Found my Database. Request to admin..\n\n⭕️ Ye movie Hamare database me Available nahi hai Niche admin se request kare... \n\n⭕️ Request to admin.. 👇</b>"""
 
