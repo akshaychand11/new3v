@@ -2,7 +2,7 @@
 import asyncio
 import re
 import ast
-from plugins.malik.extra import GHHMT, SMART_PIC, STTS, MQTT, TEL, MQTTP, PPC, REPORT, PURGE, MUTE
+from plugins.malik.extra import GHHMT, RULES_ALERT, GROUP_Rules, SMART_PIC, STTS, MQTT, TEL, MQTTP, PPC, REPORT, PURGE, MUTE, SS_ALERT 
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script, ALURT_FND, M_NT_FND
 import pyrogram
@@ -108,7 +108,9 @@ async def next_page(bot, query):
             ],
         )
     btn.insert(0, [
-        InlineKeyboardButton('🙏 Subscribe my YouTube channel 🙏', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
+        InlineKeyboardButton('ʙᴏᴛ ɪɴғᴏ', callback_data='ss_alert'),
+        InlineKeyboardButton('sᴜʙsᴄʀɪʙᴇ', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A'),
+        InlineKeyboardButton('ʀᴜʟᴇs', callback_data='rules_alert')
     ])
     try:
         await query.edit_message_reply_markup(
@@ -898,7 +900,9 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="🌹 𝗣𝗮𝗴𝗲 1/1", callback_data="pages")]
         )
     btn.insert(0, [
-        InlineKeyboardButton('🙏 Subscribe my YouTube channel 🙏', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
+        InlineKeyboardButton('ʙᴏᴛ ɪɴғᴏ', callback_data='ss_alert'),
+        InlineKeyboardButton('sᴜʙsᴄʀɪʙᴇ', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A'),
+        InlineKeyboardButton('ʀᴜʟᴇs', callback_data='rules_alert')
     ])
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
