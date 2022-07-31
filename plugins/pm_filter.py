@@ -632,6 +632,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
+    elif query.data == "ss_alert":
+        await query.answer(SS_ALERT.format(query.from_user.first_name),show_alert=True)
+        return
+    elif query.data == "rules_alert":
+        await query.answer(RULES_ALERT.format(query.from_user.first_name),show_alert=True)
+        return
     elif query.data == "videos":
         buttons = [[
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='start')
