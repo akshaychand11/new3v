@@ -56,21 +56,23 @@ class evamaria(Client):
             sleep_threshold=60
         )
 
+# Commands Botinfo
 
-
-@Client.on_message(filters.command("star") & filters.incoming & ~filters.edited)
-async def star(client, message):
+@Client.on_message(filters.command("BOTINFO") & filters.incoming & ~filters.edited)
+async def botinfo(client, message):
     if len(message.command):
         buttons = [[
             InlineKeyboardButton('❇️ Add Me To Your Groups ❇️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_text(
-            text=(GHHMT),
+        await message.reply_photo(
+            photo=(GHHMO),
+            caption=(GHHMM.format(message.from_user.mention)),
             reply_markup=reply_markup,
             parse_mode='html'
         )
-        return
+
+# Commands stats
 
 @Client.on_message(filters.command('malik') & filters.incoming)
 async def get_ststs(bot, message):
@@ -85,6 +87,43 @@ async def get_ststs(bot, message):
                ),
                parse_mode='html'
 )
+
+# Commands Owner Details 
+
+@Client.on_message(filters.command("OWNER") & filters.incoming & ~filters.edited)
+async def owner(client, message):
+    if len(message.command):
+        buttons = [[
+            InlineKeyboardButton('💢 close 💢', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_photo(
+            photo=(GHHMN),
+            caption=(MY_DETALS.format(message.from_user.mention)),
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+        return
+
+# Commands Rules
+
+@Client.on_message(filters.command("RULES") & filters.incoming & ~filters.edited)
+async def rules(client, message):
+    if len(message.command):
+        buttons = [[
+            InlineKeyboardButton('💢 close 💢', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_photo(
+            photo=(G_R),
+            caption=(GROUP_Rules),
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+        return
+
+
+
 # Ban py
 
 @Client.on_message(filters.command("ban"))
@@ -806,7 +845,28 @@ def instatus(client, message):
 
 
 
+SS_ALERT = """
 
+🔹ᴍʏ ɴᴀᴍᴇ ᴍᴏᴠɪᴇs ʜᴏᴜsᴇ  🏠 Bᴏᴛ
+🔹I ᴀᴍ Aᴜᴛᴏ Fɪʟᴛᴇʀ Bᴏᴛ.😎
+🔹Jᴜsᴛ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀs ᴀᴅᴍɪɴ
+🔹ɪᴛ ᴡɪʟ ᴘʀᴏᴠɪᴅᴇ ᴀʟʟ ᴍᴏᴠɪᴇs ʏᴏᴜʀ  ɢʀᴏᴜᴘ.😎
+
+🔹ᴍᴏʀᴇ ᴅᴇᴛᴀɪʟs ᴛʏᴘᴇ  👉 /ʙᴏᴛɪɴғᴏ 
+🔹Oᴠɴᴇʀ ᴅᴇᴛᴀɪʟs ᴛɪᴘᴇ  👉  /ᴏᴡɴᴇʀ"""
+
+RULES_ALERT = """
+🔹ᴍᴏᴠɪᴇ sᴇᴀʀᴄʜ Ex:
+ 1 ᴀᴠᴇɴɢᴇʀs ✅
+ 2 ᴀᴠᴇɴɢᴇʀs ʜɪɴᴅɪ ✅
+ 3 ᴀᴠᴇɴɢᴇʀs ʜɪɴᴅɪ ᴍᴏᴠɪᴇ ❌
+
+🔹 Wᴇʙ Sᴇʀɪᴇs Exʟ:
+ 1 ᴠɪᴋɪɴɢs S01 ✅
+ 2 ᴠɪᴋɪɴɢs S01E01 ✅
+ 3 ᴠɪᴋɪɴɢs sᴇᴀsᴏɴ 1 ❌
+
+🔹Mᴏʀᴇ ᴅᴇᴛᴀɪʟᴇs ᴛɪᴘᴇ 👉 /ʀᴜʟᴇs"""
 
 REPORT = """➤ 𝐇𝐞𝐥𝐩: Report ⚠️
 
@@ -852,22 +912,22 @@ Your word</b> 👉 <s>{}</S>...
 Please Go to Google and Confirm the Correct Spelling 🥺</b> <b><a href=https://www.google.com>Google</a></b>"""
 
 
-WCM = """<b>Hey {} .!   
+WCM = """<b>𝗛𝗲𝘆 {} .!   
 
-🔹 Welcome to Our Group.. <s>{}</s>
+🔹 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴏᴜʀ ɢʀᴏᴜᴘ.. <s>{}</s>
 
-🔹 This is a Movie Group
+🔹 ᴛʜɪs ɪs ᴀ ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ
 
-🔹 All Categories Of Movies
-      Available Here. .
+🔹 ᴀʟʟ ᴄᴀᴛᴇɢᴏʀɪᴇs ᴏғ ᴍᴏᴠɪᴇs
+      ᴀᴠᴀɪʟʟᴀʙᴀʟᴇ ʜᴇʀᴇ..
 
-🔹 Just Tipe The Movie Name
+🔹 ᴊᴜsᴛ ᴛɪᴘᴇ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ
 
-🔹 Our Will Send Your Movie..
+🔹 ᴏᴜʀ ᴡɪʟʟ sᴇɴᴅ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ..
 
-🔹 please read group rules
+🔹 ᴘʟᴇᴀsᴇ ʀᴇᴀᴅ ɢʀᴏᴜᴘ ʀᴜʟᴇs
 
-🔹 ©Mantained by: sahid malik</b>"""
+🔹 ©ᴍᴀɴᴛᴀɪɴᴇᴅ ʙʏ: sᴀʜɪᴅ ᴍᴀʟɪᴋ</b>"""
 
 STTS = """<b>🗂𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
 👨‍👩‍👧‍👧 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
@@ -909,23 +969,122 @@ NOTE:
 
 
 
-GHHMT = """<b>Thanks For {}.User... 💖 
+GHHMT = """<b>𝗧𝗵𝗮𝗻𝗸𝘀 𝗙𝗼𝗿 👨‍👧‍👧 {}.𝗨𝘀𝗲𝗿... 💖 
 
-Thanks For Your Support...
+🔹 ᴛʜᴀɴᴋs ғᴏʀ ʏᴏᴜʀ sᴜᴘᴘᴏʀᴛ...
 
-𝖩𝗎𝗌𝗍 𝖠𝖽𝖽 𝖮𝗎𝗋 𝖡𝗈𝗍 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 𝖠𝗌 𝖠𝖽𝗆𝗂𝗇, 𝖨𝗍 𝖶𝗂𝗅𝗅 𝖯𝗋𝗈𝗏𝗂𝖽𝖾 𝖬𝗈𝗏𝗂𝖾𝗌 𝖳𝗁𝖾𝗋𝖾... 😎
+🔹 ᴊᴜsᴛ ᴀᴅᴅ ᴏᴜʀ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀs ᴀᴅᴍɪɴ, ɪᴛ ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇs ᴛʜᴇʀᴇ... 😎
 
 
      ♋️ 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀 ♋️
 
-✪ AutoFilter, Manual Filter
-✪ IMDb HD Posters
-✪ IMDb Real Details
-✪ Two Buttons Mode
-✪ Force Subscribe
-✪ Extra Features: download songs, download you tube video, URL Shortner,  
+🔹 Aᴜᴛᴏғɪʟᴛᴇʀ, Mᴀɴᴜᴀʟ Fɪʟᴛᴇʀ
+🔹 ɪᴍᴅʙ ʜᴅ ᴘᴏsᴛᴇʀs
+🔹 ɪᴍᴅʙ Rᴇᴀʟ Dᴇᴛᴀɪʟs
+🔹 ᴛᴡᴏ Bᴜᴛᴛᴏɴs Mᴀᴅᴇ
+🔹 Fᴏʀᴄᴇ Sᴜʙsᴄʀɪʙᴇ
+🔹 Fɪʟᴇ-Sᴛᴏʀᴇ
+🔹 Exᴛʀᴀ Fᴇᴀᴛᴜʀᴇs: ᴅᴏᴡɴʟᴏᴀᴅ
+       sᴏɴɢᴇs,
+🔹 ᴅᴏᴡɴʟᴏᴀᴅ ʏᴏᴜ ᴛᴜʙᴇ ᴠɪᴅᴇᴏ, 
+🔹 ᴜʀʟ Sʜᴏʀᴛɴᴇʀ, ᴍᴜᴛᴇ ᴜsᴇʀ,
+🔹 ᴜɴᴍᴜᴛᴇ ʏsᴇʀ. Pᴜʀɢᴇ,
+🔹 ᴀᴅᴍɪɴ ʀᴇᴘᴏʀᴛ. 
+🔹 ᴘʜᴏᴛᴏ ᴄᴏɴᴠᴇʀᴛᴏʀ ᴛᴇʟᴇɢʀᴀғᴇ
+       ʟɪɴᴋ...
 
-⚙ More Features Adding Soon</b> 😎"""
+🔹 Xᴛʀᴀ Cʜᴇᴄᴋ sᴘᴇʟʟɪɴɢ. Bᴜᴛᴛᴏɴs..
+🔹 ᴄʜᴇᴄᴋ ᴍᴏᴠɪᴇ ʀᴇʟᴇᴀsᴇ ᴅᴀᴛᴇ 📅. 
+🔹 ᴏᴛᴛ ʀᴇʟᴇᴀsᴇ ᴅᴀᴛᴇ ᴀɴᴅ ᴍᴏʀᴇ..
+
+⚙ ᴍᴏʀᴇ Fᴇᴀᴛᴜʀᴇs ᴀᴅᴅɪɴɢ sᴏᴏɴ...</b>😎"""
+
+
+GHHMM = """<b>Hey {}.. ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ʙᴏᴛ ɪɴғᴏ ❤️.
+
+🔹 ᴍʏ ɴᴀᴍᴇ ᴍᴏᴠɪᴇs 🏠 ʙᴏᴛ..
+🔹 I ᴀᴍ ᴀᴜᴛᴏғɪʟᴛᴇʀ ʙᴏᴛ.. 
+
+🔹 ᴊᴜsᴛ ᴀᴅᴅ Oᴜʀ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 
+       ɪs ᴀᴅᴍɪɴ,  
+🔹 ɪᴛ ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇs ᴛʜᴇʀᴇ 
+       ғʀᴇᴇ...
+
+        ♋️ 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀 ♋️
+
+🔹 Aᴜᴛᴏғɪʟᴛᴇʀ, Mᴀɴᴜᴀʟ Fɪʟᴛᴇʀ
+🔹 ɪᴍᴅʙ ʜᴅ ᴘᴏsᴛᴇʀs
+🔹 ɪᴍᴅʙ Rᴇᴀʟ Dᴇᴛᴀɪʟs
+🔹 ᴛᴡᴏ Bᴜᴛᴛᴏɴs Mᴀᴅᴇ
+🔹 Fᴏʀᴄᴇ Sᴜʙsᴄʀɪʙᴇ
+🔹 Fɪʟᴇ-Sᴛᴏʀᴇ
+🔹 Exᴛʀᴀ Fᴇᴀᴛᴜʀᴇs: ᴅᴏᴡɴʟᴏᴀᴅ
+       sᴏɴɢᴇs,
+🔹 ᴅᴏᴡɴʟᴏᴀᴅ ʏᴏᴜ ᴛᴜʙᴇ ᴠɪᴅᴇᴏ, 
+🔹 ᴜʀʟ Sʜᴏʀᴛɴᴇʀ, ᴍᴜᴛᴇ ᴜsᴇʀ,
+🔹 ᴜɴᴍᴜᴛᴇ ʏsᴇʀ. Pᴜʀɢᴇ,
+🔹 ᴀᴅᴍɪɴ ʀᴇᴘᴏʀᴛ. 
+🔹 ᴘʜᴏᴛᴏ ᴄᴏɴᴠᴇʀᴛᴏʀ ᴛᴇʟᴇɢʀᴀғᴇ
+       ʟɪɴᴋ...
+
+🔹 Xᴛʀᴀ Cʜᴇᴄᴋ sᴘᴇʟʟɪɴɢ. Bᴜᴛᴛᴏɴs..
+🔹 ᴄʜᴇᴄᴋ ᴍᴏᴠɪᴇ ʀᴇʟᴇᴀsᴇ ᴅᴀᴛᴇ 📅. 
+🔹 ᴏᴛᴛ ʀᴇʟᴇᴀsᴇ ᴅᴀᴛᴇ ᴀɴᴅ ᴍᴏʀᴇ..
+
+⚙ ᴍᴏʀᴇ Fᴇᴀᴛᴜʀᴇs ᴀᴅᴅɪɴɢ sᴏᴏɴ...</b>😎"""
+
+GROUP_Rules = """<b>
+     🔹 𝗚𝗥𝗢𝗨𝗣 𝗥𝗨𝗟𝗘𝗦 🔹
+
+🔹 sᴇᴀʀᴄʜ ᴡɪᴛʜ ᴄᴏʀʀᴇᴄᴛ sᴘᴇʟʟɪɴɢ..
+🔹 ᴛʀʏ ᴛᴏ sᴇᴀʀᴄʜ ᴍᴏᴠɪᴇ ᴡɪᴛʜ ʏᴇᴀʀ ɪғ ᴛʜᴇ ʙᴏᴛɪs ɴᴏᴛ sᴇɴᴅɪɴɢ ʏᴏᴜ ᴀᴄᴄᴜʀᴀᴛᴇ ʀᴇsᴜʟᴛ...
+
+🔹 𝘀𝗲𝗮𝗿𝗰𝗵 𝗺𝗼𝘃𝗶𝗲 𝗶𝗻 𝗧𝗵𝗲 𝗚𝗶𝘃𝗲𝗻 𝗙𝗿𝗼𝗺 𝗘𝘅𝗹:   
+🔹 (1) ᴀᴠᴇɴɢᴇʀs ✅
+🔹 (2) ᴀᴠᴇɴɢᴇʀs ʜɪɴᴅɪ ✅
+🔹 (3) ᴀᴠᴇɴɢᴇʀs ᴍᴏᴠɪᴇ ❌
+🔹 (4) ᴀᴠᴇɴɢᴇʀs ʜɪɴᴅɪ ᴅᴜʙʙᴇᴅ..❌
+
+🔹 𝘀𝗲𝗮𝗿𝗰𝗵 𝘄𝗲𝗯 𝘀𝗲𝗿𝗶𝗲𝘀 𝗶𝗻 𝗧𝗵𝗲 𝗚𝗶𝘃𝗲𝗻 𝗙𝗿𝗼𝗺 𝗘𝘅𝗹:
+🔹 (1) ᴠɪᴋɪɴɢs S01 ✅
+🔹 (2) ᴠɪᴋɪɴɢs S01E01 ✅
+🔹 (3) ᴠɪᴋɪɴɢs S01E10 ✅
+🔹 (4) ᴠɪᴋɪɴɢs S01 ʜɪɴᴅɪ ✅
+🔹 (5) ᴠɪᴋɪɴɢs S01 ʜɪɴᴅɪ ᴅᴜʙʙ. ❌
+🔹 (6) ᴠɪᴋɪɴɢs sᴇᴀsᴏɴ 1 ❌
+🔹 (7) ᴠɪᴋɪɴɢs sᴇᴀsᴏɴ 1 ᴇᴘɪsᴏᴅᴇ 1 ❌
+🔹 (8) ᴠɪᴋɪɴɢs ᴡᴇʙ sᴇʀɪᴇs ❌
+
+🔹 Dᴏɴ'ᴛ Dᴏ ᴀɴʏ sᴇʟғ ᴘʀᴏᴍᴏᴛɪᴏɴ.
+
+🔹 ᴅᴏɴ'ᴛ sᴇɴᴅ ᴀɴʏ ᴋɪɴᴅ ᴏғ ᴘʜᴏᴛᴏ, ᴠɪᴅᴇᴏ ᴅᴏᴄᴜᴍᴇɴᴛs 𝗨𝗥𝗟 𝗘𝗧𝗖.
+
+🔹 sᴇɴᴅɪɴɢ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴍᴀɴᴛᴀɪɴᴇᴅ, ᴛʜɪɴɢs ᴡɪʟʟ ʟᴇᴀᴅ ᴛᴏ ᴘᴇʀᴍᴀɴᴇɴᴛ ʙᴀɴ.
+
+🔹 ᴅᴏɴ'ᴛ ʀᴇǫᴜᴇsᴛ ᴀɴʏ ᴛʜɪɴɢs ᴏᴛʜᴇʀ ᴛʜᴀɴ ᴍᴏᴠɪᴇ sᴇʀɪᴇs ᴀɴɪᴍᴇs..
+
+🔹 ᴅᴏɴ'ᴛ ᴅɪsᴛᴜʀʙ ᴀɴʏᴏɴᴇ ᴏɴ ᴛʜᴇ ɢʀᴏᴜᴘ..
+
+🔹 ɢɪᴠᴇ ᴀɴᴅ ᴛᴀᴋᴇ ʀᴇsᴘᴇᴄᴛ</b>"""
+
+
+MY_DETALS = """<b>Hey {}. Welcome ❤️
+
+🔹 ᴍʏ ɴᴀᴍᴇ : sᴀʜɪᴅ ᴍᴀʟɪᴋ
+🔹 ᴜsᴇʀɴᴀᴍᴇ: @sahid_malik
+🔹 ᴘᴍᴛ. ᴅᴍ ʟɪɴᴋ: <a href=https://t.me/sahid_malik>ᴄʟɪᴄ ʜᴇʀᴇ</a>
+🔹 ᴘʟᴀᴄᴇ: sᴀʜᴀʀᴀɴᴘᴜʀ | ᴜᴘ | ɪɴᴅɪᴀ
+🔹 ᴋɴᴏᴡ ʟᴀɴɢᴜᴀɢᴇ: ʜɪɴᴅɪ, ᴇɴɢʟɪsʜ,
+      ᴍᴀʟʏᴀʟᴀᴍ
+🔹 ʀᴇʟɪɢɪᴏɴ ᴄᴀsᴛ: ᴍᴜsʟɪᴍ
+🔹 ᴅᴏʙ: 00 | 09 | 2005
+🔹 Aɢᴇ: ᴊᴜsᴛ ᴄᴀʟᴄᴜʟᴀᴛᴇ
+🔹 ʟᴇᴠᴇʟ: ғʀɪsᴛ ʏᴇᴀʀ ʙᴛᴇᴄ ᴇᴄᴇ
+🔹 ғᴀᴠ ᴄᴏʟᴏᴜʀ: ʀᴇᴅ, ɢʀᴇᴇɴ, ʙʟᴜᴇ
+🔹 ɴʙ: ᴇᴀsʏ ᴛᴏ ᴄʀʏ ᴇᴀsʏ ᴛᴏ ʟᴀᴜɢʜ,
+      ʜᴀʀᴅ ᴛᴏ ʟᴇᴀᴠᴇ ʜᴀʀᴅ ᴛᴏ ғᴏʀɢᴏᴛ..</b>"""
+
+
 
 TMP_DOWNLOAD_DIRECTORY = environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
 PPC = environ.get("PPC", "https://telegra.ph/file/3b6afd6c6fcd09606ea9f.jpg")
@@ -933,4 +1092,9 @@ MQTTP = environ.get("MQTTP", "https://telegra.ph/file/f8a3c7a57376427646f39.jpg"
 TG_MAX_SELECT_LEN = environ.get("TG_MAX_SELECT_LEN", "100")
 WCM_P = environ.get("WCM_P", "https://telegra.ph/file/bdaa63ddf255fd3506f0a.jpg")
 SMART_PIC = environ.get("SMART_PIC", "https://telegra.ph/file/7cf564b255461abfc75fe.jpg")
+GHHMN = environ.get("GHHMN", "https://telegra.ph/file/4265c6e3428cd2b060ede.jpg")
+GHHMO = environ.get("GHHMNO", "https://telegra.ph/file/605f4c8b2461c1e4f8123.jpg")
+G_R = environ.get("G_R", "https://telegra.ph/file/0dd95cec0179cb3721d71.jpg")
+
+
 
