@@ -2,6 +2,7 @@ import os
 import shutil
 from pyrogram import Client, filters
 from telegraph import upload_file
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from plugins.malik.extra import get_file_id, f_onw_fliter, TMP_DOWNLOAD_DIRECTORY
 
 
@@ -33,12 +34,18 @@ async def telegraph(client, message):
     except Exception as document:
         await message.reply_text(message, text=document)
     else:
-        await message.reply(
-            f"Link :- <code>https://telegra.ph{response[0]}</code>",
-            disable_web_page_preview=True
-        )
+        await message.reply_photo(
+            photo=f"https://telegra.ph{response[0]}",
+            caption=f"<b>𝗅𝗂𝗇𝗄:-</b> <code>https://telegra.ph{response[0]}</code>\n\n ᴘᴏᴡᴇʀᴅ ʙʏ: @ᴍ_ʜᴏᴜsᴇ786",
+            quote=True,
+            reply_markup=InlineKeyboardMarkup([[
+               InlineKeyboardButton("⚡️ Oᴘᴇɴ ʟɪɴᴋ ⚡️", url=f"https://telegra.ph{response[0]}"),
+               InlineKeyboardButton("♻️ Sʜᴇʀᴇ ʟɪɴᴋ ♻️", url=f"https://telegram.me/share/url?url=https://telegra.ph{response[0]}")
+               ],[
+               InlineKeyboardButton("💢 Cʟᴏᴠᴇ 💢", callback_data="close_data")
+               ]]
+            ),
+            parse_mode='html'
+)
     finally:
-        shutil.rmtree(
-            _t,
-            ignore_errors=True
-        )
+        os.remove(download_location)
