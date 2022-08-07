@@ -19,7 +19,6 @@ from typing import List
 from Script import script
 from yt_dlp import YoutubeDL
 from telegraph import upload_file
-from time import time, sleep
 from info import PHT, ADMINS, AUTH_USERS
 from pyrogram.errors import FloodWait
 from pyrogram.errors import FloodWait, MessageNotModified
@@ -36,6 +35,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from utils import temp, get_size
 from collections import defaultdict
 from typing import Dict, List, Union
+from time import time, sleep
 
 class evamaria(Client):
     filterstore: Dict[str, Dict[str, str]] = defaultdict(dict)
@@ -122,7 +122,6 @@ async def rules(client, message):
             parse_mode='html'
         )
         return
-
 
 
 # Ban py
@@ -844,7 +843,6 @@ def instatus(client, message):
     sent_message.delete()
     message.delete()
 
-
 #telegra.ph 
 
 @Client.on_message(filters.command(["tel", "tg", "telegraph"]))
@@ -869,7 +867,18 @@ async def telegraph(client, message):
             and replied.document.file_size <= 5242880
         )
     ):
-        await message.reply("Not supported!")
+        s = await message.reply_photo(
+        photo=(MQTK),
+        caption=(MMALL.format(message.from_user.mention)),
+        reply_markup=InlineKeyboardMarkup(
+                      [[
+                        InlineKeyboardButton('Try again ', callback_data="close_data")
+                      ]]
+        ),
+        parse_mode='html'
+)
+        await asyncio.sleep(10)
+        await s.delete()
         return    
     download_location = await client.download_media(
         message=message.reply_to_message,
@@ -902,6 +911,25 @@ async def telegraph(client, message):
     finally:
         os.remove(download_location)
 
+# sticker py
+
+@Client.on_message(filters.command(["stickerid"]))
+async def stickerid(bot, message):   
+    if message.reply_to_message.sticker:
+       await message.reply(f"**Sticker ID is**  \n `{message.reply_to_message.sticker.file_id}` \n \n ** Unique ID is ** \n\n`{message.reply_to_message.sticker.file_unique_id}`", quote=True)
+    else: 
+       n = await message.reply_photo(
+       photo=(MQTK),
+       caption=(MMAL.format(message.from_user.mention)),
+       reply_markup=InlineKeyboardMarkup(
+                      [[
+                        InlineKeyboardButton('Try again ', callback_data="close_data")
+                      ]]
+       ),
+       parse_mode='html'
+)
+       await asyncio.sleep(12)
+       await n.delete()
 
 
 
@@ -966,11 +994,11 @@ MUTE = """➤ <b>𝐇𝐞𝐥𝐩: Mute 🚫
  • 𝗁 = 𝗁𝗈𝗎𝗋𝗌
  • 𝖽 = 𝖽𝖺𝗒𝗌</b>"""
 
-MQTT = """<b>⚠️ Hey, {}!.. 
+MQTT = """⚠️ ʜᴇʏ, <b>{}</b>!.. 
 
-Your word</b> 👉 <s>{}</S>...
-<b>is No Movie/Series Related to the Given Word Was Found 🥺
-Please Go to Google and Confirm the Correct Spelling 🥺</b> <b><a href=https://www.google.com>Google</a></b>"""
+ʏᴏᴜʀ ᴡᴏʀᴅ</b>{}</b>...
+ɪs ɴᴏ ᴍᴏᴠɪᴇ sᴇʀɪᴇs ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴇ ɢɪᴠᴇɴ ᴡᴏʀᴅ ᴡᴀs ғᴏᴜɴᴅ 🥺
+ᴘʟᴇᴀsᴇ ɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ ᴀɴᴅ ᴄᴏɴғɪʀᴍ ᴛʜᴇ ᴄᴏʀʀᴇᴄᴛ sᴘᴇʟʟɪɴɢ 🥺</b> <b><a href=https://www.google.com>𝗚𝗢𝗢𝗚𝗟𝗘</a></b>"""
 
 
 WCM = """<b>𝗛𝗲𝘆 {} .!   
@@ -1146,7 +1174,12 @@ MY_DETALS = """<b>Hey {}. Welcome ❤️
       ʜᴀʀᴅ ᴛᴏ ʟᴇᴀᴠᴇ ʜᴀʀᴅ ᴛᴏ ғᴏʀɢᴏᴛ..</b>"""
 
 
+MMALL = """<b>Hey {}.👋\n\n⚠️Oops !! Not supported media file\n\nReply to a supported media file</b>"""
+MMAL = """<b>Hey {}.👋\n\n⚠️Oops !! Not a sticker file\n\nplease Reply Valid sticker file</b>"""
 
+
+
+MQTK = environ.get("MQTK", "https://telegra.ph/file/66278d019899141f4b028.jpg")
 TMP_DOWNLOAD_DIRECTORY = environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
 PPC = environ.get("PPC", "https://telegra.ph/file/3b6afd6c6fcd09606ea9f.jpg")
 MQTTP = environ.get("MQTTP", "https://telegra.ph/file/f8a3c7a57376427646f39.jpg")
