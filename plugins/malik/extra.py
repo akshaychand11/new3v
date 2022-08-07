@@ -994,11 +994,11 @@ MUTE = """➤ <b>𝐇𝐞𝐥𝐩: Mute 🚫
  • 𝗁 = 𝗁𝗈𝗎𝗋𝗌
  • 𝖽 = 𝖽𝖺𝗒𝗌</b>"""
 
-MQTT = """⚠️ ʜᴇʏ, <b>{}</b>!.. 
+MQTT = """<b>⚠️ Hey, {}!.. 
 
-ʏᴏᴜʀ ᴡᴏʀᴅ</b>{}</b>...
-ɪs ɴᴏ ᴍᴏᴠɪᴇ sᴇʀɪᴇs ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴇ ɢɪᴠᴇɴ ᴡᴏʀᴅ ᴡᴀs ғᴏᴜɴᴅ 🥺
-ᴘʟᴇᴀsᴇ ɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ ᴀɴᴅ ᴄᴏɴғɪʀᴍ ᴛʜᴇ ᴄᴏʀʀᴇᴄᴛ sᴘᴇʟʟɪɴɢ 🥺</b> <b><a href=https://www.google.com>𝗚𝗢𝗢𝗚𝗟𝗘</a></b>"""
+Your word</b> 👉 <s>{}</S>...
+<b>is No Movie/Series Related to the Given Word Was Found 🥺
+Please Go to Google and Confirm the Correct Spelling 🥺</b> <b><a href=https://www.google.com>Google</a></b>"""
 
 
 WCM = """<b>𝗛𝗲𝘆 {} .!   
