@@ -254,6 +254,8 @@ async def start(client, message):
             [
                 [
                     InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url="https://t.me/+gXuMKXOWm1UyOTdl")
+                    ],[
+                    InlineKeyboardButton('💢 DEPLOY YOURS 💢',url="https://youtu.be/v7Vbu3u_VrE") 
                 ]
             ]
         )
