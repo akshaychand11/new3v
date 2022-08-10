@@ -1018,7 +1018,7 @@ async def advantage_spell_chok(msg):
             caption=(MQTT.format(msg.from_user.mention, query)),
             reply_markup=reply_markup                 
         )
-        await asyncio.sleep(100) 
+        await asyncio.sleep(12) 
         await a.delete()
         return
     SPELL_CHECK[msg.id] = movielist
@@ -1045,9 +1045,9 @@ async def advantage_spell_chok(msg):
         caption=(MQTT.format(msg.from_user.mention, query)),
         reply_markup=reply_markup 
     ) 
-    await asyncio.sleep(15)
+    await asyncio.sleep(38)
     await dl.delete()
-    await asyncio.sleep(15)
+    await asyncio.sleep(290)
     await dll.delete()             
 
 async def manual_filters(client, message, text=False):
