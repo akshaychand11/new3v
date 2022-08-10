@@ -1,4 +1,5 @@
-from pyrogram import filters, Client
+import random, asyncio
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.connections_mdb import add_connection, all_connections, if_active, delete_connection
 from info import ADMINS
@@ -15,7 +16,7 @@ async def addconnection(client, message):
         return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
     chat_type = message.chat.type
 
-    if chat_type == "private":
+    if chat_type == PRIVATE:
         try:
             cmd, group_id = message.text.split(" ", 1)
         except:
