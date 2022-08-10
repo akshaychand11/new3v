@@ -1042,7 +1042,7 @@ async def advantage_spell_chok(msg):
     ],[
     InlineKeyboardButton("🔍 Click To Check Release Date📅", url=f"https://www.google.com/search?q={reply}+release+date")
     ],[
-    InlineKeyboardButton("🔍 𝗖𝗹𝗶𝗰𝗸 To Check imdb 🟨", url=f"https://m.imdb.com/title?q={reply}")
+    InlineKeyboardButton("🔍 Click To Check Ott Release Date 🖥", url=f"https://www.google.com/search?q={reply}+ott+release+date")
     ]]  
     )    
     dl = await msg.reply_photo(
