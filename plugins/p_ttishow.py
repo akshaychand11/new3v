@@ -1,7 +1,7 @@
 # sahid malik
 
 from plugins.malik.extra import GHHMT, STTS, PPC, WCM, WCM_P
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
 from info import ADMINS, LOG_CHANNEL, PHT, SUPPORT_CHAT, MELCOW_NEW_USERS
@@ -66,9 +66,8 @@ async def save_group(bot, message):
                                                                            InlineKeyboardButton('♻️ GROUP RULES ♻️', callback_data='group_rules')
                                                                          ]]
                                                  ),
-                                                 parse_mode='html'
+                                                 parse_mode=enums.ParseMode.HTML
 )
-
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
@@ -154,7 +153,7 @@ async def re_enable_chat(bot, message):
 
 @Client.on_message(filters.command('stats') & filters.incoming)
 async def get_ststs(bot, message):
-    malik = await message.reply('My Stats 🎢')
+    malik = await message.reply('Fetching stats')
     total_users = await db.total_users_count()
     totl_chats = await db.total_chat_count()
     files = await Media.count_documents()
@@ -171,8 +170,9 @@ async def get_ststs(bot, message):
                                         InlineKeyboardButton('♻️ Refresh ♻️', callback_data='rfrsh')
                                       ]]
                ),
-               parse_mode='html'
+               parse_mode=enums.ParseMode.HTML
 )
+    await malik.delete()
 
 # a function for trespassing into others groups, Inspired by a Vazha
 # Not to be used , But Just to showcase his vazhatharam.
