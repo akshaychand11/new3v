@@ -30,7 +30,7 @@ from pyrogram.types.messages_and_media import message
 from pyrogram.types import Message, ChatPermissions, InlineKeyboardButton
 from database.users_chats_db import db
 from database.ia_filterdb import Media
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from utils import temp, get_size
 from collections import defaultdict
@@ -59,7 +59,7 @@ class evamaria(Client):
 
 # Commands Botinfo
 
-@Client.on_message(filters.command("BOTINFO") & filters.incoming & ~filters.edited)
+@Client.on_message(filters.command("BOTINFO") & filters.incoming)
 async def botinfo(client, message):
     if len(message.command):
         buttons = [[
@@ -70,7 +70,7 @@ async def botinfo(client, message):
             photo=(GHHMO),
             caption=(GHHMM.format(message.from_user.mention)),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
         )
 
 # Commands stats
@@ -86,12 +86,12 @@ async def get_ststs(bot, message):
                                         InlineKeyboardButton('🌐 Add Me To Your Groups 🌐', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                                       ]]
                ),
-               parse_mode='html'
+               parse_mode=enums.ParseMode.HTML
 )
 
 # Commands Owner Details 
 
-@Client.on_message(filters.command("OWNER") & filters.incoming & ~filters.edited)
+@Client.on_message(filters.command("OWNER") & filters.incoming)
 async def owner(client, message):
     if len(message.command):
         buttons = [[
@@ -102,13 +102,13 @@ async def owner(client, message):
             photo=(GHHMN),
             caption=(MY_DETALS.format(message.from_user.mention)),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
         )
         return
 
 # Commands Rules
 
-@Client.on_message(filters.command("RULES") & filters.incoming & ~filters.edited)
+@Client.on_message(filters.command("RULES") & filters.incoming)
 async def rules(client, message):
     if len(message.command):
         buttons = [[
@@ -119,7 +119,7 @@ async def rules(client, message):
             photo=(G_R),
             caption=(GROUP_Rules),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
         )
         return
 
@@ -875,7 +875,7 @@ async def telegraph(client, message):
                         InlineKeyboardButton('Try again ', callback_data="close_data")
                       ]]
         ),
-        parse_mode='html'
+        parse_mode=enums.ParseMode.HTML
 )
         await asyncio.sleep(10)
         await s.delete()
@@ -906,7 +906,7 @@ async def telegraph(client, message):
                InlineKeyboardButton("💢 Close 💢", callback_data="close_data")
                ]]
             ),
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
 )
     finally:
         os.remove(download_location)
@@ -926,7 +926,7 @@ async def stickerid(bot, message):
                         InlineKeyboardButton('Try again ', callback_data="close_data")
                       ]]
        ),
-       parse_mode='html'
+       parse_mode=enums.ParseMode.HTML
 )
        await asyncio.sleep(12)
        await n.delete()
