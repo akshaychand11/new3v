@@ -4,7 +4,7 @@ import re
 import ast
 from plugins.malik.extra import GHHMT, RULES_ALERT, GROUP_Rules, SMART_PIC, STTS, MQTT, TEL, MQTTP, PPC, REPORT, PURGE, MUTE, SS_ALERT 
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
-from Script import script, ALURT_FND, M_NT_FND
+from Script import script, ALURT_FND, M_NT_FND, ADDG
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
@@ -430,7 +430,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
+            text=(ADDG.format(query.from_user.mention, temp.U_NAME, temp.B_NAME)),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.MARKDOWN
         )
