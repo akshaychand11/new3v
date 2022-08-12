@@ -314,14 +314,14 @@ ADG = """<b>Hay. {}..\n\nThankyou For Adding Me In.. ❣️
 
 If you have any questions & doubts about using me..\n\n Contact my Owner >> @sahid_malik</b>"""
 
-ADDG = """<b>Hay {},
+ADDG = """𝗛𝗮𝘆..
 
-I'm ⚡️ Powerful Auto-Filter Bot...
-😎 You Can Use Me As A Auto-filter in Your Group ....
-Its Easy To Use Me; Just Add Me To Your Group As Admin, Thats All, i will Provide Movies There...😎
-⚠️ More Help Check Help Button Below
+𝗜'𝗺 ⚡️ 𝗣𝗼𝘄𝗲𝗿𝗳𝘂𝗹 𝗔𝘂𝘁𝗼-𝗙𝗶𝗹𝘁𝗲𝗿 𝗕𝗼𝘁...
+😎 𝗬𝗼𝘂 𝗖𝗮𝗻 𝗨𝘀𝗲 𝗠𝗲 𝗔𝘀 𝗔 𝗔𝘂𝘁𝗼-𝗳𝗶𝗹𝘁𝗲𝗿 𝗶𝗻 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ....
+𝗜𝘁𝘀 𝗘𝗮𝘀𝘆 𝗧𝗼 𝗨𝘀𝗲 𝗠𝗲; 𝗝𝘂𝘀𝘁 𝗔𝗱𝗱 𝗠𝗲 𝗧𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 𝗔𝘀 𝗔𝗱𝗺𝗶𝗻, 𝗧𝗵𝗮𝘁𝘀 𝗔𝗹𝗹, 𝗶 𝘄𝗶𝗹𝗹 𝗣𝗿𝗼𝘃𝗶𝗱𝗲 𝗠𝗼𝘃𝗶𝗲𝘀 𝗧𝗵𝗲𝗿𝗲...😎
+⚠️ 𝗠𝗼𝗿𝗲 𝗛𝗲𝗹𝗽 𝗖𝗵𝗲𝗰𝗸 𝗛𝗲𝗹𝗽 𝗕𝘂𝘁𝘁𝗼𝗻 𝗕𝗲𝗹𝗼𝘄
 
-©️Mantained Bʏ sahid malik</b>"""
+©️𝗠𝗮𝗻𝘁𝗮𝗶𝗻𝗲𝗱 𝗕ʏ 𝘀𝗮𝗵𝗶𝗱 𝗺𝗮𝗹𝗶𝗸"""
 
 M_NT_FND = """<b>⭕️ This Movie Not Found my Database. Request to admin..\n\n⭕️ Ye movie Hamare database me Available nahi hai Niche admin se request kare... \n\n⭕️ Request to admin.. 👇</b>"""
 
