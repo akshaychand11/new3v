@@ -943,28 +943,16 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"<b>Hey...😎 {message.from_user.mention},\n\nHere is the result for your query {search}\n\n🖥 Movie Name : {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
     if imdb and imdb.get('poster'):
         try:
-            bb = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(1800)
-            await bb.delete() 
-            await msg.delete()  
+            await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            ab = await message.reply_photo(photo=poster, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(1800)
-            await ab.delete() 
-            await msg.delete()  
+            await message.reply_photo(photo=poster, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
         except Exception as e:
             logger.exception(e)
-            bc = await message.reply_photo(photo=SMART_PIC, caption=cap, reply_markup=InlineKeyboardMarkup(btn))     
-            await asyncio.sleep(1800)
-            await bc.delete() 
-            await msg.delete()   
+            await message.reply_photo(photo=SMART_PIC, caption=cap, reply_markup=InlineKeyboardMarkup(btn))        
     else:
-            lb = await message.reply_photo(photo=SMART_PIC, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(1800)
-            await lb.delete() 
-            await msg.delete()  
+            await message.reply_photo(photo=SMART_PIC, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
 
@@ -990,7 +978,7 @@ async def advantage_spell_chok(msg):
             caption=(MQTT.format(msg.from_user.mention, query)),
             reply_markup=reply_markup                 
         )
-        await asyncio.sleep(100) 
+        await asyncio.sleep(12) 
         await a.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
