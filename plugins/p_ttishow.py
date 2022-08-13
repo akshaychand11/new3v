@@ -1,5 +1,5 @@
 # sahid malik
-
+import asyncio
 from plugins.malik.extra import GHHMT, STTS, PPC, WCM, WCM_P
 from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
@@ -153,7 +153,7 @@ async def re_enable_chat(bot, message):
 
 @Client.on_message(filters.command('stats') & filters.incoming)
 async def get_ststs(bot, message):
-    malik = await message.reply('Fetching stats')
+    malik = await message.reply_sticker("CAACAgUAAxkBAAINtWL34mA8OKLGNg8UJ3cWWlwUD_g5AAJWAgACWBbZVQg526jtufCNHgQ")
     total_users = await db.total_users_count()
     totl_chats = await db.total_chat_count()
     files = await Media.count_documents()
@@ -172,7 +172,9 @@ async def get_ststs(bot, message):
                ),
                parse_mode=enums.ParseMode.HTML
 )
+    await asyncio.sleep(2) 
     await malik.delete()
+
 
 # a function for trespassing into others groups, Inspired by a Vazha
 # Not to be used , But Just to showcase his vazhatharam.
