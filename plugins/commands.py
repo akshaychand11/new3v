@@ -261,7 +261,7 @@ async def start(client, message):
             ]
         )
     )
-    await asyncio.sleep(600)
+    await asyncio.sleep(299)
     await dm.delete()
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
