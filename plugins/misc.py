@@ -1,8 +1,9 @@
 import os
+from Script import script
 from pyrogram import Client, filters, enums
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from info import IMDB_TEMPLATE
-from utils import extract_user, get_file_id, get_poster, last_online
+from utils import extract_user, get_file_id, get_poster, last_online, temp
 import time
 from datetime import datetime
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
@@ -210,5 +211,62 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
         await quer_y.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
     await quer_y.answer()
         
+# help commands 
 
-        
+@Client.on_message(filters.command("help"))
+async def help(client, message):
+        buttons = [[
+            InlineKeyboardButton('ᴀᴜᴛᴏ ғɪʟᴛᴇʀ', callback_data='autofilter'),
+            InlineKeyboardButton('ᴄᴏɴɴᴇᴄᴛɪᴏɴs', callback_data='coct')
+        ], [
+            InlineKeyboardButton('ᴇxᴛʀᴀ ᴍᴏᴅᴇs', callback_data='GHHM'),
+            InlineKeyboardButton('ʜᴏᴍᴇ ', callback_data='start'),
+            InlineKeyboardButton('sᴏɴɢs', callback_data='songs')
+        ], [
+            InlineKeyboardButton('sᴛᴀᴛs', callback_data='stats'),
+            InlineKeyboardButton('ᴛᴇʟᴇɢʀᴀᴘʜ', callback_data='tel'),
+            InlineKeyboardButton('ᴏᴡɴᴇʀ', callback_data='my_detals')
+        ], [
+            InlineKeyboardButton('ʏᴛ-ᴛʜᴜᴍʙ', callback_data='ytthumb'),
+            InlineKeyboardButton('ᴠɪᴅᴇᴏ', callback_data='video'),
+            InlineKeyboardButton('ғɪʟᴇ-sᴛᴏʀᴇ', callback_data='malikk')
+        ], [
+            InlineKeyboardButton('ᴍᴜᴛᴇ', callback_data='mute'),
+            InlineKeyboardButton('ʀᴇᴘᴏʀᴛ', callback_data='report'),
+            InlineKeyboardButton('ᴘᴜʀɢᴇ', callback_data='purges'),
+        ], [
+            InlineKeyboardButton('ғᴏɴᴛs', callback_data='fonts'),
+            InlineKeyboardButton('sᴛɪᴄᴋᴇʀ', callback_data='stkr'),
+            InlineKeyboardButton('ᴡʀɪᴛᴇ ᴛᴇxᴛ', callback_data='write'),
+        ], [
+            InlineKeyboardButton('🚶‍♀ 𝐁𝐀𝐂𝐊 🚶‍♀', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_text(
+            text=script.HELP_TXT.format(message.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+     
+# about commands 
+@Client.on_message(filters.command("about"))
+async def about(client, message):
+        buttons = [[
+            InlineKeyboardButton('🌴 ʙᴏᴛs ᴄʜᴀɴɴᴇʟ 🌴', url='https://t.me/malik_bots'),
+            InlineKeyboardButton('♥️ sᴏᴜʀᴄᴇ', callback_data='source')
+        ], [
+            InlineKeyboardButton('ʜᴏᴍᴇ ', callback_data='start'),
+            InlineKeyboardButton('ᴄʟᴏᴄᴇ', callback_data='close_data')
+        ], [
+            InlineKeyboardButton('📞 ᴏᴡɴᴇʀ', url='https://t.me/sahid_malik'),
+            InlineKeyboardButton('❤️ ᴅᴏɴᴀᴛɪᴏɴ ❤️', callback_data='malik')
+        ], [
+            InlineKeyboardButton('🚶‍♀ 𝐛𝐚𝐜𝐤 🚶‍♀', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_text(
+            text=script.ABOUT_TXT.format(temp.B_NAME),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+  
