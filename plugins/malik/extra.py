@@ -6,23 +6,19 @@ import time
 import re
 import os
 import json
-import yt_dlp
 import asyncio
 import asyncio
 import aiohttp
 import aiofiles
 import pyrogram
 import requests
-import youtube_dl
 from os import environ
 from typing import List
 from Script import script
-from yt_dlp import YoutubeDL
 from telegraph import upload_file
 from info import PHT, ADMINS, AUTH_USERS
 from pyrogram.errors import FloodWait
 from pyrogram.errors import FloodWait, MessageNotModified
-from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired, UserAdminInvalid
@@ -122,212 +118,6 @@ async def rules(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
-
-
-# Ban py
-
-@Client.on_message(filters.command("ban"))
-async def ban_user(_, message):
-    is_admin = await admin_check(message)
-    if not is_admin:
-        return
-
-    user_id, user_first_name = extract_user(message)
-
-    try:
-        await message.chat.kick_member(
-            user_id=user_id
-        )
-    except Exception as error:
-        await message.reply_text(
-            str(error)
-        )
-    else:
-        if str(user_id).lower().startswith("@"):
-            await message.reply_text(
-                "Someone else is dusting off..! "
-                f"{user_first_name}"
-                " Is forbidden."
-            )
-        else:
-            await message.reply_text(
-                "Someone else is dusting off..! "
-                f"<a href='tg://user?id={user_id}'>"
-                f"{user_first_name}"
-                "</a>"
-                " Is forbidden."
-            )
-
-@Client.on_message(filters.command("tban"))
-async def temp_ban_user(_, message):
-    is_admin = await admin_check(message)
-    if not is_admin:
-        return
-
-    if not len(message.command) > 1:
-        return
-
-    user_id, user_first_name = extract_user(message)
-
-    until_date_val = extract_time(message.command[1])
-    if until_date_val is None:
-        await message.reply_text(
-            (
-                "Invalid time type specified. "
-                "Expected m, h, or d, Got it: {}"
-            ).format(
-                message.command[1][-1]
-            )
-        )
-        return
-
-    try:
-        await message.chat.kick_member(
-            user_id=user_id,
-            until_date=until_date_val
-        )
-    except Exception as error:
-        await message.reply_text(
-            str(error)
-        )
-    else:
-        if str(user_id).lower().startswith("@"):
-            await message.reply_text(
-                "Someone else is dusting off..! "
-                f"{user_first_name}"
-                f" banned for {message.command[1]}!"
-            )
-        else:
-            await message.reply_text(
-                "Someone else is dusting off..! "
-                f"<a href='tg://user?id={user_id}'>"
-                "Lavane"
-                "</a>"
-                f" banned for {message.command[1]}!"
-            )
-
-
-#unban py
-
-
-@Client.on_message(filters.command(["unban", "unmute"]))
-async def un_ban_user(_, message):
-    is_admin = await admin_check(message)
-    if not is_admin:
-        return
-
-    user_id, user_first_name = extract_user(message)
-
-    try:
-        await message.chat.unban_member(
-            user_id=user_id
-        )
-    except Exception as error:
-        await message.reply_text(
-            str(error)
-        )
-    else:
-        if str(user_id).lower().startswith("@"):
-            await message.reply_text(
-                "Okay, changed ... now "
-                f"{user_first_name} To "
-                " You can join the group!"
-            )
-        else:
-            await message.reply_text(
-                "Okay, changed ... now "
-                f"<a href='tg://user?id={user_id}'>"
-                f"{user_first_name}"
-                "</a> To "
-                " You can join the group!"
-            )
-# mute py
-
-@Client.on_message(filters.command("mute"))
-async def mute_user(_, message):
-    is_admin = await admin_check(message)
-    if not is_admin:
-        return
-
-    user_id, user_first_name = extract_user(message)
-
-    try:
-        await message.chat.restrict_member(
-            user_id=user_id,
-            permissions=ChatPermissions(
-            )
-        )
-    except Exception as error:
-        await message.reply_text(
-            str(error)
-        )
-    else:
-        if str(user_id).lower().startswith("@"):
-            await message.reply_text(
-                "👍🏻 "
-                f"{user_first_name}"
-                " Lavender's mouth is shut! 🤐"
-            )
-        else:
-            await message.reply_text(
-                "👍🏻 "
-                f"<a href='tg://user?id={user_id}'>"
-                "Of lavender"
-                "</a>"
-                " The mouth is closed! 🤐"
-            )
-
-
-@Client.on_message(filters.command("tmute"))
-async def temp_mute_user(_, message):
-    is_admin = await admin_check(message)
-    if not is_admin:
-        return
-
-    if not len(message.command) > 1:
-        return
-
-    user_id, user_first_name = extract_user(message)
-
-    until_date_val = extract_time(message.command[1])
-    if until_date_val is None:
-        await message.reply_text(
-            (
-                "Invalid time type specified. "
-                "Expected m, h, or d, Got it: {}"
-            ).format(
-                message.command[1][-1]
-            )
-        )
-        return
-
-    try:
-        await message.chat.restrict_member(
-            user_id=user_id,
-            permissions=ChatPermissions(
-            ),
-            until_date=until_date_val
-        )
-    except Exception as error:
-        await message.reply_text(
-            str(error)
-        )
-    else:
-        if str(user_id).lower().startswith("@"):
-            await message.reply_text(
-                "Be quiet for a while! 😠"
-                f"{user_first_name}"
-                f" muted for {message.command[1]}!"
-            )
-        else:
-            await message.reply_text(
-                "Be quiet for a while! 😠"
-                f"<a href='tg://user?id={user_id}'>"
-                "Of lavender"
-                "</a>"
-                " Mouth "
-                f" muted for {message.command[1]}!"
-            )
 
 # user py
 
@@ -599,143 +389,6 @@ admin_fliter = filters.create(
 
 # song and video py
 
-def time_to_seconds(time):
-    stringt = str(time)
-    return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
-
-
-@Client.on_message(filters.command('song') & ~filters.private & ~filters.channel)
-def song(client, message):
-
-    user_id = message.from_user.id 
-    user_name = message.from_user.first_name 
-    rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
-
-    query = ''
-    for i in message.command[1:]:
-        query += ' ' + str(i)
-    print(query)
-    m = message.reply("**Searching Your ѕσng...!**")
-    ydl_opts = {"format": "bestaudio[ext=m4a]"}
-    try:
-        results = YoutubeSearch(query, max_results=1).to_dict()
-        link = f"https://youtube.com{results[0]['url_suffix']}"
-        #print(results)
-        title = results[0]["title"][:40]       
-        thumbnail = results[0]["thumbnails"][0]
-        thumb_name = f'thumb{title}.jpg'
-        thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, 'wb').write(thumb.content)
-
-
-        performer = f"[movies 🏠 bot]" 
-        duration = results[0]["duration"]
-        url_suffix = results[0]["url_suffix"]
-        views = results[0]["views"]
-
-    except Exception as e:
-        m.edit(
-            "**𝙵𝙾𝚄𝙽𝙳 𝙽𝙾𝚃𝙷𝙸𝙽𝙶 𝙿𝙻𝙴𝙰𝚂𝙴 𝙲𝙾𝚁𝚁𝙴𝙲𝚃 𝚃𝙷𝙴 𝚂𝙿𝙴𝙻𝙻𝙸𝙽𝙶 𝙾𝚁 𝚂𝙴𝙰𝚁𝙲𝙷 𝙰𝙽𝚈 𝙾𝚃𝙷𝙴𝚁 𝚂𝙾𝙽𝙶**"
-        )
-        print(str(e))
-        return
-    m.edit("**Dσwnlσαdíng Your ѕσng plz wait 3 minutes...!**")
-    try:
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info_dict = ydl.extract_info(link, download=False)
-            audio_file = ydl.prepare_filename(info_dict)
-            ydl.process_info(info_dict)
-        rep = '**𝚂𝚄𝙱𝚂𝙲𝚁𝙸𝙱𝙴 ›› [Movies 🏠](https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A)**\n**𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 ›› [Movies 🏠](https://t.me/sahid_malik)**'
-        secmul, dur, dur_arr = 1, 0, duration.split(':')
-        for i in range(len(dur_arr)-1, -1, -1):
-            dur += (int(dur_arr[i]) * secmul)
-            secmul *= 60
-        message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name)
-        m.delete()
-    except Exception as e:
-        m.edit("**🚫 𝙴𝚁𝚁𝙾𝚁 🚫**")
-        print(e)
-
-    try:
-        os.remove(audio_file)
-        os.remove(thumb_name)
-    except Exception as e:
-        print(e)
-
-def get_text(message: Message) -> [None,str]:
-    text_to_return = message.text
-    if message.text is None:
-        return None
-    if " " not in text_to_return:
-        return None
-    try:
-        return message.text.split(None, 1)[1]
-    except IndexError:
-        return None
-
-
-@Client.on_message(filters.command(["video", "mp4"]))
-async def vsong(client, message: Message):
-    urlissed = get_text(message)
-
-    pablo = await client.send_message(
-        message.chat.id, f"**FINDING YOUR VIDEO PLZ WAIT** `{urlissed}`"
-    )
-    if not urlissed:
-        await pablo.edit("Invalid Command Syntax Please Check help Menu To Know More!")
-        return
-
-    search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
-    mi = search.result()
-    mio = mi["search_result"]
-    mo = mio[0]["link"]
-    thum = mio[0]["title"]
-    fridayz = mio[0]["id"]
-    mio[0]["channel"]
-    kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
-    await asyncio.sleep(0.6)
-    url = mo
-    sedlyf = wget.download(kekme)
-    opts = {
-        "format": "best",
-        "addmetadata": True,
-        "key": "FFmpegMetadata",
-        "prefer_ffmpeg": True,
-        "geo_bypass": True,
-        "nocheckcertificate": True,
-        "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
-        "outtmpl": "%(id)s.mp4",
-        "logtostderr": False,
-        "quiet": True,
-    }
-    try:
-        with YoutubeDL(opts) as ytdl:
-            ytdl_data = ytdl.extract_info(url, download=True)
-    except Exception as e:
-        await event.edit(event, f"**𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 𝙵𝚊𝚒𝚕𝚎𝚍 𝙿𝚕𝚎𝚊𝚜𝚎 𝚃𝚛𝚢 𝙰𝚐𝚊𝚒𝚗..♥️** \n**Error :** `{str(e)}`")
-        return
-    c_time = time.time()
-    file_stark = f"{ytdl_data['id']}.mp4"
-    capy = f"""
-**𝚃𝙸𝚃𝙻𝙴 :** [{thum}]({mo})
-**𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}
-"""
-    await client.send_video(
-        message.chat.id,
-        video=open(file_stark, "rb"),
-        duration=int(ytdl_data["duration"]),
-        file_name=str(ytdl_data["title"]),
-        thumb=sedlyf,
-        caption=capy,
-        supports_streaming=True,        
-        reply_to_message_id=message.message_id 
-    )
-    await pablo.delete()
-    for files in (sedlyf, file_stark):
-        if files and os.path.exists(files):
-            os.remove(files)
-
-
 # kick py
 
 @Client.on_message(filters.incoming & ~filters.private & filters.command('inkick'))
@@ -930,8 +583,6 @@ async def stickerid(bot, message):
 )
        await asyncio.sleep(12)
        await n.delete()
-
-
 
 
 SS_ALERT = """
@@ -1162,7 +813,7 @@ MY_DETALS = """<b>Hey {}. Welcome ❤️
 
 🔹 ᴍʏ ɴᴀᴍᴇ : sᴀʜɪᴅ ᴍᴀʟɪᴋ
 🔹 ᴜsᴇʀɴᴀᴍᴇ: @sahid_malik
-🔹 ᴘᴍᴛ. ᴅᴍ ʟɪɴᴋ: <a href=https://t.me/sahid_malik>ᴄʟɪᴄ ʜᴇʀᴇ</a>
+🔹 ᴘᴍᴛ. ᴅᴍ ʟɪɴᴋ: <a href=https://t.me/sahid_malik>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
 🔹 ᴘʟᴀᴄᴇ: sᴀʜᴀʀᴀɴᴘᴜʀ | ᴜᴘ | ɪɴᴅɪᴀ
 🔹 ᴋɴᴏᴡ ʟᴀɴɢᴜᴀɢᴇ: ʜɪɴᴅɪ, ᴇɴɢʟɪsʜ,
       ᴍᴀʟʏᴀʟᴀᴍ
@@ -1178,7 +829,39 @@ MY_DETALS = """<b>Hey {}. Welcome ❤️
 MMALL = """<b>Hey {}.👋\n\n⚠️Oops !! Not supported media file\n\nReply to a supported media file</b>"""
 MMAL = """<b>Hey {}.👋\n\n⚠️Oops !! Not a sticker file\n\nplease Reply Valid sticker file</b>"""
 
+STKR = """ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴍᴏᴅᴜʟᴇs ᴛᴏ ғɪɴᴅ ᴀɴʏ sᴛɪᴄᴋᴇʀ ɪᴅ.
+ 
+ ᴛᴏ ɢᴇᴛ sᴛɪᴄᴋᴇʀ ɪᴅ 
 
+🔹 <b>ʜᴏᴡ ᴛᴏ ᴜsᴇ</b> 🔹
+
+
+ʀᴇᴘʟʏ ᴛᴏ ᴀɴʏ sᴛɪᴄᴋᴇʀ /STICKER  ᴀɴᴅ /ST"""
+
+FONTS = """🔹 <b>ʜᴇʟᴘ ғᴏʀ ғᴏɴᴛs</b> 🔹
+
+ғᴏɴᴛ ɪs ᴀ ᴍᴏᴅᴜʟᴇ ғᴏʀ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴛᴇxᴛ sᴛʏʟᴇs.
+
+ғᴏʀ ᴜsᴇ ᴛʜᴀᴛ ғᴇᴜᴛᴜʀᴇ ᴛʏᴘᴇ ..
+
+/FONTS,  [ʏᴏᴜʀ ᴛᴇxᴛ] ᴛʜᴇɴ ʏᴏᴜʀ ᴛᴇxᴛ ɪs ʀᴇᴅʏ."""
+
+WRITE = """» ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜰᴏʀ​​ WʀɪᴛᴇTᴏᴏʟ :
+
+
+ Wʀɪᴛᴇꜱ ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴏɴ ᴡʜɪᴛᴇ ᴘᴀɢᴇ ᴡɪᴛʜ ᴀ ᴘᴇɴ 🖊
+
+❍ /ᴡʀɪᴛᴇ <ᴛᴇxᴛ> : Wʀɪᴛᴇꜱ ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ."""
+
+SONGS = """sᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴏᴅᴜʟᴇ...
+
+sᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴏᴅᴜʟᴇ. ғᴏʀ...
+ᴛʜᴏsᴇ ᴡʜᴏ ʟᴏᴠᴇ ᴍᴜsɪᴄ. ʏᴏᴜ ᴄᴀɴ ʏsᴇ ᴛʜɪs ғᴇᴀᴛᴜʀᴇ ғᴏʀ ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴʏ sᴏɴɢ ᴡɪᴛʜ sᴜᴘᴇʀ ғᴀsᴛ sᴘᴇᴇᴅ ᴡᴏᴋs ᴏɴʟʏ ᴏɴ ɢʀᴏᴜᴘs...
+
+🔹 ᴄᴏᴍᴍᴀɴᴅs 🔹
+
+/song sᴏɴɢ ɴᴀᴍᴇ
+ᴡᴏʀᴋs ᴏɴʟʏ ᴏɴ ɢʀᴏᴜᴘ"""
 
 MQTK = environ.get("MQTK", "https://telegra.ph/file/66278d019899141f4b028.jpg")
 TMP_DOWNLOAD_DIRECTORY = environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
@@ -1190,6 +873,7 @@ SMART_PIC = environ.get("SMART_PIC", "https://telegra.ph/file/7cf564b255461abfc7
 GHHMN = environ.get("GHHMN", "https://telegra.ph/file/4265c6e3428cd2b060ede.jpg")
 GHHMO = environ.get("GHHMNO", "https://telegra.ph/file/605f4c8b2461c1e4f8123.jpg")
 G_R = environ.get("G_R", "https://telegra.ph/file/0dd95cec0179cb3721d71.jpg")
+COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "/")
 
 
 
