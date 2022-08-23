@@ -261,8 +261,6 @@ async def start(client, message):
             ]
         )
     )
-    await message.reply_sticker("CAACAgQAAxkBAAEKzwxjAdqxnU4UoLjD9nuTZ25H8zKwSwACnjgAAjGNRgABOsdMK2pVZ7keBA"),
-
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
            
