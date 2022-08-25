@@ -841,7 +841,13 @@ GOOGL = """🔹𝗛𝗲𝗹𝗽 𝗚𝗼𝗼𝗴𝗹𝗲 𝗧𝗿𝗮𝗻𝘀�
 🔸 ᴍʟ = ᴍᴀʟᴀʏᴀʟᴀᴍ 
 🔸 ʜɪ = Hɪɴᴅɪ"""
 
+SHARETXT = """🔹 ʜᴇʟᴘ ғᴏʀ  ᴄᴀʀɪᴛᴇ ꜱʜᴀʀᴇ  ᴛᴇxᴛ ʟɪɴᴋ🔹
 
+sʜᴀʀᴇ ᴛᴇxᴛ  ɪꜱ ᴀ ᴍᴏᴅᴜʟᴇ ғᴏʀ ᴍᴀᴋᴇ ʏᴏᴜʀ sʜᴀʀᴇ ᴛᴇxᴛ ʟɪɴᴋ..
+
+ғᴏʀ ᴜꜱᴇ ᴛʜᴀᴛ ғᴇᴜᴛᴜʀᴇ ᴛʏᴘᴇ ..
+
+/share ᴀɴᴅ /Sharetxt [ʏᴏᴜʀ ᴛᴇxᴛ] ᴛʜᴇɴ ʏᴏᴜʀ ᴛᴇxᴛ ɪꜱ ʀᴇᴅʏ.."""
 
 MMALL = """<b>Hey {}.👋\n\n⚠️Oops !! Not supported media file\n\nReply to a supported media file</b>"""
 MMAL = """<b>Hey {}.👋\n\n⚠️Oops !! Not a sticker file\n\nplease Reply Valid sticker file</b>"""
