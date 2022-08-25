@@ -849,6 +849,8 @@ sʜᴀʀᴇ ᴛᴇxᴛ  ɪꜱ ᴀ ᴍᴏᴅᴜʟᴇ ғᴏʀ ᴍᴀᴋᴇ ʏᴏ�
 
 /share ᴀɴᴅ /Sharetxt [ʏᴏᴜʀ ᴛᴇxᴛ] ᴛʜᴇɴ ʏᴏᴜʀ ᴛᴇxᴛ ɪꜱ ʀᴇᴅʏ.."""
 
+WALL = """malik"""
+
 MMALL = """<b>Hey {}.👋\n\n⚠️Oops !! Not supported media file\n\nReply to a supported media file</b>"""
 MMAL = """<b>Hey {}.👋\n\n⚠️Oops !! Not a sticker file\n\nplease Reply Valid sticker file</b>"""
 
