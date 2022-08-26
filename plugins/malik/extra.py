@@ -888,6 +888,14 @@ sᴏɴɢ ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴏᴅᴜʟᴇ. ғᴏʀ...
 /song sᴏɴɢ ɴᴀᴍᴇ
 ᴡᴏʀᴋs ᴏɴʟʏ ᴏɴ ɢʀᴏᴜᴘ"""
 
+MALIKK = """<b>ʜᴇʏ {}.👋\n\n⚠️Oops !! ʏᴏᴜʀ ʀᴏɴɢ\n\nᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɢᴀɪɴ\n\nғʀɪsᴛ ✍ ᴛɪᴘᴇ ʏᴏᴜʀ ᴛᴇxᴛ ᴀɴᴅ ʀᴇᴘʟʏ /tr hi
+ʜɪ = ʜɪɴᴅɪ 
+ᴇɴ = ᴇɴɢʟɪsʜ 
+ᴍʟ = ᴍᴀʟᴀʏᴀʟᴀᴍ </b>"""
+MALK = environ.get("MALk", "https://telegra.ph/file/66278d019899141f4b028.jpg")
+
+
+
 MQTK = environ.get("MQTK", "https://telegra.ph/file/66278d019899141f4b028.jpg")
 TMP_DOWNLOAD_DIRECTORY = environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
 PPC = environ.get("PPC", "https://telegra.ph/file/3b6afd6c6fcd09606ea9f.jpg")
