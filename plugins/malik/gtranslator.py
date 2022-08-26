@@ -1,4 +1,6 @@
+import asyncio
 from os import environ
+from plugins.malik.extra import MALIKK, MALK
 from googletrans import Translator
 from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
@@ -40,7 +42,7 @@ async def left(client,message):
 		except :
 			print("error")
 	else:
-			 m = await message.reply_photo(
+	                 await message.reply_photo(
                          photo=(MALK),
                          caption=(MALIKK.format(message.from_user.mention)),
                          reply_markup=InlineKeyboardMarkup(
@@ -51,9 +53,8 @@ async def left(client,message):
                          ),
                          parse_mode=enums.ParseMode.HTML
 ) 
-    
-			 await ms.delete()
 
+                     
 
 
 
@@ -169,11 +170,5 @@ list = {
 "yoruba":"yo",
 "zulu":"zu"}
 
-
-
-MALIKK = """<b>ʜᴇʏ {}.👋\n\n⚠️Oops !! ʏᴏᴜʀ ʀᴏɴɢ\n\nᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɢᴀɪɴ\n\nғʀɪsᴛ ✍ ᴛɪᴘᴇ ʏᴏᴜʀ ᴛᴇxᴛ ᴀɴᴅ ʀᴇᴘʟʏ /tr hi
-ʜɪ = ʜɪɴᴅɪ 
-ᴇɴ = ᴇɴɢʟɪsʜ 
-ᴍʟ = ᴍᴀʟᴀʏᴀʟᴀᴍ </b>"""
-MALK = environ.get("MALk", "https://telegra.ph/file/66278d019899141f4b028.jpg")
+                         
 
