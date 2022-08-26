@@ -1,5 +1,6 @@
+from os import environ
 from googletrans import Translator
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
 @Client.on_message(filters.command(["tr"]))
@@ -15,8 +16,8 @@ async def left(client,message):
                                 [
                                     [
                                         InlineKeyboardButton(
-                                            text=f"𝘔𝘰𝘳𝘦 𝘓𝘢𝘯𝘨 𝘊𝘰𝘥𝘦𝘴", url="https://cloud.google.com/translate/docs/languages"
-                                        )
+                                            "Update Channel", url='https://t.me/m_house786'
+                                        ),
                                     ],
 				    [
                                         InlineKeyboardButton(
@@ -39,7 +40,18 @@ async def left(client,message):
 		except :
 			print("error")
 	else:
-			 ms = await message.reply_text("You can Use This Command by using reply to message")
+			 m = await message.reply_photo(
+                         photo=(MALK),
+                         caption=(MALIKK.format(message.from_user.mention)),
+                         reply_markup=InlineKeyboardMarkup(
+                                   [[
+                                     InlineKeyboardButton('Close', callback_data="close_data"),
+                                                                         
+                                   ]]
+                         ),
+                         parse_mode=enums.ParseMode.HTML
+) 
+    
 			 await ms.delete()
 
 
@@ -156,3 +168,12 @@ list = {
 "yiddish":"yi",
 "yoruba":"yo",
 "zulu":"zu"}
+
+
+
+MALIKK = """<b>ʜᴇʏ {}.👋\n\n⚠️Oops !! ʏᴏᴜʀ ʀᴏɴɢ\n\nᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɢᴀɪɴ\n\nғʀɪsᴛ ✍ ᴛɪᴘᴇ ʏᴏᴜʀ ᴛᴇxᴛ ᴀɴᴅ ʀᴇᴘʟʏ /tr hi
+ʜɪ = ʜɪɴᴅɪ 
+ᴇɴ = ᴇɴɢʟɪsʜ 
+ᴍʟ = ᴍᴀʟᴀʏᴀʟᴀᴍ </b>"""
+MALK = environ.get("MALk", "https://telegra.ph/file/66278d019899141f4b028.jpg")
+
