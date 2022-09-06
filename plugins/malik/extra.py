@@ -645,11 +645,12 @@ MUTE = """➤ <b>𝐇𝐞𝐥𝐩: Mute 🚫
  • 𝗁 = 𝗁𝗈𝗎𝗋𝗌
  • 𝖽 = 𝖽𝖺𝗒𝗌</b>"""
 
-MQTT = """<b>⚠️ Hey, {}!.. 
+MQTT = """<b>⚠️ 𝐇𝐞𝐲, {}!..</b> 
 
-Your word</b> 👉 <s>{}</S>...
-<b>is No Movie/Series Related to the Given Word Was Found 🥺
-Please Go to Google and Confirm the Correct Spelling 🥺</b> <b><a href=https://www.google.com>Google</a></b>"""
+<b>𝐘𝐨𝐮𝐫 𝐰𝐨𝐫𝐝</b> 👉 <s>{}</s> ...
+<b>𝐢𝐬 𝐍𝐨 𝐌𝐨𝐯𝐢𝐞/𝐒𝐞𝐫𝐢𝐞𝐬 𝐑𝐞𝐥𝐚𝐭𝐞𝐝 𝐭𝐨 𝐭𝐡𝐞 𝐆𝐢𝐯𝐞𝐧 𝐖𝐨𝐫𝐝 𝐖𝐚𝐬 𝐅𝐨𝐮𝐧𝐝 🥺
+𝐏𝐥𝐞𝐚𝐬𝐞 𝐆𝐨 𝐭𝐨 𝐆𝐨𝐨𝐠𝐥𝐞 𝐚𝐧𝐝 𝐂𝐨𝐧𝐟𝐢𝐫𝐦 𝐭𝐡𝐞 𝐂𝐨𝐫𝐫𝐞𝐜𝐭 𝐒𝐩𝐞𝐥𝐥𝐢𝐧𝐠 🥺</b> <b><a href=https://www.google.com>𝐆𝐨𝐨𝐠𝐥𝐞</a></b>"""
+
 
 
 WCM = """<b>𝗛𝗲𝘆 {} .!   
