@@ -107,14 +107,15 @@ ID - <code>{}</code>
 Name - {}
 """
 
-    START_TXT = """<b>Hay {},
+    START_TXT = """<b>ʜᴇʏ {}..
 
-I'm ⚡️ Powerful Auto-Filter Bot...
-😎 You Can Use Me As A Auto-filter in Your Group ....
-Its Easy To Use Me; Just Add Me To Your Group As Admin, Thats All, i will Provide Movies There...😎
-⚠️ More Help Check Help Button Below
+ɪᴍ ⚡️ ᴘᴏᴡᴇʀғᴜʟ ᴀᴜᴛᴏ-ғɪʟᴛᴇʀ ʙᴏᴛ...
+😎 ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ᴀs ᴀ ᴀᴜᴛᴏ-ғɪʟᴛᴇʀ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ....
+ɪᴛs ᴇᴀsʏ ᴛᴏ ᴜsᴇ ᴍᴇ: ᴊᴜsᴛ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀs ᴀᴅᴍɪɴ, ᴛʜᴀᴛs ᴀʟʟ, ɪ ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇs ᴛʜᴇʀᴇ...😎
 
-©️Mantained Bʏ  sahid malik</b>"""
+⚠️ ᴍᴏʀᴇ ʜᴇʟᴘ ᴄʜᴇᴄᴋ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ..
+
+©ᴍᴀɴᴛᴀɪɴᴇᴅ ʙʏ: sᴀʜɪᴅ ᴍᴀʟɪᴋ</b>"""
 
     GHHM_TXT = """<b>7k User 💖 Thanks For Your Support...
 
