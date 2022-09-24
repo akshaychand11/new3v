@@ -910,4 +910,4 @@ G_R = environ.get("G_R", "https://telegra.ph/file/0dd95cec0179cb3721d71.jpg")
 COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "/")
 
 
-
+IYGL = environ.get("IYGL", "https://youtu.be/KQSplGRD5gQ")
