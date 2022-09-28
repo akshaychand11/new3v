@@ -1039,7 +1039,7 @@ async def auto_filter(client, msg, spoll=False):
             logger.exception(e)
             await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
     else:
-            await message.reply_text(cap, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
 
