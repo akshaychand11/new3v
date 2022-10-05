@@ -254,7 +254,7 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url="https://t.me/+tG4bwQfocLJkZDZl")
+                    InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url="https://t.me/+FAgX05kGByNkZjJl")
                     ],[
                     InlineKeyboardButton('💢 DEPLOY YOURS 💢',url="https://youtu.be/v7Vbu3u_VrE") 
                 ]
