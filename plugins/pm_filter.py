@@ -1049,9 +1049,9 @@ async def auto_filter(client, msg, spoll=False):
             await dkk.delete()  
             await message.delete() 
     else:
-        dlk = await message.reply_photo(photo=PPI, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+        dmk = await message.reply_photo(photo=PPI, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(180)
-        await dik.delete()  
+        await dmk.delete()  
         await message.delete() 
     if spoll:
         await msg.message.delete()
