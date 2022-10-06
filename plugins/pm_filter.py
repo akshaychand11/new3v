@@ -1031,17 +1031,28 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
-                                      reply_markup=InlineKeyboardMarkup(btn))
+            dl =await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(180)
+            await dl.delete()  
+            await message.delete() 
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            dlk = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(180)
+            await dlk.delete()  
+            await message.delete() 
         except Exception as e:
             logger.exception(e)
-            await message.reply_photo(photo=PPI, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            dkk = await message.reply_photo(photo=PPI, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(180)
+            await dkk.delete()  
+            await message.delete() 
     else:
-        await message.reply_photo(photo=PPI, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+        dlk = await message.reply_photo(photo=PPI, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+        await asyncio.sleep(180)
+        await dkl.delete()  
+        await message.delete() 
     if spoll:
         await msg.message.delete()
 
