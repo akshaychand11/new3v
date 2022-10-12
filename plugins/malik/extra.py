@@ -908,6 +908,6 @@ GHHMN = environ.get("GHHMN", "https://telegra.ph/file/4265c6e3428cd2b060ede.jpg"
 GHHMO = environ.get("GHHMNO", "https://telegra.ph/file/605f4c8b2461c1e4f8123.jpg")
 G_R = environ.get("G_R", "https://telegra.ph/file/0dd95cec0179cb3721d71.jpg")
 COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "/")
-PPI = environ.get("PPI", "https://telegra.ph/file/de5fe5493457965074180.jpg")
+PPI = environ.get("PPI", "https://telegra.ph/file/fd6f54fabecefbef8976a.jpg")
 
 IYGL = environ.get("IYGL", "https://youtu.be/KQSplGRD5gQ")
