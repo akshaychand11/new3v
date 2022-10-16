@@ -67,7 +67,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"⚡️{get_size(file.file_size)}» {file.file_name}", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -79,13 +79,12 @@ async def next_page(bot, query):
                     text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
                 InlineKeyboardButton(
-                    text=f"⚡️{get_size(file.file_size)}»",
-                    url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    text=f"{get_size(file.file_size)}",
+                    callback_data=f'files_#{file.file_id}',
                 ),
             ]
             for file in files
         ]
-
     if 0 < offset <= temp.multi_buttons:
         off_set = 0
     elif offset == 0:
@@ -119,9 +118,9 @@ async def next_page(bot, query):
             InlineKeyboardButton('ʀᴜʟᴇs', callback_data='rules_alert')
         ],
     )
-    btn.insert(1, [
-        InlineKeyboardButton("HOW TODOWNLOAD", url=malik.int_link)
-    ])
+   # btn.insert(1, [
+      #  InlineKeyboardButton("HOW TODOWNLOAD", url=malik.int_link)
+   # ])
     try:
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
@@ -1026,9 +1025,9 @@ async def auto_filter(client, msg, spoll=False):
             InlineKeyboardButton('ʀᴜʟᴇs', callback_data='rules_alert')
         ],
     )
-    btn.insert(1, [
-        InlineKeyboardButton("HOW TODOWNLOAD", url=malik.int_link)
-    ]) 
+   # btn.insert(1, [
+     #   InlineKeyboardButton("HOW TODOWNLOAD", url=malik.int_link)
+   # ]) 
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
     if imdb:
