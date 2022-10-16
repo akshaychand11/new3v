@@ -157,14 +157,12 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         ]
     reply_markup=InlineKeyboardMarkup(buttons)
     if not await db.is_user_verified(user_id):
-        mb = await m.reply_photo(
+        await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-        await asyncio.sleep(20)
-        await mb.delete()
         return 
       # User Verifying
 
