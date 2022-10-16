@@ -1,11 +1,11 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM
+from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORT_URL, SHORTENER_API, SHORTENER_WEBSITE
 from imdb import IMDb
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram import enums
-from typing import Union
+from typing import Union, Union
 import re
 import os
 from datetime import datetime
@@ -375,3 +375,13 @@ def humanbytes(size):
         size /= power
         n += 1
     return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
+
+async def get_shortlink(url):
+    if SHORT_URL:
+        shortzy = Shortzy(SHORTENER_API, SHORTENER_WEBSITE)
+        try:
+            url = await shortzy.convert(url)
+        except Exception as e:
+            url = await shortzy.get_quick_link(url)
+
+    return url
