@@ -37,7 +37,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         await m.reply_photo(
         photo=(MALIK5), 
         caption=(MALIK7.format(message.from_user.mention)), 
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Back to Group",url="https://t.me/sahid_malik"),]]), parse_mode='html')#"You are now verified for next 24 hours. Continue asking movies")
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Back to Group",url="https://t.me/sahid_malik"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")
         return #await client.send_message(LOG_CHANNEL, text)
 
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
@@ -155,7 +155,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
         )
       # User Verifying
     if data.split("-", 1)[0] == "BATCH":
