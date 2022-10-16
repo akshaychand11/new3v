@@ -1,5 +1,5 @@
 from info import BOT_USERNAME, DEL_SECOND
-from plugins.malik.extra import IYGL, PPI, SMART_PIC
+from plugins.malik.extra import IYGL, YTILK, PPI, SMART_PIC
 
 
 
@@ -12,7 +12,7 @@ class malik(object):
       delete = DEL_SECOND
     #  mntf = MNTFN
      # ntatm =  PPI
-     # ytilk = YTILK
+      ytilk = YTILK
      # mqtt = MQTT
      # tfarde = TFRADE
       
