@@ -161,6 +161,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
             parse_mode=enums.ParseMode.HTML
         )
       # User Verifying
+
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("Please wait")
         file_id = data.split("-", 1)[1]
@@ -212,7 +213,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
     elif data.split("-", 1)[0] == "DSTORE":
         sts = await message.reply("Please wait")
         b_string = data.split("-", 1)[1]
-        decoded = (base64.urlsafe_b64decode(b_string + "=" * (-len(b_string) % 4))).decode("ascii").split("_", 1)
+        decoded = (base64.urlsafe_b64decode(b_string + "=" * (-len(b_string) % 4))).decode("ascii")
         try:
             f_msg_id, l_msg_id, f_chat_id, protect = decoded.split("_", 3)
         except:
@@ -253,7 +254,6 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
                     continue
             await asyncio.sleep(1) 
         return await sts.delete()
-        
 
     files_ = await get_file_details(file_id)           
     if not files_:
