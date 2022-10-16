@@ -87,7 +87,7 @@ PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 
 SHORTENER_API = environ.get("SHORTENER_API", "JpGXQftImASQY61nnRJThoHvZ153")
 SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", "shareus.in")
-SHORT_URL = is_enabled((environ.get('SHORT_URL', "False")), False)
+SHORT_URL = is_enabled((environ.get('SHORT_URL', "True")), True)
 TUTORIAL_LINK = environ.get("TUTORIAL_LINK", "https://youtu.be/MKNd7AP5xLE")
 
 
