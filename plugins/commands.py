@@ -141,43 +141,44 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         pre = ""
 
     # User Verifying
+   # user_id = m.from_user.id
+  #  buttons = [
+        #    [
+          #      InlineKeyboardButton(
+           #         text="Verify", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
+              #  ),
+           # ]
+            
+       # ]
+    #reply_markup=InlineKeyboardMarkup(buttons)
+   # if not await db.is_user_verified(user_id):
+      #  return await m.reply_text(f"You'r not verified today. Please verify now and get unlimited access for 1 day\n\n[How To Verify!]({TUTORIAL_LINK})", reply_markup=InlineKeyboardMarkup(buttons))
+
+
+    # User Verifying
+
+    # User Verifying
     user_id = m.from_user.id
     buttons = [
             [
                 InlineKeyboardButton(
-                    text="Verify", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
+                    text="Click to Verify", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
                 ),
-            ]
-            
+            ],
+            [
+                InlineKeyboardButton(
+                    text="How to verify", url=f'https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
+            ]      
         ]
-
+    reply_markup=InlineKeyboardMarkup(buttons)
     if not await db.is_user_verified(user_id):
-        return await m.reply_text(f"You'r not verified today. Please verify now and get unlimited access for 1 day\n\n[How To Verify!]({TUTORIAL_LINK})", reply_markup=InlineKeyboardMarkup(buttons))
-
-
-    # User Verifying
-
-    # User Verifying
-    #user_id = m.from_user.id
-    #buttons = [
-        #    [
-               # InlineKeyboardButton(
-           #         text="Click to Verify", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
-           #     ),
-         #   ],
-        #    [
-          #      InlineKeyboardButton(
-        #            text="How to verify", url=f'https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
-       #     ]      
-     #   ]
-   # reply_markup=InlineKeyboardMarkup(buttons)
-   # if not await db.is_user_verified(user_id):
-      #  await m.reply_photo(
-        #    photo=(MALIK), #caption=(MALIK2)),
-        #    caption=(MALIK2.format(message.from_user.mention)),
-        #    reply_markup=reply_markup,
-        #    parse_mode=enums.ParseMode.HTML
-      #  )
+        await m.reply_photo(
+            photo=(MALIK), #caption=(MALIK2)),
+            caption=(MALIK2.format(message.from_user.mention)),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        return
       # User Verifying
 
     if data.split("-", 1)[0] == "BATCH":
