@@ -80,14 +80,12 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
             InlineKeyboardButton('✅ sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        dmb = await message.reply_photo(
+        await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-        await asyncio.sleep(20) 
-        await dmb.delete()
         return
     if AUTH_CHANNEL and not await is_subscribed(client, message):
         try:
@@ -159,12 +157,14 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         ]
     reply_markup=InlineKeyboardMarkup(buttons)
     if not await db.is_user_verified(user_id):
-        await m.reply_photo(
+        dmb = await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+        await asyncio.sleep(20) 
+        await dmb.delete()
         return 
       # User Verifying
 
