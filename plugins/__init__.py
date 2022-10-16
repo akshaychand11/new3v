@@ -12,7 +12,7 @@ class malik(object):
       delete = DEL_SECOND
     #  mntf = MNTFN
      # ntatm =  PPI
-      ytilk = YTILK
+     # ytilk = YTILK
      # mqtt = MQTT
      # tfarde = TFRADE
       
