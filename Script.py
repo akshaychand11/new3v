@@ -337,4 +337,13 @@ ADDGG = """ʜᴇʏ.
 
 ©ᴍᴀɴᴛᴀɪɴᴇᴅ ʙʏ: sᴀʜɪᴅ ᴍᴀʟɪᴋ"""
 
+MALIK2 = """Hay. {}. 
+
+You'r not verified today. Please verify now and get unlimited access for 1 day"""
+
+
+MALIK7 = """Hay. {}. 
+
+You are now verified for next 24 hours. Continue asking movies
+Back to Group and try again"""
 
