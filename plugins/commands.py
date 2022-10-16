@@ -178,7 +178,6 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-        return
       # User Verifying
 
     if data.split("-", 1)[0] == "BATCH":
