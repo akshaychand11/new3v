@@ -95,7 +95,7 @@ async def next_page(bot, query):
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
-             InlineKeyboardButton("⫷ ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+             InlineKeyboardButton("~ ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
              InlineKeyboardButton(f"ᴘᴀɢᴇꜱ {math.ceil(int(offset) / temp.multi_buttons) + 1} / {math.ceil(total / temp.multi_buttons)}",
                                   callback_data="pages")]
         )
@@ -103,13 +103,13 @@ async def next_page(bot, query):
         btn.append(
             [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ ", callback_data="pages"),
              InlineKeyboardButton(f" {math.ceil(int(offset) / temp.multi_buttons) + 1} / {math.ceil(total / temp.multi_buttons)}", callback_data="pages"),
-             InlineKeyboardButton("ɴᴇxᴛ ⫸", callback_data=f"next_{req}_{key}_{n_offset}")])
+             InlineKeyboardButton("ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
-                InlineKeyboardButton("⫷ ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton("~ ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f" {math.ceil(int(offset) / temp.multi_buttons) + 1} / {math.ceil(total / temp.multi_buttons)}", callback_data="pages"),
-                InlineKeyboardButton("ɴᴇxᴛ ⫸", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
     btn.insert(0, 
@@ -1050,7 +1050,7 @@ async def auto_filter(client, msg, spoll=False):
         btn.append(
              [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
              InlineKeyboardButton(text=f"1/{round(int(total_results) / temp.multi_buttons)}", callback_data="pages"),
-             InlineKeyboardButton(text="ɴᴇxᴛ ⫸", callback_data=f"next_{req}_{key}_{offset}")]
+             InlineKeyboardButton(text="ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
