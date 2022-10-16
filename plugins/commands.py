@@ -34,11 +34,13 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
 
 #NewVerifiedUser"""
         
-        await m.reply_photo(
+        db = await m.reply_photo(
         photo=(MALIK5), 
         caption=(MALIK7.format(message.from_user.mention)), 
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")
         return #await client.send_message(LOG_CHANNEL, text)
+        await asyncio.sleep(20) 
+        await db.delete()
 
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
@@ -155,12 +157,14 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         ]
     reply_markup=InlineKeyboardMarkup(buttons)
     if not await db.is_user_verified(user_id):
-        await m.reply_photo(
+        mb = await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+        await asyncio.sleep(20)
+        await mb.delete()
         return 
       # User Verifying
 
