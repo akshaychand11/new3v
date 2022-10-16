@@ -353,6 +353,25 @@ async def cb_handler(client: Client, query: CallbackQuery):
             alert = alert.replace("\\n", "\n").replace("\\t", "\t")
             await query.answer(alert, show_alert=True)
     if query.data.startswith("file"):
+        # User Verifying
+        user_id = query.from_user.id
+        buttons = [
+                [
+                    [InlineKeyboardButton(
+                        text="Verify", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
+                    ),
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="HOW TODOWNLOAD", url=f'https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')]
+                ]
+                
+            ]
+        if not await db.is_user_verified(user_id):
+            text = f"You'r not verified today. Please verify now and get unlimited access for 1 day",InlineKeyboardMarkup([[InlineKeyboardButton("how to verify", url=f"https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A")]])
+            if query.message.chat.type  == "private":
+                return await query.message.reply_text(text, reply_markup = buttons)
+        # User Verifying 
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
@@ -395,6 +414,24 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except Exception as e:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
+        # User Verifying
+        user_id = query.from_user.id
+        buttons = [
+                [
+                    [InlineKeyboardButton(
+                        text="Verify", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
+                    ),
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="HOW TODOWNLOAD", url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')]
+                ]
+                
+            ]
+        if not await db.is_user_verified(user_id):
+            if query.message.chat.type  == "private":return await query.message.reply_text(f"You'r not verified today. Please verify now and get unlimited access for 1 day",InlineKeyboardMarkup([[InlineKeyboardButton("how to verify", url=f"https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A")]]), reply_markup=InlineKeyboardMarkup(buttons))
+        # User Verifying 
+
         if AUTH_CHANNEL and not await is_subscribed(client, query):
             await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒...\n\n 😳 bro niche diye gye updates channel ko join karo  jab tak aap updates channel join nahi karte tab tak bot apko movie nahi dega! ", show_alert=True)
             return
