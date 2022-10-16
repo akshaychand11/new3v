@@ -35,6 +35,9 @@ CREATOR_NAME = os.environ.get("CREATOR_NAME", "sahid malik")
 BOT_USERNAME = os.environ.get("BOT_USERNAME", "hjhjvjjjvbot")
 
 #part 2
+MALIK = environ.get("malik", "https://telegra.ph/file/a35a995c9c411048adfab.jpg")
+MALIK5 = environ.get("malik5", "https://telegra.ph/file/a00c405a374d21ea7cfb7.jpg")
+
 
 AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
 AUTO_DELETE2 = is_enabled((environ.get('AUTO_DELETE2', "True")), True)
