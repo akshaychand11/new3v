@@ -1,6 +1,6 @@
 # @sahid_malik
 import motor.motor_asyncio
-from info import DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT
+from info import DB_AUTO_DELETE, AUTO_FFILTER, AUTO_DELETE, AUTO_DELETE2, DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT
 from datetime import datetime
 
 class Database:
@@ -113,6 +113,10 @@ class Database:
             'imdb': IMDB,
             'spell_check': SPELL_CHECK_REPLY,
             'welcome': MELCOW_NEW_USERS,
+            'manual_filter': AUTO_DELETE,
+            'auto_deletee': AUTO_DELETE2,
+            'spell_auto_delete': AUTO_FFILTER,
+            'auto_filters': DB_AUTO_DELETE,
             'template': IMDB_TEMPLATE
         }
         chat = await self.grp.find_one({'id':int(id)})
