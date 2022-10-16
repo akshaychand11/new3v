@@ -18,8 +18,27 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
-@Client.on_message(filters.command("start") & filters.incoming)
-async def start(client, message):
+@Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
+async def start(client:Client, message):
+    
+    m = message
+    user_id = m.from_user.id
+    
+    if len(m.command) == 2 and m.command[1].startswith('verify'):
+        user_id = m.command[1].split("_")[1]
+        await db.update_verify_user(user_id, {"last_verified":datetime.now()})
+        text = f"""User ID : `{user_id}`
+Username : {m.from_user.mention}
+Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
+
+#NewVerifiedUser"""
+        
+        await m.reply_photo(
+        photo=(MALIK5), 
+        caption=(MALIK7.format(message.from_user.mention)), 
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Back to Group",url="https://t.me/sahid_malik"),]]), parse_mode='html')#"You are now verified for next 24 hours. Continue asking movies")
+        return #await client.send_message(LOG_CHANNEL, text)
+
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
@@ -116,6 +135,28 @@ async def start(client, message):
     except:
         file_id = data
         pre = ""
+    # User Verifying
+    user_id = m.from_user.id
+    buttons = [
+            [
+                InlineKeyboardButton(
+                    text="Click to Verify", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="How to verify", url=f'https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
+            ]      
+        ]
+    reply_markup=InlineKeyboardMarkup(buttons)
+    if not await db.is_user_verified(user_id):
+        await m.reply_photo(
+            photo=(MALIK), #caption=(MALIK2)),
+            caption=(MALIK2.format(message.from_user.mention)),
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+      # User Verifying
     if data.split("-", 1)[0] == "BATCH":
         sts = await message.reply("Please wait")
         file_id = data.split("-", 1)[1]
