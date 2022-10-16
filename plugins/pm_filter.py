@@ -898,43 +898,66 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if settings is not None:
             buttons = [
                 [
-                    InlineKeyboardButton('Filter Button',
+                    InlineKeyboardButton('Filter Buttons',
                                          callback_data=f'setgs#button#{settings["button"]}#{str(grp_id)}'),
                     InlineKeyboardButton('Single' if settings["button"] else 'Double',
                                          callback_data=f'setgs#button#{settings["button"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('Bot PM', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["botpm"] else '❌ No',
+                    InlineKeyboardButton('Bot pm', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✔ YES' if settings["botpm"] else '❌ NO',
                                          callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}')
                 ],
                 [
                     InlineKeyboardButton('File Secure',
                                          callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["file_secure"] else '❌ No',
+                    InlineKeyboardButton('✔ YES' if settings["file_secure"] else '❌ NO',
                                          callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}')
                 ],
                 [
                     InlineKeyboardButton('IMDB', callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["imdb"] else '❌ No',
+                    InlineKeyboardButton('✔ YES' if settings["imdb"] else '❌ NO',
                                          callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}')
                 ],
                 [
                     InlineKeyboardButton('Spell Check',
                                          callback_data=f'setgs#spell_check#{settings["spell_check"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["spell_check"] else '❌ No',
+                    InlineKeyboardButton('✔ YES' if settings["spell_check"] else '❌ NO',
                                          callback_data=f'setgs#spell_check#{settings["spell_check"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('Welcome', callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["welcome"] else '❌ No',
+                    InlineKeyboardButton('Welcome msg', callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✔ ON' if settings["welcome"] else '❌ OFF',
                                          callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}')
+                ],
+                [
+                    InlineKeyboardButton('Spell Auto Delete',
+                                         callback_data=f'setgs#spell_auto_delete#{settings["spell_auto_delete"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✔ ON' if settings["spell_auto_delete"] else '❌ OFF',
+                                         callback_data=f'setgs#spell_auto_delete#{settings["spell_auto_delete"]}#{str(grp_id)}')
+                ],
+                [
+                    InlineKeyboardButton('Manual filter',
+                                         callback_data=f'setgs#manual_filter#{settings["manual_filter"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✔ ON' if settings["manual_filter"] else '❌ OFF',
+                                         callback_data=f'setgs#manual_filter#{settings["manual_filter"]}#{str(grp_id)}')
+                ],
+                [
+                    InlineKeyboardButton('Movies Auto Delete',
+                                         callback_data=f'setgs#auto_deletee#{settings["auto_deletee"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✔ ON' if settings["auto_deletee"] else '❌ OFf',
+                                         callback_data=f'setgs#auto_deletee#{settings["auto_deletee"]}#{str(grp_id)}')
+                ],
+                [
+                    InlineKeyboardButton('Auto Filter',
+                                         callback_data=f'setgs#auto_filters#{settings["auto_filters"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✔ ON' if settings["auto_filters"] else '❌ OFF',
+                                         callback_data=f'setgs#auto_filters#{settings["auto_filters"]}#{str(grp_id)}')
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
     await query.answer('Piracy Is Crime')
-
 
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
@@ -948,7 +971,7 @@ async def auto_filter(client, msg, spoll=False):
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
                 if settings["spell_check"]:
-                    return await advantage_spell_chok(msg)
+                    return await advantage_spell_chok(msg, message)
                 else:
                     return
         else:
@@ -962,7 +985,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"⚡️{get_size(file.file_size)}» {file.file_name}", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}")
                 ),
             ]
             for file in files
@@ -972,11 +995,11 @@ async def auto_filter(client, msg, spoll=False):
             [
                 InlineKeyboardButton(
                     text=f"{file.file_name}",
-                    callback_data=f'{pre}#{file.file_id}',
+                    url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}")
                 ),
                 InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}",
-                    callback_data=f'{pre}_#{file.file_id}',
+                    text=f"⚡️{get_size(file.file_size)}»",
+                    url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}")
                 ),
             ]
             for file in files
@@ -987,19 +1010,24 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ ", callback_data="pages"),
-             InlineKeyboardButton(text=f"1/{round(int(total_results) / 10)}", callback_data="pages"),
-             InlineKeyboardButton(text="ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{offset}")]
+             [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
+             InlineKeyboardButton(text=f"1/{round(int(total_results) / temp.multi_buttons)}", callback_data="pages"),
+             InlineKeyboardButton(text="ɴᴇxᴛ ⫸", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
             [InlineKeyboardButton(text="🔘 ɴᴏ ᴍᴏʀᴇ ᴘᴀɢᴇs ᴀᴠᴀɪʟᴀʙʟᴇ 🔘", callback_data="pages")]
         )
-    btn.insert(0, [
-        InlineKeyboardButton('ʙᴏᴛ ɪɴғᴏ', callback_data='ss_alert'),
-        InlineKeyboardButton('sᴜʙsᴄʀɪʙᴇ', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A'),
-        InlineKeyboardButton('ʀᴜʟᴇs', callback_data='rules_alert')
-    ])
+    btn.insert(0, 
+        [
+            InlineKeyboardButton('ʙᴏᴛ ɪɴғᴏ', callback_data='ss_alert'),
+            InlineKeyboardButton('sᴜʙsᴄʀɪʙᴇ', url=malik.ytilk),
+            InlineKeyboardButton('ʀᴜʟᴇs', callback_data='rules_alert')
+        ],
+    )
+    btn.insert(1, [
+        InlineKeyboardButton("HOW TODOWNLOAD", url=malik.int_link)
+    ]) 
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
     if imdb:
@@ -1038,24 +1066,42 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-        except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+          ab = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+          if settings['auto_deletee']:
+              await asyncio.sleep(malik.delete)
+              await ab.delete()
+              await message.delete()
+        except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):  
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            if settings['auto_deletee']:
+                abb = await asyncio.sleep(malik.delete)
+                await abb.delete()
+                await message.delete()
         except Exception as e:
             logger.exception(e)
-            await message.reply_photo(photo=PPI, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            abbb = await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            if settings['auto_deletee']:
+                await asyncio.sleep(malik.delete)
+                await abbb.delete()
+                await message.delete()
     else:
-        await message.reply_photo(photo=PPI, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+        abbb = await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+        if settings['auto_deletee']:
+             await asyncio.sleep(malik.delete)
+             await abbb.delete()
+             await message.delete()
     if spoll:
         await msg.message.delete()
 
-async def advantage_spell_chok(msg):
+
+async def advantage_spell_chok(msg, message):
+    settings = await get_settings(message.chat.id)
     query = re.sub(
         r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|br((o|u)h?)*|^h(e|a)?(l)*(o)*|mal(ayalam)?|t(h)?amil|file|that|find|und(o)*|kit(t(i|y)?)?o(w)?|thar(u)?(o)*w?|kittum(o)*|aya(k)*(um(o)*)?|full\smovie|any(one)|with\ssubtitle(s)?)",
         "", msg.text, flags=re.IGNORECASE)  # plis contribute some common words
-    malik = query.strip() + " movie"
+    malik = query.strip()
     g_s = await search_gagala(query)
     g_s += await search_gagala(msg.text)
     gs_parsed = []
@@ -1072,7 +1118,7 @@ async def advantage_spell_chok(msg):
             caption=(MQTT.format(msg.from_user.mention, query)),
             reply_markup=reply_markup                 
         )
-        await asyncio.sleep(12) 
+        await asyncio.sleep(10) 
         await a.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -1139,10 +1185,12 @@ async def advantage_spell_chok(msg):
         caption=(MQTT.format(msg.from_user.mention, query)),
         reply_markup=reply_markup 
     ) 
-    await asyncio.sleep(38)
-    await dl.delete()
-    await asyncio.sleep(290)
-    await dll.delete()   
+    if settings['auto_deletee']:
+        await asyncio.sleep(25)
+        await dl.delete()
+    if settings['auto_deletee']:
+        await asyncio.sleep(180)
+        await dll.delete()   
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
