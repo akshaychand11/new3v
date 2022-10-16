@@ -37,9 +37,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         await m.reply_photo(
         photo=(MALIK5), 
         caption=(MALIK7.format(message.from_user.mention)), 
-        kk, file_id = message.command[1].split("_", 1),
-        pre = 'checksubp' if kk == 'filep' else 'checksub',
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("♻️ Try Again ♻️", callback_data=f"{pre}#{file_id}"),]]),parse_mode=enums.ParseMode.HTML) #InlineKeyboardButton("Back to Group",url="https://t.me/sahid_malik"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")
         return #await client.send_message(LOG_CHANNEL, text)
 
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
