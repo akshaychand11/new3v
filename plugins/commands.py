@@ -80,12 +80,14 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
             InlineKeyboardButton('✅ sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
+        dmb = await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+        await asyncio.sleep(20) 
+        await dmb.delete()
         return
     if AUTH_CHANNEL and not await is_subscribed(client, message):
         try:
