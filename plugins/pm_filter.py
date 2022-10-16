@@ -370,7 +370,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if not await db.is_user_verified(user_id):
             text = f"You'r not verified today. Please verify now and get unlimited access for 1 day",InlineKeyboardMarkup([[InlineKeyboardButton("how to verify", url=f"https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A")]])
             if query.message.chat.type  == "private":
-                return await query.message.reply_text(text, reply_markup = buttons)
+                return # await query.message.reply_text(text, reply_markup = buttons)
         # User Verifying 
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
@@ -429,7 +429,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 
             ]
         if not await db.is_user_verified(user_id):
-            if query.message.chat.type  == "private":return await query.message.reply_text(f"You'r not verified today. Please verify now and get unlimited access for 1 day",InlineKeyboardMarkup([[InlineKeyboardButton("how to verify", url=f"https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A")]]), reply_markup=InlineKeyboardMarkup(buttons))
+            if query.message.chat.type  == "private":return # await query.message.reply_text(f"You'r not verified today. Please verify now and get unlimited access for 1 day",InlineKeyboardMarkup([[InlineKeyboardButton("how to verify", url=f"https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A")]]), reply_markup=InlineKeyboardMarkup(buttons))
         # User Verifying 
 
         if AUTH_CHANNEL and not await is_subscribed(client, query):
