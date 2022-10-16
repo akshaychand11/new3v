@@ -27,6 +27,28 @@ PHT = environ.get("PHT", "https://telegra.ph/file/9b77b96a9d2f5dda7764b.jpg")
 PHTT = environ.get("PHTT", "https://telegra.ph/file/7dc82878492b8f64bb7eb.jpg")
 M_NT_F = environ.get("M_NT_F", "https://telegra.ph/file/b9c8a8240590623ba43ee.jpg")
 
+#part 1
+
+DEL_SECOND = int(os.environ.get("DEL_SECOND", "300"))
+CREATOR_USERNAME = os.environ.get("CREATOR_USERNAME", "sahid_malik")
+CREATOR_NAME = os.environ.get("CREATOR_NAME", "sahid malik")
+BOT_USERNAME = os.environ.get("BOT_USERNAME", "hjhjvjjjvbot")
+
+#part 2
+
+AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
+AUTO_DELETE2 = is_enabled((environ.get('AUTO_DELETE2', "True")), True)
+
+#part 3
+
+FILTER_BUTTONS = os.environ.get("FILTER_BUTTONS", "10")
+DB_AUTO_DELETE = is_enabled((environ.get('DB_AUTO_DELETE', "True")), True)
+AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
+
+
+
+
+
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
