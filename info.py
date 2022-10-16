@@ -60,6 +60,13 @@ MELCOW_NEW_USERS = is_enabled((environ.get('MELCOW_NEW_USERS', "True")), True)
 PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 
+SHORTENER_API = environ.get("SHORTENER_API", "JpGXQftImASQY61nnRJThoHvZ153")
+SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", "shareus.in")
+SHORT_URL = is_enabled((environ.get('SHORT_URL', "False")), False)
+TUTORIAL_LINK = environ.get("TUTORIAL_LINK", "https://youtu.be/MKNd7AP5xLE")
+
+
+
 LOG_STR = "Current Cusomized Configurations are:-\n"
 LOG_STR += ("IMDB Results are enabled, Bot will be showing imdb details for you queries.\n" if IMDB else "IMBD Results are disabled.\n")
 LOG_STR += ("P_TTI_SHOW_OFF found , Users will be redirected to send /start to Bot PM instead of sending file file directly\n" if P_TTI_SHOW_OFF else "P_TTI_SHOW_OFF is disabled files will be send in PM, instead of sending start.\n")
