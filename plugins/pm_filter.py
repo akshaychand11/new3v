@@ -172,7 +172,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         userid = query.from_user.id
         chat_type = query.message.chat.type
 
-        if chat_type == enums.ChatType.PRIVATE:
+        if chat_type == "private":
             grpid = await active_connection(str(userid))
             if grpid is not None:
                 grp_id = grpid
@@ -246,7 +246,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             f"Group Name : **{title}**\nGroup ID : `{group_id}`",
             reply_markup=keyboard,
-            parse_mode=enums.ParseMode.MARKDOWN
+            parse_mode="md"
         )
         return await query.answer('Piracy Is Crime')
     elif "connectcb" in query.data:
