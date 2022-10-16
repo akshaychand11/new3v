@@ -911,3 +911,6 @@ COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "/")
 PPI = environ.get("PPI", "https://telegra.ph/file/fd6f54fabecefbef8976a.jpg")
 
 IYGL = environ.get("IYGL", "https://youtu.be/KQSplGRD5gQ")
+
+REQUEST_ADMIN = environ.get("REQUEST_ADMIN", "https://t.me/m_admins")
+YTILK = environ.get("YTILK", "https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A")
