@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/malik7983/file-filter-bot",
-    "repository": "https://github.com/sahidmalik07/movies-house-bot",
+    "website": "https://github.com/malik7983/file-filter-bot-new",
+    "repository": "https://github.com/Sahidmalik07/movies-house-bot-test",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
@@ -72,23 +72,46 @@
             "value": "True",
             "required": false
         },
+        "FILTER_BUTTONS": {
+            "description": "Result Button Count [minimum 3 : maximum 40]",
+            "value": "10",
+            "required": false
+        },
         "P_TTI_SHOW_OFF": {
             "description": "Customize Result Buttons to Callback or Url by (True = url / False = callback)",
             "value": "True",
             "required": false
         },
+        "IYGL": {
+            "description": "YouTube video link",
+            "value": "https://youtu.be/MKNd7AP5xLE",
+            "required": false
+        },
+        "SHORTENER_API": {
+            "description": "Your Shortner Api Token",
+            "value": "iQ2iqO9EXFbcjek412Dg5j6stWu2",
+            "required": true
+        },
         "SUPPORT_CHAT": {
             "description": "Username of a Support Group / ADMIN. ( Should be username without @ and not ID)",
-            "value": "m_house786",
             "required": false
         },
-        "IMDB_TEMPLATE": {
-            "description": "Customize Yor imdb Result,",
+        "BOT_USERNAME": {
+            "description": "Username of Your bot ( Should be username without @ and not ID)",
             "required": false
         },
-        "CUSTOM_FILE_CAPTION": {
-            "description": "change your file cation,",
+        "CREATOR_NAME": {
+            "description": "Creator Name eg: sahid malik  ( Should be Creator Name without @ and not ID)",
             "required": false
+        },
+        "CREATOR_USERNAME": {
+            "description": "Creator Username Without @ ( Should be username without @ and not ID)",
+            "required": false
+        },
+        "DEL_SECOND": {
+            "description": "Filters Auto Deleting Mode | Use Second Base Eg 60 = 1m 600 = 10m)",
+            "value": "300",
+            "required": true 
         }
     },
     "addons": [],
