@@ -407,7 +407,6 @@ async def settings(client, message):
 
     else:
         return
-
     st = await client.get_chat_member(grp_id, userid)
     if (
             st.status != enums.ChatMemberStatus.ADMINISTRATOR
@@ -415,14 +414,13 @@ async def settings(client, message):
             and str(userid) not in ADMINS
     ):
         return
-
+    
     settings = await get_settings(grp_id)
-
     if settings is not None:
         buttons = [
-            [
+            [      
                 InlineKeyboardButton(
-                    'Filter Button',
+                    'Filter button',
                     callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
@@ -436,7 +434,7 @@ async def settings(client, message):
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["botpm"] else '❌ No',
+                    '✔ Yes' if settings["botpm"] else '❌ No',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
             ],
@@ -446,7 +444,7 @@ async def settings(client, message):
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["file_secure"] else '❌ No',
+                    '✔ Yes' if settings["file_secure"] else '❌ No',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
             ],
@@ -456,35 +454,73 @@ async def settings(client, message):
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["imdb"] else '❌ No',
+                    '✔ Yes' if settings["imdb"] else '❌ No',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
             ],
             [
-
                 InlineKeyboardButton(
                     'Spell Check',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["spell_check"] else '❌ No',
+                    '✔ Yes' if settings["spell_check"] else '❌ No',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Welcome',
+                    'Welcome msg',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["welcome"] else '❌ No',
+                    '✔ Yes' if settings["welcome"] else '❌ No',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    'Spell Auto Delete',
+                    callback_data=f'setgs#spell_auto_delete#{settings["spell_auto_delete"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    '✔ ON' if settings["spell_auto_delete"] else '❌ OFF',
+                    callback_data=f'setgs#spell_auto_delete#{settings["spell_auto_delete"]}#{grp_id}',
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    'Manual Filter',
+                    callback_data=f'setgs#manual_filter#{settings["manual_filter"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    '✔ ON' if settings["manual_filter"] else '❌ OFF',
+                    callback_data=f'setgs#manual_filter#{settings["manual_filter"]}#{grp_id}',
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    'Movies Auto Delete',
+                    callback_data=f'setgs#auto_deletee#{settings["auto_deletee"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    '✔ ON' if settings["auto_deletee"] else '❌ OFF',
+                    callback_data=f'setgs#auto_deletee#{settings["auto_deletee"]}#{grp_id}',
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    'Auto Filter',
+                    callback_data=f'setgs#auto_filters#{settings["auto_filters"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    '✔ ON' if settings["auto_filters"] else '❌ OFF',
+                    callback_data=f'setgs#auto_filters#{settings["auto_filters"]}#{grp_id}',
                 ),
             ],
         ]
 
         reply_markup = InlineKeyboardMarkup(buttons)
-
         await message.reply_text(
             text=f"<b>Change Your Settings for {title} As Your Wish ⚙</b>",
             reply_markup=reply_markup,
