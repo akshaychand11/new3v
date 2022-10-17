@@ -1103,31 +1103,27 @@ async def auto_filter(client, msg, spoll=False):
     if imdb and imdb.get('poster'):
         try:
           ab = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-          if settings['auto_deletee']:
-              await asyncio.sleep(malik.delete)
-              await ab.delete()
-              await message.delete()
+          await asyncio.sleep(malik.delete)
+          await ab.delete()
+          await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):  
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            if settings['auto_deletee']:
-                abb = await asyncio.sleep(malik.delete)
-                await abb.delete()
-                await message.delete()
+            abb = await asyncio.sleep(malik.delete)
+            await abb.delete()
+            await message.delete()
         except Exception as e:
             logger.exception(e)
             abbb = await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            if settings['auto_deletee']:
-                await asyncio.sleep(malik.delete)
-                await abbb.delete()
-                await message.delete()
+            await asyncio.sleep(malik.delete)
+            await abbb.delete()
+            await message.delete()
     else:
         abbb = await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        if settings['auto_deletee']:
-             await asyncio.sleep(malik.delete)
-             await abbb.delete()
-             await message.delete()
+        await asyncio.sleep(malik.delete)
+        await abbb.delete()
+        await message.delete()
     if spoll:
         await msg.message.delete()
 
