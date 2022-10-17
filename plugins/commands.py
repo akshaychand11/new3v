@@ -147,12 +147,12 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
     buttons = [
             [
                 InlineKeyboardButton(
-                    text="Click to Verify", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
+                    text="🔹 Click to Verify 🔹", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    text="How to verify", url=f'https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
+                    text="🌀 How to verify 🌀", url=f'https://youtu.be/R0Fhv079dhQ')
             ]      
         ]
     reply_markup=InlineKeyboardMarkup(buttons)
