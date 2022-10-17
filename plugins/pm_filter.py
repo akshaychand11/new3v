@@ -34,7 +34,6 @@ SPELL_CHECK = {}
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
     settings = await get_settings(message.chat.id)
-    if settings['manual_filter']:
         await manual_filters(client, message)
     if settings['auto_filters']:
         await auto_filter(client, message)
