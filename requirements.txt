@@ -1,4 +1,4 @@
-Pyrogram
+pyrogram==2.0.30
 Tgcrypto
 Pymongo[srv]==3.12.3
 Motor==2.5.1
