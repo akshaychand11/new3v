@@ -1217,12 +1217,11 @@ async def advantage_spell_chok(msg, message):
         caption=(MQTT.format(msg.from_user.mention, query)),
         reply_markup=reply_markup 
     ) 
-    if settings['auto_deletee']:
-        await asyncio.sleep(25)
-        await dl.delete()
-    if settings['auto_deletee']:
-        await asyncio.sleep(180)
-        await dll.delete()   
+    await asyncio.sleep(25)
+    await dl.delete()
+    await message.delete()
+    await asyncio.sleep(180)
+    await dll.delete()   
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
