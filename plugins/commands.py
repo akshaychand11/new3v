@@ -1,8 +1,8 @@
+from datetime import datetime
 import os
 import logging
 import random
 import asyncio
-from datetime import datetime
 from Script import script, ADDG, MALIK7, MALIK2
 from pyrogram import Client, filters, enums 
 from pyrogram.errors import ChatAdminRequired, FloodWait
