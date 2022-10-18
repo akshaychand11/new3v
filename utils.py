@@ -14,7 +14,7 @@ from typing import List
 from database.users_chats_db import db
 from bs4 import BeautifulSoup
 import requests
-
+from shortzy import Shortzy
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
