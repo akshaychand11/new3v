@@ -49,7 +49,7 @@ DB_AUTO_DELETE = is_enabled((environ.get('DB_AUTO_DELETE', "True")), True)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 
 
-
+REQ_GRP = int(environ.get('REQ_GRP'))
 
 
 # Admins, Channels & Users
