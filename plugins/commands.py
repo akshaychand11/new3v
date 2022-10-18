@@ -163,7 +163,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-        await asyncio.sleep(20) 
+        await asyncio.sleep(120) 
         await dmb.delete()
         return 
       # User Verifying
