@@ -2,6 +2,7 @@
 import motor.motor_asyncio
 from info import DB_AUTO_DELETE, AUTO_FFILTER, AUTO_DELETE, AUTO_DELETE2, DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT
 from datetime import datetime
+from datetime import Minute
 
 class Database:
     
@@ -176,7 +177,7 @@ class Database:
             user = await self.get_verify_user(user_id)
             pastMinute = user["last_verified"]
 
-        if (datetime.now() - pastMinute).Minute > 5:
+        if (Minutetime.now() - pastMinute).Minute > 5:
             return False
         else:
             return True
