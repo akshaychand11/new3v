@@ -49,7 +49,7 @@ async def req_grp_results(bot, msg):
     if not files: return
     await msg.reply_text(
     text=(MBGH..format(message.from_user.mention, total_results)),
-    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)', quote = True)      #f'Dear {msg.from_user.mention}!, {total_results} results are already available for your query!', quote = True)
+    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)      #f'Dear {msg.from_user.mention}!, {total_results} results are already available for your query!', quote = True)
     
 
 @Client.on_callback_query(filters.regex(r"^next"))
