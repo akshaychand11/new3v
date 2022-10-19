@@ -171,12 +171,12 @@ class Database:
         user = await self.get_verify_user(user_id)
         
         try:
-            pastTime = user["last_verified"]
+            pastDate = user["last_verified"]
         except:
             user = await self.get_verify_user(user_id)
-            pastTime = user["last_verified"]
+            pastDate = user["last_verified"]
 
-        if (datetime.now() - pastTime).Minute > 5:
+        if (datetime.now() - pastDate).days > 1:
             return False
         else:
             return True
