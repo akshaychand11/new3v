@@ -10,7 +10,7 @@ from Script import script, ALURT_FND, M_NT_FND, ADDGG
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import REQ_GRP, TUTORIAL_LINK, ADMINS, AUTH_CHANNEL, VIDEO_VD, AUTH_USERS, M_NT_F, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
+from info import MBGH, REQ_GRP, TUTORIAL_LINK, ADMINS, AUTH_CHANNEL, VIDEO_VD, AUTH_USERS, M_NT_F, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums 
@@ -47,7 +47,9 @@ async def req_grp_results(bot, msg):
         search = msg.text
         files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
     if not files: return
-    await msg.reply(f'Dear {msg.from_user.mention}!, {total_results} results are already available for your query!', quote = True)
+    await msg.reply(
+           text=(MBGH..format(message.from_user.mention, total_results))
+           reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)       #f'Dear {msg.from_user.mention}!, {total_results} results are already available for your query!', quote = True)
     
 
 @Client.on_callback_query(filters.regex(r"^next"))
