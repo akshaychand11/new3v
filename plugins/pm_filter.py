@@ -48,7 +48,7 @@ async def req_grp_results(bot, msg):
         files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
     if not files: return
     await msg.reply_text(
-    text=(MBGH..format(message.from_user.mention, total_results)),
+    text=(MBGH..format(message.from_user.mention, total_results', quote = True))),
     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)      #f'Dear {msg.from_user.mention}!, {total_results} results are already available for your query!', quote = True)
     
 
