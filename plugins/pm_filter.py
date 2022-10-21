@@ -369,14 +369,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [
                 [
                     InlineKeyboardButton(
-                        text="Verify", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
+                        text="🔹 Click hare to Verify 🔹", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
                     ),
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="🌀 How to verify 🌀", url=f'https://youtu.be/R0Fhv079dhQ')
                 ]
                 
             ]
 
         if not await db.is_user_verified(user_id):
-            text = f"You'r not verified today. Please verify now and get unlimited access for 1 day\n\n[How To Verify!]({TUTORIAL_LINK})"
+            text = f"You'r not verified today. Please verify now and get unlimited access for 1 day)"
             if query.message.chat.type  == "private":
 
                 return await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(buttons))
@@ -431,14 +435,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [
                 [
                     InlineKeyboardButton(
-                        text="Verify", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
+                        text="🔹 Click hare to Verify 🔹", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
                     ),
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="🌀 How to verify 🌀", url=f'https://youtu.be/R0Fhv079dhQ')
                 ]
                 
             ]
 
         if not await db.is_user_verified(user_id):
-            text = f"You'r not verified today. Please verify now and get unlimited access for 1 day\n\n[How To Verify!]({TUTORIAL_LINK})"
+            text = f"You'r not verified today. Please verify now and get unlimited access for 1 day)"
             if query.message.chat.type  == "private":
 
                 return await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(buttons))
