@@ -438,9 +438,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]
 
         if not await db.is_user_verified(user_id):
-            if query.message.chat.type  == "private":return await query.message.reply_text(f"You'r not verified today. Please verify now and get unlimited access for 1 day\n\n[How To Verify!]({TUTORIAL_LINK})", reply_markup=InlineKeyboardMarkup(buttons))
-        # User Verifying 
+            text = f"You'r not verified today. Please verify now and get unlimited access for 1 day\n\n[How To Verify!]({TUTORIAL_LINK})"
+            if query.message.chat.type  == "private":
 
+                return await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(buttons))
+        # User Verifying 
 
         if AUTH_CHANNEL and not await is_subscribed(client, query):
             await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒", show_alert=True)
