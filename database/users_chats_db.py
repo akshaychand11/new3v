@@ -2,8 +2,6 @@
 import motor.motor_asyncio
 from info import DB_AUTO_DELETE, AUTO_FFILTER, AUTO_DELETE, AUTO_DELETE2, DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT
 from datetime import datetime
-from plugins.malik import malik 
-
 
 class Database:
     
@@ -173,12 +171,12 @@ class Database:
         user = await self.get_verify_user(user_id)
         
         try:
-            10:20pm = user["last_verified"]
+            pastDays = user["last_verified"]
         except:
             user = await self.get_verify_user(user_id)
-            10:20pm = user["last_verified"]
+            pastDays = user["last_verified"]
 
-        if (datetime.now() - 10:20pm)minutes > 5:
+        if (datetime.now() - pastDays)days > 1:
             return False
         else:
             return True
