@@ -176,7 +176,7 @@ class Database:
             user = await self.get_verify_user(user_id)
             pastDate = user["last_verified"]
 
-        if (datetime.now() - pastDate).days > 1:
+        if (datetime.now() - pastDate).1Hours > 1:
             return False
         else:
             return True
