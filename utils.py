@@ -1,6 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import CREATOR_USERNAME, CREATOR_NAME, FILTER_BUTTONS, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORT_URL, SHORTENER_API, SHORTENER_WEBSITE
+from info import DELL_SECOND, CREATOR_USERNAME, CREATOR_NAME, FILTER_BUTTONS, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORT_URL, SHORTENER_API, SHORTENER_WEBSITE
 from imdb import IMDb
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
@@ -44,6 +44,7 @@ class temp(object):
     multi_buttons = int(FILTER_BUTTONS)
     NAME = CREATOR_NAME
     USERNAME = CREATOR_USERNAME
+    dell_second = DELL_SECOND
 
 async def is_subscribed(bot, query):
     try:
