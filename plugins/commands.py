@@ -308,6 +308,8 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
                     InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url="https://t.me/+FAgX05kGByNkZjJl")
                     ],[
                     InlineKeyboardButton('💢 DEPLOY YOURS 💢',url="https://youtu.be/v7Vbu3u_VrE") 
+                    ],[
+                    InlineKeyboardButton('💢 Share Link 💢', url=f"https://t.me/share/"),
                 ]
             ]
         )
