@@ -11,7 +11,8 @@ class malik(object):
       smart_pic = SMART_PIC 
       delete = DEL_SECOND
       dell_second = DELL_SECOND
-      mntf = MNTFN
+      notfoun = IYGL
+     # mntf = MNTFN
       #ntatm =  PPI
       ytilk = YTILK
      # mqtt = MQTT
