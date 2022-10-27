@@ -428,7 +428,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         ]
                     ]
                 )
-            )
             else:
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
                 # print(query.message.chat.type)
