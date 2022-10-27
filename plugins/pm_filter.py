@@ -414,7 +414,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                dl = await client.send_cached_media(
+                await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
