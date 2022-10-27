@@ -418,17 +418,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                    protect_content=True if ident == "filep" else False),
-                    reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                          InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url="https://t.me/+FAgX05kGByNkZjJl")
-                          ],[
-                          InlineKeyboardButton('💢 DEPLOY YOURS 💢',url="https://youtu.be/v7Vbu3u_VrE") 
-                        ]
-                    ]
+                    protect_content=True if ident == "filep" else False
                 )
-            else:
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
                 # print(query.message.chat.type)
                 #if not query.message.chat.type  == "private":await query.answer('Check PM, I have sent files in pm', show_alert=True)
