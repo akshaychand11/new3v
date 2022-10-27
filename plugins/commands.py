@@ -309,7 +309,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
                     ],[
                     InlineKeyboardButton('💢 DEPLOY YOURS 💢',url="https://youtu.be/v7Vbu3u_VrE") 
                     ],[
-                    InlineKeyboardButton('💢 Share Link 💢', url=f"https://t.me/share/file?={file_id}"),
+                    InlineKeyboardButton('💢 Share Link 💢', url=f"https://t.me/share/file?={files.file_name}"),
                 ]
             ]
         )
