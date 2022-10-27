@@ -429,8 +429,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     ]
                 )
             )
-            await asyncio.sleep(298)
-            await dl.delete()
+            else:
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
                 # print(query.message.chat.type)
                 #if not query.message.chat.type  == "private":await query.answer('Check PM, I have sent files in pm', show_alert=True)
