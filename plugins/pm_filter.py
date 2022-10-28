@@ -426,9 +426,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?_{ident}_{file_id}")
+            await query.answer(url=f"https://t.me/{temp.U_NAME}?")
         except Exception as e:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?_{ident}_{file_id}")
+            await query.answer(url=f"https://t.me/{temp.U_NAME}?")
     elif query.data.startswith("checksub"):
         # User Verifying
         user_id = query.from_user.id
