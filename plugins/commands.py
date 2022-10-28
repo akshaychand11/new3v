@@ -302,16 +302,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         file_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url="https://t.me/+FAgX05kGByNkZjJl")
-                    ],[
-                    InlineKeyboardButton('💢 DEPLOY YOURS 💢',url="https://youtu.be/v7Vbu3u_VrE") 
-                ]
-            ]
-        )
-    )
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url=malik.grp_it_lk)],[InlineKeyboardButton("⚙ DEPLOY YOURS", url=malik.dp_yrs),]]),parse_mode=enums.ParseMode.HTML)   
     await asyncio.sleep(298)
     await dl.delete()
   
