@@ -919,5 +919,5 @@ YTILK = environ.get("YTILK", "https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr
 GRP_IT_LK = environ.get("GRP_IT_LK", "https://t.me/+FAgX05kGByNkZjJl")
 
 
-DL_YRS = environ.get("DL_YRS", "https://youtu.be/v7Vbu3u_VrE")
+DP_YRS = environ.get("DL_YRS", "https://youtu.be/v7Vbu3u_VrE")
 
