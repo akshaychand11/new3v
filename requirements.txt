@@ -45,3 +45,4 @@ TgCrypto
 pymongo
 dnspython
 ujson
+malik
