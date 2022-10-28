@@ -916,8 +916,8 @@ REQUEST_ADMIN = environ.get("REQUEST_ADMIN", "https://t.me/m_admins")
 YTILK = environ.get("YTILK", "https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A")
 
 
-J_GROUP = environ.get("J_GROUP", "https://t.me/+FAgX05kGByNkZjJl")
+GRP_IT_LK = environ.get("GRP_IT_LK", "https://t.me/+FAgX05kGByNkZjJl")
 
 
-J_GROUP2 = environ.get("J_GROUP2", "https://youtu.be/KQSplGRD5gQ")
+DL_YRS = environ.get("DL_YRS", "https://youtu.be/v7Vbu3u_VrE")
 
