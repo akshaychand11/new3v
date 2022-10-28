@@ -12,7 +12,7 @@ from database.users_chats_db import db
 from info import TUTORIAL_LINK, MALIK, MALIK5, CHANNELS, ADMINS, AUTH_CHANNEL, PHTT, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT
 from utils import get_settings, get_shortlink, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
-from malik import malik
+from malik import MALIK
 import re
 import json
 import base64
@@ -303,7 +303,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         file_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url=malik.grp_it_lk)],[InlineKeyboardButton("⚙ DEPLOY YOURS", url=malik.dp_yrs),]]),parse_mode=enums.ParseMode.HTML)   
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url=MALIK.grp_it_lk)],[InlineKeyboardButton("⚙ DEPLOY YOURS", url=MALIK.dp_yrs),]]),parse_mode=enums.ParseMode.HTML)   
     await asyncio.sleep(298)
     await dl.delete()
   
