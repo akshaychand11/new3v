@@ -1,5 +1,5 @@
 from info import BOT_USERNAME, DEL_SECOND, DELL_SECOND
-from plugins.malik.extra import IYGL, J_GROUP, J_GROUP2, YTILK, PPI, SMART_PIC
+from plugins.malik.extra import IYGL, GRP_IT_LK, DP_YRS, YTILK, PPI, SMART_PIC
 
 
 
@@ -11,8 +11,8 @@ class malik(object):
       smart_pic = SMART_PIC 
       delete = DEL_SECOND
       dell_second = DELL_SECOND
-      j_group = J_GROUP
-      j_group2 = J_GROUP2
+      grp_it_lk = GRP_IT_LK
+      dp_yrs = DP_YRS
       notfoun = IYGL
      # mntf = MNTFN
       #ntatm =  PPI
