@@ -5,7 +5,6 @@ Motor==2.5.1
 Marshmallow==3.14.1
 Umongo==3.0.1
 shortzy
-malik
 Requests
 Aiofiles
 imdbpy==2021.4.18
