@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 import re
 from pyrogram.errors import UserNotParticipant
 from database.ia_filterdb import get_search_results, get_file_details
-from utils import get_size, is_subscribed, get_poster
+from utils import is_subscribed, get_poster
 import random
 BUTTONS = {}
 BOT = {}
@@ -93,5 +93,22 @@ async def filter(client, message):
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
         await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
-        return
+        
+
+def get_size(size):
+    """Get size in readable format"""
+
+    units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
+    size = float(size)
+    i = 0
+    while size >= 1024.0 and i < len(units):
+        i += 1
+        size /= 1024.0
+    return "%.2f %s" % (size, units[i])
+
+def split_list(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i + n]          
+
+
 
