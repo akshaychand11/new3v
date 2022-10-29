@@ -80,7 +80,7 @@ async def get_search_results(query, file_type=None, max_results=temp.multi_butto
     elif ' ' not in query:
         raw_pattern = r'(\b|[\.\+\-_])' + query + r'(\b|[\.\+\-_])'
     else:
-        raw_pattern = query.replace('', r'.*[\s\.\+\-_]')
+        raw_pattern = query.replace(' ', r'.*[\s\.\+\-_]')
     
     try:
         regex = re.compile(raw_pattern, flags=re.IGNORECASE)
@@ -118,31 +118,6 @@ async def get_file_details(query):
     cursor = Media.find(filter)
     filedetails = await cursor.to_list(length=1)
     return filedetails
-async def get_filter_results(query):
-    query = query.strip()
-    if not query:
-        raw_pattern = '.'
-    elif ' ' not in query:
-        raw_pattern = r'(\b|[\.\+\-_])' + query + r'(\b|[\@\.\+\-_])'
-    else:
-        raw_pattern = query.replace('', r'.*[\s\.\+\-_]')
-    try:
-        regex = re.compile(raw_pattern, flags=re.IGNORECASE)
-    except:
-        return []
-    filter = {'file_name': regex}
-    total_results = await Media.count_documents(filter)
-    cursor = Media.find(filter)
-    cursor.sort('$natural', -1)
-    files = await cursor.to_list(length=int(total_results))
-    return files
-
-async def get_file_details(query):
-    filter = {'file_id': query}
-    cursor = Media.find(filter)
-    file_details_pr0fess0r99 = await cursor.to_list(length=1)
-    return file_details_pr0fess0r99
-
 
 
 def encode_file_id(s: bytes) -> str:
