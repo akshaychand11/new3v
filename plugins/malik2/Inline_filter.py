@@ -6,6 +6,7 @@ import re
 from pyrogram.errors import UserNotParticipant
 from database.ia_filterdb import get_search_results, get_file_details
 from utils import is_subscribed, get_poster
+from plugins import malik 
 import random
 BUTTONS = {}
 BOT = {}
@@ -233,7 +234,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}')
+                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=malik.dp_yrs)
                     ]
                     ]
                 
@@ -264,7 +265,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}')
+                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=malik.dp_yrs)
                     ]
                     ]
                 
