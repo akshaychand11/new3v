@@ -57,7 +57,7 @@ async def filter(client, message):
         btn = []
         search = message.text
         mo_tech_yt = f"**🗂️ Title:** {search}\n**📤 Uploaded by {message.chat.title}**"
-        files = await get_search_results(query=search)
+        files = await get_search_results(search.lower(), filter=True)
         if files:
             for file in files:
                 file_id = file.file_id
