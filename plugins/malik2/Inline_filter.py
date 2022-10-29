@@ -83,7 +83,7 @@ async def filter(client, message):
             buttons.append(
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
-                await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -95,7 +95,7 @@ async def filter(client, message):
         buttons.append(
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
-            await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
+        await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
 
 def get_size(size):
