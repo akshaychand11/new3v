@@ -53,7 +53,7 @@ async def filter(client, message):
     if 2 < len(message.text) < 100:    
         btn = []
         search = message.text
-        files = await get_search_results(query=search)
+        files = await get_search_results(search.lower())
         if files:
             for file in files:
                 file_id = file.file_id
