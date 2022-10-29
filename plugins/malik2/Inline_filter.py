@@ -412,11 +412,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 print(query.message.chat.type)
                 if not query.message.chat.type  == "private":await query.answer('Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
-            #await query.answer('Unblock the bot mahn !', show_alert=True)
+            await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
-            #await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await query.answer(url=f"callback_data=f'files#{ident}_{file_id}")
         except Exception as e:
-            #await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await query.answer(url=f"callback_data=f'files#{ident}_{file_id}")
     elif query.data.startswith("checksub"):
         # User Verifying
         user_id = query.from_user.id
