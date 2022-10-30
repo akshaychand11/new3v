@@ -5,7 +5,7 @@ from plugins.malik.extra import PM_FILTER, G_FILTER, GHHMT, STTS, PPC, WCM, WCM_
 from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import MAINTENANCE_MODE, AUTH_USERS, ADMINS, LOG_CHANNEL, PHT, SUPPORT_CHAT, MELCOW_NEW_USERS
+from info import PM_MAINTENANCE_MODE, MAINTENANCE_MODE, AUTH_USERS, ADMINS, LOG_CHANNEL, PHT, SUPPORT_CHAT, MELCOW_NEW_USERS
 from database.users_chats_db import db
 from database.ia_filterdb import Media
 from utils import get_size, temp, get_settings
@@ -302,7 +302,7 @@ async def list_chats(bot, message):
 
 @Client.on_message(filters.text & filters.private & filters.incoming)
 async def give_filter(client, message):
-    if MAINTENANCE_MODE:
+    if PM_MAINTENANCE_MODE:
         if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
             k = await manual_filters(client, message)
             if k == False:
