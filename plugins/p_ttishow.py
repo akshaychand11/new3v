@@ -6,7 +6,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 import asyncio
 from plugins import malik 
-from plugins.malik.extra import GHHMT, STTS, PPC, WCM, WCM_P
+from plugins.malik.extra import PM_FILTER GHHMT, STTS, PPC, WCM, WCM_P
 from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
@@ -313,12 +313,7 @@ async def give_filter(client, message):
             if k == False:
                 await auto_filter(client, message)
         else:
-            await message.reply_text(text=malik.pmfilters)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")      
-
-    else:
-        k = await manual_filters(client, message)
-        if k == False:
-            await auto_filter(client, message)
+            await message.reply_text(text=(PM_FILTER), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")      
 
 
 
