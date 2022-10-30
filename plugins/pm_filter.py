@@ -31,7 +31,7 @@ logger.setLevel(logging.ERROR)
 BUTTONS = {}
 SPELL_CHECK = {}
 
-@Client.on_message(filters.text & filters.private & filter.text & filters.incoming)
+@Client.on_message(filters.text & filters.private & filters.incoming)
 async def give_filter(client, message):
     if MAINTENANCE_MODE:
         if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
@@ -47,10 +47,10 @@ async def give_filter(client, message):
       #  ]
        # ]
             await message.reply_text(f"🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nService is 𝕔𝕝𝕠𝕤𝕖𝕕 for 𝟮 𝘄𝗲𝗲𝗸𝘀.\nwill start again by <u>next month.</u>.\n\n𝖡𝗒 𝗍𝗁𝗂𝗌 𝗍𝗂𝗆𝖾, 𝖬𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 <b>you have 𝗌𝗎𝖻𝗌𝖼𝗋𝗂𝖻𝖾𝖽 CINEMA HUB group👇🏻</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML) 
-   # else:
-      #  k = await manual_filters(client, message)
-      #  if k == False:
-          #  await auto_filter(client, message)
+    else:
+        k = await manual_filters(client, message)
+        if k == False:
+            await auto_filter(client, message)
 
 @Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
 async def give_filter(client, message):
