@@ -36,7 +36,7 @@ SPELL_CHECK = {}
 async def give_filter(client, message):
     if MAINTENANCE_MODE:
         if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
-            k = await manual_filters(client, message)
+            k = await manual_filter(client, message)
             if k == False:
                 await auto_filter(client, message)
         else:
