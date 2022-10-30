@@ -31,7 +31,7 @@ logger.setLevel(logging.ERROR)
 BUTTONS = {}
 SPELL_CHECK = {}
 
-@Client.on_message(filters.text & filters.text & filters.incoming)
+@Client.on_message(filters.text & filters.private & filter.text & filters.incoming)
 async def give_filter(client, message):
     if MAINTENANCE_MODE:
         if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
