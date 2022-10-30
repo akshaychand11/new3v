@@ -927,7 +927,7 @@ GRP_IT_LK = environ.get("GRP_IT_LK", "https://t.me/+FAgX05kGByNkZjJl")
 
 DP_YRS = environ.get("DL_YRS", "https://youtu.be/v7Vbu3u_VrE")
 
-G_FILTER = """Hy. {}.\n\nService is 𝕔𝕝𝕠𝕤𝕖𝕕 for 30 minutes .\n\n<u>bot in Maintenance plz wait 30 minutes</u>.\n\nJoim Backup Channel 👇🏻"""
+G_FILTER = """Hy. {}.\n\n Service is 𝕔𝕝𝕠𝕤𝕖𝕕 for 30 minutes .\n\n<u>bot in Maintenance plz wait 30 minutes</u>.\n\nJoin Backup channel for updates 👇🏻"""
 
 PM_FILTER = """Hy. {}.\n\nDo not request here😡\nThis chat is only for <u>movie delevery</u>.\n\n<b>Tell your query in Movies House group👇🏻</b>"""
 
