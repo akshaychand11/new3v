@@ -1,3 +1,12 @@
+#sahid malik
+from info import MAINTENANCE_MODE, AUTH_USERS
+from pyrogram import Client, filters, enums 
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
+
+
+
+
 @Client.on_message(filters.text & filters.private & filters.incoming)
 async def give_filter(client, message):
     if MAINTENANCE_MODE:
@@ -12,5 +21,4 @@ async def give_filter(client, message):
         k = await manual_filters(client, message)
         if k == False:
             await auto_filter(client, message)
-
 
