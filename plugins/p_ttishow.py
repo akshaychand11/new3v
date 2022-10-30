@@ -313,7 +313,7 @@ async def give_filter(client, message):
             if k == False:
                 await auto_filter(client, message)
         else:
-            await message.reply_text(text=malik.pmfilters", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")      
+            await message.reply_text(text=malik.pmfilters)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")      
 
     else:
         k = await manual_filters(client, message)
