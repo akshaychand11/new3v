@@ -9,7 +9,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 @Client.on_message(filters.text & filters.private & filters.incoming)
 async def give_filter(client, message):
-    if MAINTENANCE_MODE:
+    if PM_MAINTENANCE_MODE:
         if AUTH_USERS and message.from_user and message.from_user.id in AUTH_USERS:
             k = await manual_filters(client, message)
             if k == False:
