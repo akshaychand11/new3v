@@ -55,18 +55,6 @@ class evamaria(Client):
 #sahid malik
 
 
-@Client.on_message(filters.text & filters.private & filters.incoming)
-async def botinfo(client, message):
-    if len(message.command):
-        reply_markup = malik7.hstnb
-        await message.reply_photo(
-            photo=(GHHMO),
-            caption=(GHHMM.format(message.from_user.mention)),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-
-
 
 
 
