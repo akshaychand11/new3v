@@ -308,7 +308,7 @@ async def give_filter(client, message):
             if k == False:
                 await auto_filter(client, message)
         else:
-            await message.reply_text(text=(PM_FILTER.format(message.from_user.mention)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡️ Movies House Group ⚡️",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")      
+            await message.reply_text(text=(G_FILTER.format(message.from_user.mention)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡️ Movies House Group ⚡️",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")      
 
 
 
