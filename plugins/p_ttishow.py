@@ -6,7 +6,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 import asyncio
 from plugins import malik 
-from plugins.malik.extra import PM_FILTER, GHHMT, STTS, PPC, WCM, WCM_P
+from plugins.malik.extra import PM_FILTER, G_FILTER GHHMT, STTS, PPC, WCM, WCM_P
 from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
@@ -313,8 +313,7 @@ async def give_filter(client, message):
             if k == False:
                 await auto_filter(client, message)
         else:
-            await message.reply_text(
-                               text=(PM_FILTER. reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")      
+            await message.reply_text(text=(G_FILTER.format(message.from_user.mention)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")      
 
 
 
@@ -326,10 +325,5 @@ async def give_filter(client, message):
             if k == False:
                 await auto_filter(client, message)
         else:
-            await message.reply_text(f"🔰𝗡𝗢𝗧𝗜𝗖𝗘🔰\n\nService is 𝕔𝕝𝕠𝕤𝕖𝕕 for 𝟮 𝘄𝗲𝗲𝗸𝘀.\nwill start again by <u>next month.</u>.\n\n𝖡𝗒 𝗍𝗁𝗂𝗌 𝗍𝗂𝗆𝖾, 𝖬𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 <b>you have 𝗌𝗎𝖻𝗌𝖼𝗋𝗂𝖻𝖾𝖽 CINEMA HUB group👇🏻</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")      
-
-    else:
-        k = await manual_filters(client, message)
-        if k == False:
-            await auto_filter(client, message)
+            await message.reply_text(text=(PM_FILTER.format(message.from_user.mention)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Back to Group 🚶",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)#"You are now verified for next 24 hours. Continue asking movies")      
 
