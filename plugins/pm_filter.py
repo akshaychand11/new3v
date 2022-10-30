@@ -31,7 +31,7 @@ logger.setLevel(logging.ERROR)
 BUTTONS = {}
 SPELL_CHECK = {}
 
-@Client.on_message(filters.group & filters.private & filters.text & filters.incoming)
+@Client.on_message(filters.group & filters.private & filters.text & filters.incoming & filters.chat(REQ_GRP))
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
