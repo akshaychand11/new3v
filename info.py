@@ -110,5 +110,5 @@ DELL_SEC = int(os.environ.get("DELL_SECOND", "60"))
 DELL_SECOND = int(os.environ.get("DELL_SECOND", "60"))
 
 MBGH = """Hay {}.\n\n {} results are already available for your query"""
-MAINTENANCE_MODE = is_enabled((environ.get('MAINTENANCE_MODE', "True")), True)
+MAINTENANCE_MODE = is_enabled((environ.get('MAINTENANCE_MODE', "False")), False)
 
