@@ -1028,7 +1028,7 @@ async def auto_filter(client, msg, spoll=False):
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
         if 2 < len(message.text) < 100:
-            search = message.text.replace('(', '').replace(')', '').replace('@', '').replace('movie', '').replace('[', '').replace(']', '').replace('gujarati', '').replace('gujrati', '').replace('punjabi', '').replace('marathi', '')
+            search = message.text.replace('(', '').replace(')', '').replace('@', '').replace('movie', '').replace('[', '').replace(']', '').replace('gujarati', '').replace('gujrati', '').replace('punjabi', '').replace('marathi', '').replace('movies', '').replace(':', '').replace(',', '')
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
                 if settings["spell_check"]:
