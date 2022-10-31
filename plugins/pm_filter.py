@@ -42,7 +42,7 @@ async def give_filter(client, message):
 
 
 
-@Client.on_message(filters.text & filters.private & filters.incoming)
+@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
 async def req_grp_results(bot, msg):
     if msg.text.startswith("/"): return
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", msg.text):
@@ -52,16 +52,7 @@ async def req_grp_results(bot, msg):
         search = msg.text
         files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
     if not files: return
-    #await msg.reply(f'Dear. {msg.from_user.mention} ! \n\n<code>{total_results}</code>   results are already available for your request <code>{search}</code> in our bot..\n\n plz Go back main group and tipe movie name 👇',  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔸 Main Group 🔸",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML),
-
-    await client.send_cached_media(
-        chat_id=query.from_user.id,
-        file_id=file_id,
-        caption=f_caption,
-        protect_content=True if ident == "filep" else False,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url=malik.grp_it_lk)],[InlineKeyboardButton("⚙ DEPLOY YOURS", url=malik.dp_yrs),]]),parse_mode=enums.ParseMode.HTML)
-               # await query.answer('Check PM, I have sent files in pm', show_alert=True)
-                # print(query.message.chat.type)
+    await msg.reply(f'Dear. {msg.from_user.mention} ! \n\n<code>{total_results}</code>   results are already available for your request <code>{search}</code> in our bot..\n\n plz Go back main group and tipe movie name 👇',  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔸 Main Group 🔸",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML),
 
 
 
