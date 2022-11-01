@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
 
-client = {}
+replace = {}
 BUTTONS = {}
 SPELL_CHECK = {}
 
