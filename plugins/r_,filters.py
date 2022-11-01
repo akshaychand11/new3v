@@ -97,9 +97,6 @@ async def filter(client, message):
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
         await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
-    else:
-        await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
-
 
 
     
