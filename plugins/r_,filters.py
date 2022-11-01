@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 import re
 from pyrogram.errors import UserNotParticipant
 from database.ia_filterdb import get_filter_results, get_file_details
-from utils import is_subscribed
+from utils import is_subscribed, temp
 
 import random
 BUTTONS = {}
@@ -70,8 +70,8 @@ async def filter(client, message):
         if not btn:
             return
 
-        if len(btn) > 5: 
-            btns = list(split_list(btn, 10)) 
+        if len(btn) > temp.multi_buttons: 
+            btns = list(split_list(btn, temp.multi_buttons)) 
             keyword = f"{message.chat.id}-{message.id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
