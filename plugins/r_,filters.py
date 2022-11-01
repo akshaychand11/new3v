@@ -4,7 +4,8 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram import Client, filters
 import re
 from pyrogram.errors import UserNotParticipant
-from database.ia_filterdb import get_filter_results, get_file_details, is_subscribed
+from database.ia_filterdb import get_filter_results, get_file_details
+from utils import is_subscribed
 
 import random
 BUTTONS = {}
