@@ -1,11 +1,11 @@
 # (c) PR0FESS0R-99
-from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, TUTORIAL
+from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, TUTORIAL, API_KEY
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
 import re
 from pyrogram.errors import UserNotParticipant
 from database.ia_filterdb import get_filter_results, get_file_details
-from utils import is_subscribed, temp
+from utils import is_subscribed, temp, get_poster
 from plugins import malik 
 
 import random
