@@ -6,6 +6,7 @@ import re
 from pyrogram.errors import UserNotParticipant
 from database.ia_filterdb import get_filter_results, get_file_details
 from utils import is_subscribed, temp
+from plugins import malik 
 
 import random
 BUTTONS = {}
@@ -54,7 +55,7 @@ async def filter(client, message):
     if 2 < len(message.text) < 100:    
         btn = []
         search = message.text
-        mo_tech_yt = f"**🗂️ Title:** {search}\n**"
+        cap = f"**🗂️ Title:** {search}\n**"
         files = await get_filter_results(query=search)
         if files:
             for file in files:
@@ -82,7 +83,7 @@ async def filter(client, message):
             buttons.append(
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
-            await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(btn))
+            await message.reply_text(photo=malik.smart_pic, caption=cap,  reply_markup=InlineKeyboardMarkup(btn))
        # else:
             #await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
         return
@@ -96,7 +97,7 @@ async def filter(client, message):
         buttons.append(
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
         )
-        await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(btn))
+        await message.reply_text(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
 
 
     
