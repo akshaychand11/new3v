@@ -30,6 +30,9 @@ VIDEO_VD = environ.get("VIDEO_VD", "https://telegra.ph/file/566ff238e36d9f242556
 PHT = environ.get("PHT", "https://telegra.ph/file/9b77b96a9d2f5dda7764b.jpg")
 PHTT = environ.get("PHTT", "https://telegra.ph/file/7dc82878492b8f64bb7eb.jpg")
 M_NT_F = environ.get("M_NT_F", "https://telegra.ph/file/b9c8a8240590623ba43ee.jpg")
+TUTORIAL = environ.get("M_NT_F", "https://telegra.ph/file/b9c8a8240590623ba43ee.jpg")
+
+
 
 #part 1
 
