@@ -66,7 +66,7 @@ async def auto_filter(client, msg, spoll=False):
             mo_tech_yt = f"**🗂️ Title:** {search}\n**"
             files = await get_filter_results(query=search)
             if files:
-                    for file in files:
+                for file in files:
                     file_id = file.file_id
                     filename = f"[{get_size(file.file_size)}] {file.file_name}"
                     btn.append(
