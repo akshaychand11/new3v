@@ -52,7 +52,7 @@ async def filter(client, message):
             return
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
-    if 2 < len(message.text) < 100:    
+    if 2 < len(message.text) < 50:    
         btn = []
         search = message.text
         mo_tech_yt = f"**🗂️ Title:** {search}\n**"
