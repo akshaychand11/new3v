@@ -4,7 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram import Client, filters
 import re
 from pyrogram.errors import UserNotParticipant
-from database.ia_filterdb import get_filter_results, get_file_details
+from database.ia_filterdb import get_filter_results, get_file_details, file_id
 from utils import is_subscribed, temp, get_poster
 from plugins import malik 
 
