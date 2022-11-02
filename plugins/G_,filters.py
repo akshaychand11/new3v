@@ -55,7 +55,7 @@ async def filter(client, message):
                 disable_web_page_preview=True
             )
             return
-async def filter(client, msg, spoll):
+#async def filter(client, msg, spoll):
     message = msg
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
