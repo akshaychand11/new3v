@@ -231,7 +231,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data.startswith("pr0fess0r_99"):
             idents, file_ids = query.data.split("#")
-            filedetails = await get_file_details(file_id)
+            filedetails = await get_file_details(file_ids)
             for files in filedetails:
                 title = files.file_name
                 size=files.file_size
