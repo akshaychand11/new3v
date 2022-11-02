@@ -61,7 +61,7 @@ async def filter(client, message):
         files = await get_filter_results(query=search)
         if files:
             for file in files:
-                file_ids = file.file_id
+                file_id = file.file_id
                 filename = f"[{get_size(file.file_size)}] {file.file_name}"
                 btn.append(
                     [InlineKeyboardButton(text=f"{filename}",callback_data=f"pr0fess0r_99#{file_ids}")]
