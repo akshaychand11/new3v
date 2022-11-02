@@ -132,7 +132,7 @@ async def get_filter_results(query):
     return files
 
 async def get_file_details(query):
-    filter = {'file_id': query}
+    filter = {'file_ids': query}
     cursor = Media.find(filter)
     filedetails = await cursor.to_list(length=1)
     return filedetails
