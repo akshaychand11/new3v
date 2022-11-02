@@ -7,7 +7,7 @@ from pyrogram.errors import UserNotParticipant
 from database.ia_filterdb import get_filter_results, get_file_details
 from utils import is_subscribed, temp, get_poster
 from plugins import malik 
-from plugins.pm.filter import advantage_spell_chok
+from plugins.pm_filter import advantage_spell_chok
 
 import random
 BUTTONS = {}
