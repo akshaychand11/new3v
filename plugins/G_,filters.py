@@ -15,7 +15,7 @@ BOT = {}
 
 
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
-async def filter(client, message):
+async def filter(client, msg, message):
     if message.text.startswith("/"):
         return
     if AUTH_CHANNEL:
@@ -67,7 +67,8 @@ async def filter(client, message):
                     [InlineKeyboardButton(text=f"{filename}",callback_data=f"pr0fess0r_99#{file_id}")]
                     )
         else:
-            await client.send_sticker(chat_id=message.from_user.id, sticker='CAADBQADMwIAAtbcmFelnLaGAZhgBwI')
+            await advantage_spell_chok(msg, message)
+            #await client.send_sticker(chat_id=message.from_user.id, sticker='CAADBQADMwIAAtbcmFelnLaGAZhgBwI')
             return
 
         if not btn:
