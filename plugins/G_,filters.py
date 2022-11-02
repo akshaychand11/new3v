@@ -283,8 +283,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 
                 await query.answer()
                 await client.send_cached_media(
-                    chat_ids=query.from_user.id,
-                    file_id=file_id,
+                    chat_id=query.from_user.id,
+                    file_ids=file_id,
                     caption=f_caption,
                     reply_markup=InlineKeyboardMarkup(buttons)
                     )
