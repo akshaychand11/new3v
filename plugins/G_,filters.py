@@ -52,8 +52,7 @@ async def filter(client, msg, message):
                 disable_web_page_preview=True
             )
             return
-async def auto_filter(client, msg, spoll=False):
-    if not spoll:
+async def auto_filter(client, msg)
     message = msg
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
@@ -70,7 +69,7 @@ async def auto_filter(client, msg, spoll=False):
                     [InlineKeyboardButton(text=f"{filename}",callback_data=f"pr0fess0r_99#{file_id}")]
                     )
         else:
-            await advantage_spell_chok(msg, message)
+            await advantage_spell_chok(msg)
             #await client.send_sticker(chat_id=message.from_user.id, sticker='CAADBQADMwIAAtbcmFelnLaGAZhgBwI')
             return
 
