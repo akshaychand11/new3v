@@ -62,7 +62,7 @@ async def filter(client, message):
                 file_id = file.file_id
                 filename = f"[{get_size(file.file_size)}] {file.file_name}"
                 btn.append(
-                    [InlineKeyboardButton(text=f"{filename}",callback_data=f"pr0fess0r_99#{file_id}")]
+                    [InlineKeyboardButton(text=f"{filename}",callback_data=f"pr0fess0r_99#{file_ids}")]
                     )
         else:
             await client.send_sticker(chat_id=message.from_user.id, sticker='CAADBQADMwIAAtbcmFelnLaGAZhgBwI')
@@ -177,7 +177,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
         elif query.data.startswith("backs"):
-            ident, index, keyword = query.data.split("_")
+            idents, index, keyword = query.data.split("_")
             try:
                 data = BUTTONS[keyword]
             except KeyError:
@@ -202,7 +202,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)-1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("⏪ BACK", callback_data=f"backs_{int(index)-1}_{keyword}"),InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)-1}_{keyword}")]
+                    [InlineKeyboardButton("⏪ BACK", callback_data=f"backs_{int(index)-1}_{keyword}"),InlineKeyboardButton("NEXT ⏩", callback_data=f"nexts_{int(index)-1}_{keyword}")]
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
@@ -230,7 +230,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
         elif query.data.startswith("pr0fess0r_99"):
-            ident, file_id = query.data.split("#")
+            idents, file_ids = query.data.split("#")
             filedetails = await get_file_details(file_id)
             for files in filedetails:
                 title = files.file_name
@@ -253,7 +253,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer()
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
-                    file_id=file_id,
+                    file_ids=file_id,
                     caption=f_caption,
                     reply_markup=InlineKeyboardMarkup(buttons)
                     )
@@ -261,7 +261,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒",show_alert=True)
                 return
-            ident, file_id = query.data.split("#")
+            idents, file_ids = query.data.split("#")
             filedetails = await get_file_details(file_id)
             for files in filedetails:
                 title = files.file_name
@@ -283,7 +283,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 
                 await query.answer()
                 await client.send_cached_media(
-                    chat_id=query.from_user.id,
+                    chat_ids=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
                     reply_markup=InlineKeyboardMarkup(buttons)
