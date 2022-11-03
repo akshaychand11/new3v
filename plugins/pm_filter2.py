@@ -1071,7 +1071,7 @@ async def auto_filter(client, msg, spoll=False):
         ]
 
     if offsett != "":
-        key = f"{message.chat.id}-{message.id}"
+        keyy = f"{message.chat.id}-{message.id}"
         BUTTONS[keyy] = search
         reqq = message.from_user.id if message.from_user else 0
         btn.append(
