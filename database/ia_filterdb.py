@@ -110,10 +110,10 @@ async def get_search_results(query, file_type=None, max_results=temp.multi_butto
     # Get list of files
     files = await cursor.to_list(length=max_results)
 
-    return files, next_offsett, total_results
+    return files, next_offset, total_results
 
 #nex 2
-async def get_search_results(query):
+async def get_searchh_results(query):
     query = query.strip()
     #if filter:
         #better ?
@@ -145,6 +145,15 @@ async def get_search_results(query):
     if next_offsett > total_results:
         next_offsett = ''
 
+    cursor = Media.find(filter)
+    # Sort by recent
+    cursor.sort('$natural', -1)
+    # Slice files according to offset and max results
+    cursor.skip(offset).limit(max_results)
+    # Get list of files
+    files = await cursor.to_list(length=max_results)
+
+    return files, next_offsett, total_results
 
 
 
