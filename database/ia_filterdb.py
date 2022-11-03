@@ -100,7 +100,20 @@ async def get_search_results(query, file_type=None, max_results=temp.multi_butto
 
     if next_offset > total_results:
         next_offset = ''
+
+
+    cursor = Media.find(filter)
+    # Sort by recent
+    cursor.sort('$natural', -1)
+    # Slice files according to offset and max results
+    cursor.skip(offset).limit(max_results)
+    # Get list of files
+    files = await cursor.to_list(length=max_results)
+
+    return files, next_offsett, total_results
+
 #nex 2
+async def get_search_results(query):
     query = query.strip()
     #if filter:
         #better ?
@@ -127,22 +140,11 @@ async def get_search_results(query, file_type=None, max_results=temp.multi_butto
         filter['file_type'] = file_type
 
     total_results = await Media.count_documents(filter)
-    next_offset = offset + max_results
+    next_offsett = offsett + max_results
 
-    if next_offset > total_results:
-        next_offset = ''
+    if next_offsett > total_results:
+        next_offsett = ''
 
-
-
-    cursor = Media.find(filter)
-    # Sort by recent
-    cursor.sort('$natural', -1)
-    # Slice files according to offset and max results
-    cursor.skip(offset).limit(max_results)
-    # Get list of files
-    files = await cursor.to_list(length=max_results)
-
-    return files, next_offset, total_results
 
 
 
