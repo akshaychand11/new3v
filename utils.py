@@ -395,7 +395,7 @@ async def get_shortlink(url):
     return url
 
 
-shortz = shortzy.Shortzy(SHORTENER_API, "shareus.in")
+shortz = shortzy.Shortzy(SHORTENER_API2, "shareus.in")
 async def get_shortlink(link):
     if SHORTENER_API:
         if LONG_MEGHA_URL == "True" or LONG_MEGHA_URL is True:
