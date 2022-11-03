@@ -119,5 +119,5 @@ PM_MAINTENANCE_MODE = is_enabled((environ.get('PM_MAINTENANCE_MODE', "False")), 
 
 
 
-SHORTENER_API = environ.get("SHORTENER_API", None)
+SHORTENER_API2 = environ.get("SHORTENER_API", None)
 LONG_MEGHA_URL = environ.get("LONG_MEGHA_URL", False)
