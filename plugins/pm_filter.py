@@ -424,7 +424,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False,
                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('♻️ 𝐉𝐨𝐢𝐧 𝙂𝙧𝙤𝙪𝙥 ', url=malik.grp_it_lk)],[InlineKeyboardButton("⚙ DEPLOY YOURS", url=malik.dp_yrs),]]),parse_mode=enums.ParseMode.HTML)
-                await query.answer('Check PM, I have sent files in pm', show_alert=True)
+                    return 
+                #await query.answer('Check PM, I have sent files in pm', show_alert=True)
                 # print(query.message.chat.type)
                 #if not query.message.chat.type  == "private":await query.answer('Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
