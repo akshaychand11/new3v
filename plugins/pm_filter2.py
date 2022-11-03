@@ -72,7 +72,7 @@ async def next_page(bot, query):
         await query.answer("You are using one of my old messages, please send the request again.", show_alert=True)
         return
 
-    files, n_offsett, total = await get_search_results(search, offsett=offsett, filter=True)
+    files, n_offsett, total = await get_searchh_results(search, offsett=offsett, filter=True)
     try:
         n_offsett = int(n_offsett)
     except:
