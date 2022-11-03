@@ -396,7 +396,7 @@ async def get_shortlink(url):
 
 
 async def get_shortlink(url):
-    if SHORT_URL:
+    if SHORT_URLL:
         shortzy = Shortzy(SHORTENER_API2, SHORTENER_WEBSITE)
         try:
             url = await shortzy.convert(url)
