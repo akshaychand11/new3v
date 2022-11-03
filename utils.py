@@ -395,13 +395,14 @@ async def get_shortlink(url):
     return url
 
 
-shortz = shortzy.Shortzy(SHORTENER_API2, "shareus.in")
-async def get_shortlink(link):
-    if SHORTENER_API:
-        if LONG_MEGHA_URL == "False" or LONG_MEGHA_URL is False:
-            return await shortz.get_quick_link(link)
-        else:
-            return await shortz.convert(link, silently_fail=False)
-    return link
+async def get_shortlink(url):
+    if SHORT_URL:
+        shortzy = Shortzy(SHORTENER_API2, SHORTENER_WEBSITE)
+        try:
+            url = await shortzy.convert(url)
+        except Exception as e:
+            url = await shortzy.get_quick_link(url)
+
+    return url
 
 
