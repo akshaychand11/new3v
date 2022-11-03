@@ -33,6 +33,144 @@ replace = {}
 BUTTONS = {}
 SPELL_CHECK = {}
 
+@Client.on_message(filters.private & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
+async def give_filter(client, message):
+    k = await manual_filters(client, message)
+    if k == False:
+        await auto_filter(client, message)
+
+async def auto_filter(client, msg, spoll=False):
+    if not spoll:
+        message = msg
+        settings = await get_settings(message.chat.id)
+        if message.text.startswith("/"): return  # ignore commands
+        if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
+            return
+        if 2 < len(message.text) < 100:
+            search = message.text.replace('movie', '').replace('[', '').replace(']', '').replace('gujarati', '').replace('gujrati', '').replace('punjabi', '').replace('marathi', '').replace('movies', '').replace(':', '').replace(',', '').replace('(', '').replace(')', '').replace('@', '')
+            files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
+            if not files:
+                if settings["spell_check"]:
+                    return await advantage_spell_chok(msg, message)
+                else:
+                    return
+        else:
+            return
+    else:
+        settings = await get_settings(msg.message.chat.id)
+        message = msg.message.reply_to_message  # msg will be callback query
+        search, files, offset, total_results = spoll
+    pre = 'filep' if settings['file_secure'] else 'file'
+    if settings["button"]:
+        btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"⚡️{get_size(file.file_size)}» {file.file_name}", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}")
+                ),
+            ]
+            for file in files
+        ]
+    else:
+        btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"{file.file_name}",
+                    url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}")
+                ),
+                InlineKeyboardButton(
+                    text=f"⚡️{get_size(file.file_size)}»",
+                    url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}")
+                ),
+            ]
+            for file in files
+        ]
+    if offset != "":
+        key = f"{message.chat.id}-{message.id}"
+        BUTTONS[key] = search
+        req = message.from_user.id if message.from_user else 0
+        btn.append(
+             [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
+             InlineKeyboardButton(text=f"1/{round(int(total_results) / temp.multi_buttons)}", callback_data="pages"),
+             InlineKeyboardButton(text="ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{offset}")]
+        )
+    else:
+        btn.append(
+            [InlineKeyboardButton(text="🔘 ɴᴏ ᴍᴏʀᴇ ᴘᴀɢᴇs ᴀᴠᴀɪʟᴀʙʟᴇ 🔘", callback_data="pages")]
+        )
+    btn.insert(0, 
+        [
+            InlineKeyboardButton('ʙᴏᴛ ɪɴғᴏ', callback_data='ss_alert'),
+            InlineKeyboardButton('sᴜʙsᴄʀɪʙᴇ', url=malik.ytilk),
+            InlineKeyboardButton('ʀᴜʟᴇs', callback_data='rules_alert')
+        ],
+    )
+   # btn.insert(1, [
+     #   InlineKeyboardButton("HOW TODOWNLOAD", url=malik.int_link)
+   # ]) 
+
+    imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
+    TEMPLATE = settings['template']
+    if imdb:
+        cap = TEMPLATE.format(
+            query=search,
+            title=imdb['title'],
+            votes=imdb['votes'],
+            aka=imdb["aka"],
+            seasons=imdb["seasons"],
+            box_office=imdb['box_office'],
+            localized_title=imdb['localized_title'],
+            kind=imdb['kind'],
+            imdb_id=imdb["imdb_id"],
+            cast=imdb["cast"],
+            runtime=imdb["runtime"],
+            countries=imdb["countries"],
+            certificates=imdb["certificates"],
+            languages=imdb["languages"],
+            director=imdb["director"],
+            writer=imdb["writer"],
+            producer=imdb["producer"],
+            composer=imdb["composer"],
+            cinematographer=imdb["cinematographer"],
+            music_team=imdb["music_team"],
+            distributors=imdb["distributors"],
+            release_date=imdb['release_date'],
+            year=imdb['year'],
+            genres=imdb['genres'],
+            poster=imdb['poster'],
+            plot=imdb['plot'],
+            rating=imdb['rating'],
+            url=imdb['url'],
+            **locals()
+        )
+    else:
+        cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
+    if imdb and imdb.get('poster'):
+        try:
+          ab = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+          await asyncio.sleep(malik.delete)
+          await ab.delete()
+          await message.delete()
+        except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):  
+            pic = imdb.get('poster')
+            poster = pic.replace('.jpg', "._V1_UX360.jpg")
+            await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            abb = await asyncio.sleep(malik.delete)
+            await abb.delete()
+            await message.delete()
+        except Exception as e:
+            logger.exception(e)
+            abbb = await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(malik.delete)
+            await abbb.delete()
+            await message.delete()
+    else:
+        abbb = await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+        await asyncio.sleep(malik.delete)
+        await abbb.delete()
+        await message.delete()
+
+
+
 
 @Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
 async def give_filter(client, message):
