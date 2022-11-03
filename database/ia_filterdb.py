@@ -83,7 +83,7 @@ async def get_search_results(query, file_type=None, max_results=temp.multi_butto
         raw_pattern = query.replace(' ', r'.*[\s\.\+\-_]')
     
     try:
-        regex = re.compile(raw_pattern, flags=re.replace('@','').IGNORECASE)
+        regex = re.compile(raw_pattern, flags=replace('@','').re.IGNORECASE)
     except:
         return []
 
