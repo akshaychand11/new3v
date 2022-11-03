@@ -1,7 +1,7 @@
 import logging
 import shortzy
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import LONG_MEGHA_URL, SHORTENER_API2, DELL_SEC, DELL_SECOND, CREATOR_USERNAME, CREATOR_NAME, FILTER_BUTTONS, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORT_URL, SHORTENER_API, SHORTENER_WEBSITE
+from info import SHORT_URLL, SHORTENER_API2, DELL_SEC, DELL_SECOND, CREATOR_USERNAME, CREATOR_NAME, FILTER_BUTTONS, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORT_URL, SHORTENER_API, SHORTENER_WEBSITE
 from imdb import IMDb
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
