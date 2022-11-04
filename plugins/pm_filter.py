@@ -1043,7 +1043,7 @@ async def auto_filter(client, msg, spoll=False):
             return
     else:
         settings = await get_settings(msg.message.chat.id)
-        message = msg.message.reply('@', '').reply_to_message # msg will be callback query
+        message = msg.message.reply_to_message # msg will be callback query
         search, files, offset, total_results = spoll
     pre = 'filep' if settings['file_secure'] else 'file'
     if settings["button"]:
@@ -1071,7 +1071,7 @@ async def auto_filter(client, msg, spoll=False):
         ]
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
-        BUTTONS[key] = search
+        BUTTONS[key] = search.reply('@', '')
         req = message.from_user.id if message.from_user else 0
         btn.append(
              [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
