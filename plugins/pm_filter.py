@@ -58,8 +58,8 @@ async def filter(client, message):
         if not btn:
             return
 
-        if len(btn) > 10: 
-            btns = list(split_list(btn, 10)) 
+        if len(btn) > temp.multi_buttons: 
+            btns = list(split_list(btn, temp.multi_buttons)) 
             keyword = f"{message.chat.id}-{message.message_id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
@@ -80,7 +80,7 @@ async def filter(client, message):
                 await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
             return
 
-        data = BUTTONS[keyword]
+        data = BUTTONS[key]
         buttons = data['buttons'][0].copy()
 
         buttons.append(
