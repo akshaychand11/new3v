@@ -97,6 +97,9 @@ async def filter(client, message):
         else:
             await message.reply_text(mo_tech_yt, reply_markup=InlineKeyboardMarkup(buttons))
 
+def split_list(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i + n]          
 
 
 @Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
