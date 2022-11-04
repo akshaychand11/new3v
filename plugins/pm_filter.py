@@ -33,9 +33,9 @@ replace = {}
 BUTTONS = {}
 SPELL_CHECK = {}
 
-@Client.on_message(filters.private & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
-async def give_filter(client, message):
-    if message.text.startswith("/")
+@Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
+async def filter(client, message):
+    if message.text.startswith("/"):
         return
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
