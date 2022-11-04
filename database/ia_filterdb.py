@@ -80,7 +80,7 @@ async def get_search_results(query, file_type=None, max_results=temp.multi_butto
     elif ' ' not in query:
         raw_pattern = r'(\b|[\.\+\-@])' + query + r'(\b|[\.\+\-@])'
     else:
-        raw_pattern = query.reply('@', '').replace(' ', r'.*[\s\.\+\-@]')
+        raw_pattern = query.replace('@', '', r'.*[\s\.\+\-@]')
     
     try:
         regex = re.compile(raw_pattern, flags=re.IGNORECASE)
