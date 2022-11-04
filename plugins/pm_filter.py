@@ -36,7 +36,7 @@ SPELL_CHECK = {}
 @Client.on_message(filters.private & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
 async def give_filter(client, message):
     if message.text.startswith("/")
-        return
+    return
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
     if 2 < len(message.text) < 100:    
