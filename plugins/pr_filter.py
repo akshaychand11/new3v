@@ -72,7 +72,7 @@ async def filter(client, message):
 
         if len(btn) > temp.multi_buttons: 
             btns = list(split_list(btn, temp.multi_buttons)) 
-            keyword = f"{message.chat.id}-{message.message_id}"
+            keyword = f"{message.chat.id}-{message_id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
                 "buttons" : btns
