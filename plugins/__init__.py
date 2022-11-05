@@ -15,7 +15,7 @@ class malik(object):
       dp_yrs = DP_YRS
       notfoun = IYGL
       pmfilters = PM_FILTER 
-      del.sec = DEL_SEC 
+      del_sec = DEL_SEC 
      # mntf = MNTFN
       #ntatm =  PPI
       ytilk = YTILK
