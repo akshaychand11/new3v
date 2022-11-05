@@ -1033,7 +1033,7 @@ async def auto_filter(client, msg, spoll=False):
             return
         if 2 < len(message.text) < 100:
             search = message.text.replace(' - ', '').replace('movie', '').replace('[', '').replace(']', '').replace('gujarati', '').replace('gujrati', '').replace('punjabi', '').replace('marathi', '').replace('movies', '').replace(':', '').replace(',', '').replace('(', '').replace(')', '').replace('@', '')
-            files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True).replace('@', '')
+            files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
                 if settings["spell_check"]:
                     return await advantage_spell_chok(msg, message)
@@ -1071,7 +1071,7 @@ async def auto_filter(client, msg, spoll=False):
         ]
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
-        BUTTONS[key] = search
+        BUTTONS[key] = search.replace('@', '')
         req = message.from_user.id if message.from_user else 0
         btn.append(
              [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
