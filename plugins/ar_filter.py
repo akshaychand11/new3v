@@ -53,7 +53,7 @@ async def filter(client, message):
         return
     if 2 < len(message.text) < 100:    
         btn = []
-        search = message.text
+        search = message.text.replace('(', '').replace(')', '')
         mo_tech_yt = f"**🗂️ Title:** {search}\n**📤 Uploaded by {message.chat.title}**"
         files = await get_filter_results(query=search)
         if files:
