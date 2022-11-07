@@ -113,8 +113,8 @@ async def get_search_results(query, file_type=None, max_results=temp.multi_butto
 
 # query part 1
 
-async def get_filter_results(query, file_type=None, max_results=temp.multi_buttons, offsett=0, filter=False):
-    """For given query return (results, next_offset)"""
+async def get_filter_results(query, file_type=None, max_resultss=temp.multi_buttons, offsett=0, filter=False):
+    """For given query return (results, next_offsett)"""
 
     query = query.strip()
     #if filter:
