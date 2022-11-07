@@ -59,17 +59,17 @@ async def req_grp_results(bot, msg):
 
 
 
-@Client.on_callback_query(filters.regex(r"^next"))
+@Client.on_callback_query(filters.regex(r"^nextt"))
 async def next_page(bot, query):
 
-    ident, req, key, offset = query.data.split("_")
-    if int(req) not in [query.from_user.id, 0]:
+    ident, reqq, keyy, offset = query.data.split("_0")
+    if int(reqq) not in [query.from_user.id, 0]:
         return await query.answer(f"⚠️ 𝗛𝗲𝘆, {query.from_user.first_name}.. \n\n𝗦𝗲𝗮𝗿𝗰𝗵 𝗬𝗼𝘂𝗿 𝗢𝘄𝗻𝗲𝗿 𝗙𝗶𝗹𝗲,\n\n⚠️𝗗𝗼𝗻'𝘁 𝗖𝗹𝗶𝗰𝗸 𝗢𝘁𝗵𝗲𝗿𝘀 𝗥𝗲𝘀𝘂𝗹𝘁𝘀 😬", show_alert=True)
     try:
         offset = int(offset)
     except:
         offset = 0
-    search = BUTTONS.get(key)
+    search = BUTTONS.get(keyy)
     if not search:
         await query.answer("You are using one of my old messages, please send the request again.", show_alert=True)
         return
@@ -114,7 +114,7 @@ async def next_page(bot, query):
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
-             InlineKeyboardButton("~ ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+             InlineKeyboardButton("~ ʙᴀᴄᴋ", callback_data=f"nextt_0{reqq}_{keyy}_{off_set}"),
              InlineKeyboardButton(f"ᴘᴀɢᴇꜱ {math.ceil(int(offset) / temp.multi_buttons) + 1} / {math.ceil(total / temp.multi_buttons)}",
                                   callback_data="pages")]
         )
@@ -122,13 +122,13 @@ async def next_page(bot, query):
         btn.append(
             [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ ", callback_data="pages"),
              InlineKeyboardButton(f" {math.ceil(int(offset) / temp.multi_buttons) + 1} / {math.ceil(total / temp.multi_buttons)}", callback_data="pages"),
-             InlineKeyboardButton("ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{n_offset}")])
+             InlineKeyboardButton("ɴᴇxᴛ ~", callback_data=f"nextt_0{reqq}_{keyy}_{n_offset}")])
     else:
         btn.append(
             [
-                InlineKeyboardButton("~ ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton("~ ʙᴀᴄᴋ", callback_data=f"nextt_0{reqq}_{keyy}_{off_set}"),
                 InlineKeyboardButton(f" {math.ceil(int(offset) / temp.multi_buttons) + 1} / {math.ceil(total / temp.multi_buttons)}", callback_data="pages"),
-                InlineKeyboardButton("ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("ɴᴇxᴛ ~", callback_data=f"nextt_0{reqq}_{keyy}_{n_offset}")
             ],
         )
     btn.insert(0, 
@@ -1070,13 +1070,13 @@ async def auto_filter(client, msg, spoll=False):
             for file in files
         ]
     if offset != "":
-        key = f"{message.chat.id}-{message.id}"
-        BUTTONS[key] = search
-        req = message.from_user.id if message.from_user else 0
+        keyy = f"{message.chat.id}-{message.id}"
+        BUTTONS[keyy] = search
+        reqq = message.from_user.id if message.from_user else 0
         btn.append(
              [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
              InlineKeyboardButton(text=f"1/{round(int(total_results) / temp.multi_buttons)}", callback_data="pages"),
-             InlineKeyboardButton(text="ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{offset}")]
+             InlineKeyboardButton(text="ɴᴇxᴛ ~", callback_data=f"nextt_0{reqq}_{keyy}_{offset}")]
         )
     else:
         btn.append(
