@@ -113,7 +113,55 @@ async def get_search_results(query, file_type=None, max_results=temp.multi_butto
 
 # query part 1
 
+async def get_searchh_results(query, file_type=None, max_results=temp.multi_buttons, offset=0, filter=False):
+    """For given query return (results, next_offset)"""
 
+    query = query.strip()
+    #if filter:
+        #better ?
+        #query = query.replace(' ', r'(\s|\.|\+|\-|_)')
+        #raw_pattern = r'(\s|_|\-|\.|\+)' + query + r'(\s|_|\-|\.|\+)'
+    if not query:
+        raw_pattern = '.'
+    elif ' ' not in query:
+        raw_pattern = r'(\b|[\.\+\-_])' + query + r'(\b|[\.\+\-_])'
+    else:
+        raw_pattern = query.replace(' ', r'.*[\s\.\+\-_]')
+    
+    try:
+        regex = re.compile(raw_pattern, flags=re.IGNORECASE)
+    except:
+        return []
+
+    if USE_CAPTION_FILTER:
+        filter = {'$or': [{'file_name': regex}, {'caption': regex}]}
+    else:
+        filter = {'file_name': regex}
+
+    if file_type:
+        filter['file_type'] = file_type
+
+    total_results = await Media.count_documents(filter)
+    next_offsett = offsett + max_resultss
+
+    if next_offsett > total_resultss:
+        next_offsett = ''
+
+    cursor = Media.find(filter)
+    # Sort by recent
+    cursor.sort('$natural', -1)
+    # Slice files according to offsett and max resultss
+    cursor.skip(offsett).limit(max_resultss)
+    # Get list of files
+    files = await cursor.to_list(length=max_resultss)
+
+    return files, next_offsett, total_resultss
+
+
+
+
+
+# query part 2
 async def get_filter_results(query):
     query = query.strip()
     if not query:
