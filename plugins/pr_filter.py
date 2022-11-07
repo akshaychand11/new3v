@@ -60,7 +60,7 @@ async def req_grp_results(bot, msg):
 
 
 @Client.on_callback_query(filters.regex(r"^next"))
-async def nextt_page(bot, query):
+async def next_page(bot, query):
 
     ident, req, key, offsett = query.data.split("_")
     if int(req) not in [query.from_user.id, 0]:
