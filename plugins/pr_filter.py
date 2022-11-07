@@ -62,7 +62,7 @@ async def req_grp_results(bot, msg):
 @Client.on_callback_query(filters.regex(r"^nextt"))
 async def nextt_page(bot, query):
 
-    ident, reqq, keyy, offset = query.data.[5].split("_")[5]
+    ident, reqq, keyy, offset = query.data.split("_")[5]
     if int(reqq) not in [query.from_user.id, 0]:
         return await query.answer(f"⚠️ 𝗛𝗲𝘆, {query.from_user.first_name}.. \n\n𝗦𝗲𝗮𝗿𝗰𝗵 𝗬𝗼𝘂𝗿 𝗢𝘄𝗻𝗲𝗿 𝗙𝗶𝗹𝗲,\n\n⚠️𝗗𝗼𝗻'𝘁 𝗖𝗹𝗶𝗰𝗸 𝗢𝘁𝗵𝗲𝗿𝘀 𝗥𝗲𝘀𝘂𝗹𝘁𝘀 😬", show_alert=True)
     try:
