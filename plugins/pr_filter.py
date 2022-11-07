@@ -1311,3 +1311,9 @@ async def manual_filters(client, message, text=False):
     else:
         return False
 
+def split_list(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i + n]          
+
+
+
