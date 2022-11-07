@@ -1072,7 +1072,7 @@ async def auto_filter(client, msg, spoll=False):
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
-        reqq = message.from_user.id if message.from_user else 0
+        req = message.from_user.id if message.from_user else 0
         btn.append(
              [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
              InlineKeyboardButton(text=f"1/{round(int(total_results) / temp.multi_buttons)}", callback_data="pages"),
