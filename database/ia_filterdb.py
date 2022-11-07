@@ -141,7 +141,7 @@ async def get_filter_results(query, file_type=None, max_resultss=temp.multi_butt
     if file_type:
         filter['file_type'] = file_type
 
-    total_results = await Media.count_documents(filter)
+    total_resultss = await Media.count_documents(filter)
     next_offsett = offsett + max_resultss
 
     if next_offsett > total_resultss:
