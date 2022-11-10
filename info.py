@@ -58,9 +58,7 @@ DB_AUTO_DELETE = is_enabled((environ.get('DB_AUTO_DELETE', "True")), True)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 
 
-
-REQ_GRP = [int(req_grp) if id_pattern.search(req_grp) else req_grp for req_grp in environ.get('REQ_GRP', '0').split()]
-
+REQ_GRP = int(environ.get('REQ_GRP'))
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
