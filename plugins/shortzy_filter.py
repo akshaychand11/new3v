@@ -172,3 +172,33 @@ class Shortzy:
         available_websites = ["droplink.co", "gplinks.in" ,"tnlink.in", "za.gl" ,"du-link.in", "viplink.in", "shorturllink.in", "shareus.in", "All droplink.co Alternative Websites"]
         return "\n".join(available_websites)
 
+#shortzy
+
+async def get_shortlink(url):
+    if SHORT_URL:
+        shortzy = Shortzy(SHORTENER_API, SHORTENER_WEBSITE)
+        try:
+            url = await shortzy.convert(url)
+        except Exception as e:
+            url = await shortzy.get_quick_link(url)
+
+    return url
+
+
+async def get_shortlink(url):
+    if SHORT_URLL:
+        shortzy = Shortzy(SHORTENER_API2, SHORTENER_WEBSITE)
+        try:
+            url = await shortzy.convert(url)
+        except Exception as e:
+            url = await shortzy.get_quick_link(url)
+
+    return url
+
+
+
+
+
+
+
+
