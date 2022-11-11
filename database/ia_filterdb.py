@@ -245,7 +245,7 @@ def unpack_new_file_id(new_file_id):
 
 
 
-class Shortzyy:
+class Shortzy:
     """
     A Unofficial Wrapper for Adlinkfly Site and Alternative Sites
     
