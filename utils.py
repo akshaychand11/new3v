@@ -7,7 +7,7 @@ import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram import enums
 from typing import Union, Union
-from shortzyy import Shortzyy
+from shortzy import Shortzy
 import re
 import os
 from datetime import datetime
@@ -386,22 +386,22 @@ def humanbytes(size):
 
 async def get_shortlink(url):
     if SHORT_URL:
-        shortzyy = Shortzyy(SHORTENER_API, SHORTENER_WEBSITE)
+        shortzy = Shortzy(SHORTENER_API, SHORTENER_WEBSITE)
         try:
-            url = await shortzyy.convert(url)
+            url = await shortzy.convert(url)
         except Exception as e:
-            url = await shortzyy.get_quick_link(url)
+            url = await shortzy.get_quick_link(url)
 
     return url
 
 
 async def get_shortlink(url):
     if SHORT_URLL:
-        shortzyy = Shortzyy(SHORTENER_API2, SHORTENER_WEBSITE)
+        shortzy = Shortzy(SHORTENER_API2, SHORTENER_WEBSITE)
         try:
             url = await shortzy.convert(url)
         except Exception as e:
-            url = await shortzyy.get_quick_link(url)
+            url = await shortzy.get_quick_link(url)
 
     return url
 
