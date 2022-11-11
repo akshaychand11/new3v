@@ -1,10 +1,3 @@
-import asyncio
-import re
-import aiohttp
-from urllib.parse import urlparse
-
-
-
 import logging
 from struct import pack
 import re
