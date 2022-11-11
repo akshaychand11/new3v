@@ -6,7 +6,7 @@ import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram import enums
 from typing import Union, Union
-from plugins.malik2.shortzy_filter import Shortzy
+from shortzy import Shortzy 
 import re
 import os
 from datetime import datetime
