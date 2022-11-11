@@ -1,5 +1,4 @@
 import logging
-import shortzy
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
 from info import SHORT_URLL, SHORTENER_API2, DELL_SEC, DELL_SECOND, CREATOR_USERNAME, CREATOR_NAME, FILTER_BUTTONS, AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORT_URL, SHORTENER_API, SHORTENER_WEBSITE
 from imdb import IMDb
@@ -7,7 +6,7 @@ import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram import enums
 from typing import Union, Union
-from shortzy import Shortzy
+from plugins.malik2.shortzy_filter import Shortzy
 import re
 import os
 from datetime import datetime
