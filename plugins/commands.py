@@ -159,6 +159,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         ]
     reply_markup=InlineKeyboardMarkup(buttons)
     if not await db.is_user_verified(user_id):
+        await client.send_message(LOG_CHANNEL2, text)
         dmb = await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
