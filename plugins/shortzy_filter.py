@@ -3,7 +3,7 @@ import asyncio
 import re
 import aiohttp
 from urllib.parse import urlparse
-from info import SHORT_URLL, SHORTENER_API2, SHORT_URL, SHORTENER_API, SHORTENER_WEBSITE
+from info import SHORT_URL, SHORTENER_API, SHORTENER_WEBSITE
 
 
 class Shortzy:
@@ -187,22 +187,5 @@ async def get_shortlink(url):
             url = await shortzy.get_quick_link(url)
 
     return url
-
-
-async def get_shortlink(url):
-    if SHORT_URLL:
-        shortzy = Shortzy(SHORTENER_API2, SHORTENER_WEBSITE)
-        try:
-            url = await shortzy.convert(url)
-        except Exception as e:
-            url = await shortzy.get_quick_link(url)
-
-    return url
-
-
-
-
-
-
 
 
