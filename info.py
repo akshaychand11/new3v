@@ -115,27 +115,12 @@ DELL_SECOND = int(os.environ.get("DELL_SECOND", "60"))
 
 MBGH = """Hay {}.\n\n {} results are already available for your query"""
 MAINTENANCE_MODE = is_enabled((environ.get('MAINTENANCE_MODE', "False")), False)
-PM_MAINTENANCE_MODE = is_enabled((environ.get('PM_MAINTENANCE_MODE', "False")), False)
+PM_MAINTENANCE_MODE = is_enabled((environ.get('PM_MAINTENANCE_MODE', "True")), True)
 
 
 
-SHORT_URLL = is_enabled((environ.get('SHORT_URLL', "False")), False)
+SHORT_URLL = is_enabled((environ.get('SHORT_URLL', "True")), True)
 SHORTENER_API2 = environ.get("SHORTENER_API", None)
 LONG_MEGHA_URL = environ.get("LONG_MEGHA_URL", False)
-
-
-
-#test 
-
-FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "")
-OMDB_API_KEY = environ.get("OMDB_API_KEY", "http://www.omdbapi.com/?i=tt3896198&apikey=4f08a979")
-if FILE_CAPTION.strip() == "":
-    CUSTOM_FILE_CAPTION=None
-else:
-    CUSTOM_FILE_CAPTION=FILE_CAPTION
-if OMDB_API_KEY.strip() == "":
-    API_KEY=None
-else:
-    API_KEY=OMDB_API_KEY
 
 
