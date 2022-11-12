@@ -347,3 +347,14 @@ MALIK7 = """Hay. {}.
 You are now verified for next 24 hours. Continue asking movies
 Back to Group and try again"""
 
+
+
+NORSLTS = """
+★ #𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀 ★
+
+𝗜𝗗 <b>: {}</b>
+
+𝗡𝗮𝗺𝗲 <b>: {}</b>
+
+𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
+
