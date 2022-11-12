@@ -34,7 +34,7 @@ async def start(client:Client, message):
 Username : {m.from_user.mention}
 Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
 
-#NewVerifiedUser"""
+#New_Verified_User_complete"""
         await client.send_message(LOG_CHANNEL2, text)
         dmm = await m.reply_photo(
         photo=(MALIK5), 
@@ -164,7 +164,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
 Username : {m.from_user.mention}
 Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
 
-#NewVerifiedUser"""
+#New_Verifie_User"""
         await client.send_message(LOG_CHANNEL2, text)
         dmb = await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
