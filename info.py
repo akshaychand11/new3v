@@ -96,7 +96,7 @@ PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 
 SHORTENER_API = environ.get("SHORTENER_API", "iQ2iqO9EXFbcjek412Dg5j6stWu2")
 SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", "shareus.in")
-SHORT_URL = is_enabled((environ.get('SHORT_URL', "True")), True)
+SHORT_URL = is_enabled((environ.get('SHORT_URL', "False")), False)
 TUTORIAL_LINK = environ.get("TUTORIAL_LINK", "https://youtu.be/MKNd7AP5xLE")
 
 
@@ -120,7 +120,7 @@ PM_MAINTENANCE_MODE = is_enabled((environ.get('PM_MAINTENANCE_MODE', "False")), 
 
 
 
-SHORT_URLL = is_enabled((environ.get('SHORT_URLL', "True")), True)
+SHORT_URLL = is_enabled((environ.get('SHORT_URLL', "False")), False)
 SHORTENER_API2 = environ.get("SHORTENER_API", None)
 LONG_MEGHA_URL = environ.get("LONG_MEGHA_URL", False)
 
