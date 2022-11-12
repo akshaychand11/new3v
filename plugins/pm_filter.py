@@ -6,7 +6,7 @@ import math
 from plugins import malik 
 from plugins.malik.extra import GHHMT, PPI, RULES_ALERT, GROUP_Rules, SMART_PIC, STTS, MQTT, TEL, MQTTP, PPC, REPORT, PURGE, MUTE, SS_ALERT,  STKR, WRITE, FONTS, MY_DETALS, GOOGL, SHARETXT, WALL
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
-from Script import script, NORSLTS, ALURT_FND, M_NT_FND, ADDGG
+from Script import script, ALURT_FND, M_NT_FND, ADDGG
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
