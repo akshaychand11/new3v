@@ -88,7 +88,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"⚡️{get_size(file.file_size)}» {file.file_name}", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    text=f"⚡️ {get_size(file.file_size)}» {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -100,8 +100,8 @@ async def next_page(bot, query):
                     text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
                 InlineKeyboardButton(
-                    text=f"⚡️{get_size(file.file_size)}»",
-                    url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    text=f"⚡️ {get_size(file.file_size)}»",
+                    callback_data=f'files_#{file.file_id}',
                 ),
             ]
             for file in files
@@ -115,7 +115,7 @@ async def next_page(bot, query):
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
-             InlineKeyboardButton("~ ʙᴀᴄᴋ", callback_data=f"nextt_{reqq}_{keyy}_{off_set}"),
+             InlineKeyboardButton("~ ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
              InlineKeyboardButton(f"ᴘᴀɢᴇꜱ {math.ceil(int(offset) / temp.multi_buttons) + 1} / {math.ceil(total / temp.multi_buttons)}",
                                   callback_data="pages")]
         )
@@ -123,13 +123,13 @@ async def next_page(bot, query):
         btn.append(
             [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ ", callback_data="pages"),
              InlineKeyboardButton(f" {math.ceil(int(offset) / temp.multi_buttons) + 1} / {math.ceil(total / temp.multi_buttons)}", callback_data="pages"),
-             InlineKeyboardButton("ɴᴇxᴛ ~", callback_data=f"nextt_{reqq}_{keyy}_{n_offset}")])
+             InlineKeyboardButton("ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
-                InlineKeyboardButton("~ ʙᴀᴄᴋ", callback_data=f"nextt_{reqq}_{keyy}_{off_set}"),
+                InlineKeyboardButton("~ ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f" {math.ceil(int(offset) / temp.multi_buttons) + 1} / {math.ceil(total / temp.multi_buttons)}", callback_data="pages"),
-                InlineKeyboardButton("ɴᴇxᴛ ~", callback_data=f"nextt_{reqq}_{keyy}_{n_offset}")
+                InlineKeyboardButton("ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
     btn.insert(0, 
@@ -1051,7 +1051,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"⚡️{get_size(file.file_size)}» {file.file_name}", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}")
+                    text=f"⚡️ {get_size(file.file_size)}» {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -1061,23 +1061,24 @@ async def auto_filter(client, msg, spoll=False):
             [
                 InlineKeyboardButton(
                     text=f"{file.file_name}",
-                    url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}")
+                    callback_data=f'{pre}#{file.file_id}',
                 ),
                 InlineKeyboardButton(
-                    text=f"⚡️{get_size(file.file_size)}»",
-                    url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=pre_{file.file_id}")
+                    text=f"⚡️ {get_size(file.file_size)}»",
+                    callback_data=f'{pre}_#{file.file_id}',
                 ),
             ]
             for file in files
         ]
+
     if offset != "":
-        keyy = f"{message.chat.id}-{message.id}"
-        BUTTONS[keyy] = search
-        reqq = message.from_user.id if message.from_user else 0
+        key = f"{message.chat.id}-{message.id}"
+        BUTTONS[key] = search
+        req = message.from_user.id if message.from_user else 0
         btn.append(
              [InlineKeyboardButton(text="ᴘᴀɢᴇꜱ", callback_data="pages"),
              InlineKeyboardButton(text=f"1/{round(int(total_results) / temp.multi_buttons)}", callback_data="pages"),
-             InlineKeyboardButton(text="ɴᴇxᴛ ~", callback_data=f"nextt_{reqq}_{keyy}_{offset}")]
+             InlineKeyboardButton(text="ɴᴇxᴛ ~", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
