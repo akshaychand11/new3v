@@ -145,11 +145,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         pre = ""
 
     # User Verifying
-        text = f"""User ID : `{user_id}`
-Username : {m.from_user.mention}
-Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
 
-#NewVerifiedUser"""
     user_id = m.from_user.id
     buttons = [
             [
@@ -164,6 +160,11 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         ]
     reply_markup=InlineKeyboardMarkup(buttons)
     if not await db.is_user_verified(user_id):
+        text = f"""User ID : `{user_id}`
+Username : {m.from_user.mention}
+Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
+
+#NewVerifiedUser"""
         await client.send_message(LOG_CHANNEL2, text)
         dmb = await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
