@@ -32,7 +32,7 @@ async def start(client:Client, message):
         await db.update_verify_user(user_id, {"last_verified":datetime.now()})
         text = f"""User ID : `{user_id}`
 Username : {m.from_user.mention}
-Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
+Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 #New_Verified_User_complete"""
         await client.send_message(LOG_CHANNEL2, text)
@@ -162,7 +162,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
     if not await db.is_user_verified(user_id):
         text = f"""User ID : `{user_id}`
 Username : {m.from_user.mention}
-Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
+Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 #New_Verifie_User"""
         await client.send_message(LOG_CHANNEL2, text)
