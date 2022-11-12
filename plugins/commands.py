@@ -11,7 +11,7 @@ from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
 from info import TUTORIAL_LINK, MALIK, MALIK5, CHANNELS, ADMINS, AUTH_CHANNEL, PHTT, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT
 from utils import get_settings, get_shortlink, get_size, is_subscribed, save_group_settings, temp
-from plugins.shortzy_filte import get_shortlink
+from plugins.shortzy_filter import get_shortlink
 from database.connections_mdb import active_connection
 from plugins import malik 
 import re
