@@ -145,6 +145,11 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
         pre = ""
 
     # User Verifying
+        text = f"""User ID : `{user_id}`
+Username : {m.from_user.mention}
+Time : {datetime.now().strftime('%Y-%m-%d %H:%M')}
+
+#NewVerifiedUser"""
     user_id = m.from_user.id
     buttons = [
             [
