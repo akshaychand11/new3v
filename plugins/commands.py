@@ -167,11 +167,10 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 #New_Verifie_User"""
         await client.send_message(LOG_CHANNEL2, text)
-        dmb = await m.reply_photo(
+        protect_content = True, await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
             reply_markup=reply_markup,
-            protect_content = True if m == 'm' else True,
             parse_mode=enums.ParseMode.HTML
         )
         await asyncio.sleep(120) 
