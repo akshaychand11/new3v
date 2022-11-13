@@ -36,7 +36,7 @@ SPELL_CHECK = {}
 
 
 @Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRPOUP))
-async def filter(bot, msg):
+async def req_grpoup_results(bot, msg):
     content = msg.text
     user = msg.from_user.first_name
     user_id = msg.from_user.id
