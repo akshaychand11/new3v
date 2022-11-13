@@ -147,7 +147,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
     # User Verifying
 
-    user_id = msg.get.m.from_user.id
+    user_id = m.from_user.id
     buttons = [
             [
                 InlineKeyboardButton(
@@ -160,7 +160,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             ]      
         ]
     reply_markup=InlineKeyboardMarkup(buttons)
-    if not await db.is_user_verified(user_id):
+    if not await db.is_user_verified=msg.get("user_id"):
         text = f"""User ID : `{user_id}`
 Username : {m.from_user.mention}
 Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
