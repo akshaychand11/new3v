@@ -381,7 +381,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text = f"You'r not verified today. Please verify now and get unlimited access for 1 day)"
             if query.message.chat.type  == "private":
 
-                return await query.message.reply_text(text, protect_content=True, reply_markup=InlineKeyboardMarkup(buttons))
+                return await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(buttons))
         # User Verifying 
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
@@ -448,7 +448,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text = f"You'r not verified today. Please verify now and get unlimited access for 1 day)"
             if query.message.chat.type  == "private":
 
-                return await query.message.reply_text(text, protect_content=True, reply_markup=InlineKeyboardMarkup(buttons))
+                return await query.message.reply_text(text, reply_markup=InlineKeyboardMarkup(buttons))
         # User Verifying 
 
         if AUTH_CHANNEL and not await is_subscribed(client, query):
