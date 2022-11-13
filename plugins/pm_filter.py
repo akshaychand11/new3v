@@ -34,18 +34,17 @@ replace = {}
 BUTTONS = {}
 SPELL_CHECK = {}
 
-@Client.on_message(filters.group & filters.text & filters.incoming)
-async def pm_text(bot, message):
+
+
+
+@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
+async def give_filter(client, message):
     content = message.text
     user = message.from_user.first_name
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
     await message.reply_text("<b>Your message has been sent to my moderators !</b>")
 
-
-
-@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
-async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)
