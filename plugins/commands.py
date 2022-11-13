@@ -169,7 +169,8 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         await client.send_message(LOG_CHANNEL2, text)
         await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
-            caption=(MALIK2.format(message.from_user.mention)), protect_content = True, 
+            caption=(MALIK2.format(message.from_user.mention)), 
+            protect_content = True if user_id == 'm.from_user_id' else False,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
