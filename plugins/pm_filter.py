@@ -35,7 +35,7 @@ BUTTONS = {}
 SPELL_CHECK = {}
 
 
-@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
+@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRPOUP))
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
@@ -55,19 +55,6 @@ async def give_filter(client, message):
     if k == False:
         await auto_filter(client, message)
 
-
-
-@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
-async def req_grp_results(bot, msg):
-    if msg.text.startswith("/"): return
-    if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", msg.text):
-        return
-    files = None
-    if 2 < len(msg.text) < 100:
-        search = msg.text
-        files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
-    if not files: return
-    await msg.reply(f'Dear. {msg.from_user.mention} ! \n\n<code>{total_results}</code>   results are already available for your request <code>{search}</code> in our bot..\n\n plz Go back main group and tipe movie name 👇',  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔸 Main Group 🔸",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML),
 
 
 
