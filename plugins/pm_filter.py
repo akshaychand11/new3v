@@ -44,7 +44,7 @@ async def give_filter(client, message):
     user = message.from_user.first_name
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    await message.reply_text("<b>{user}Your message has been sent to my moderators !</b>")
+    await message.reply_text(f"<b>{user}Your message has been sent to my moderators !</b>")
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)
