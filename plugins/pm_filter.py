@@ -42,12 +42,6 @@ async def req_grpoup_results(bot, msg):
     user_id = msg.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
     await msg.reply_text("<b>Your message has been sent to my moderators !</b>")
-    k = await manual_filters(bot, msg)
-    if k == False:
-        await auto_filter(bot, msg)
-
-
-
 
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
