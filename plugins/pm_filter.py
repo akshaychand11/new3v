@@ -35,9 +35,15 @@ BUTTONS = {}
 SPELL_CHECK = {}
 
 
-
-
 @Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
+async def give_filter(client, message):
+    k = await manual_filters(client, message)
+    if k == False:
+        await auto_filter(client, message)
+
+
+
+@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP2))
 async def give_filter(client, message):
     content = message.text
     user = message.from_user.first_name
