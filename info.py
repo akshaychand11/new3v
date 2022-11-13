@@ -59,7 +59,7 @@ AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 
 
 
-REQ_GRP2 = int(environ.get('REQ_GRP2'))
+REQ_GRPOUP = int(environ.get('REQ_GRPOUP'))
 REQ_GRP = int(environ.get('REQ_GRP'))
 
 # Admins, Channels & Users
