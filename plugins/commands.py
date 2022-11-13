@@ -170,7 +170,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
             reply_markup=reply_markup,
-            protect_content=msg.get('protect', True),
+            protect_content=True if verify = else True,
             parse_mode=enums.ParseMode.HTML
         )
         await asyncio.sleep(120) 
