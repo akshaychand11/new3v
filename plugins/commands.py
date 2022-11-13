@@ -147,7 +147,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
     # User Verifying
 
-    user_id = m.from_user.id
+    user_id = msg.get("m.from_user.id")
     buttons = [
             [
                 InlineKeyboardButton(
