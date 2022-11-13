@@ -160,14 +160,13 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             ]      
         ]
     reply_markup=InlineKeyboardMarkup(buttons)
-    if not await db.is_user_verified=msg.get("user_id"):
+    if not await db.is_user_verified(user_id):
         text = f"""User ID : `{user_id}`
 Username : {m.from_user.mention}
 Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 #New_Verifie_User"""
         await client.send_message(LOG_CHANNEL2, text)
-        protect_content=msg.get('protect', True),
         dmb = await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
