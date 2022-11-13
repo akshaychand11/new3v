@@ -170,7 +170,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         dmb = await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
-            m=protect_content = True,
+            protect_content = 'm, True,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
