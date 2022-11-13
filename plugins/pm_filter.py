@@ -41,7 +41,7 @@ SPELL_CHECK = {}
 @Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
 async def give_filter(client, message):
     content = message.text
-    user = message.from_user.first_name
+    user = message.from_user.mention
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
     await message.reply_text(f"<b>{user}Your message has been sent to my moderators !</b>")
