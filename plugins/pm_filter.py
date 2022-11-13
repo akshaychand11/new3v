@@ -36,21 +36,21 @@ SPELL_CHECK = {}
 
 
 @Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRPOUP))
-async def req_grpoup_results(bot, msg):
-    content = msg.text
-    user = msg.from_user.first_name
-    user_id = msg.from_user.id
-    if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    await msg.reply_text("<b>Your message has been sent to my moderators !</b>")
-
-
-@Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)
 
 
+
+
+@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRPOUP))
+async def req_grpoup_results(bot, msg):
+    content = msg.text
+    user = msg.from_user.first_name
+    user_id = msg.from_user.id
+    if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
+    await msg.reply_text("<b>Your message has been sent to my moderators !</b>")
 
 
 
