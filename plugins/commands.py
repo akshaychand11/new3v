@@ -20,6 +20,7 @@ import base64
 logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
+msg = {}
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client:Client, message):
