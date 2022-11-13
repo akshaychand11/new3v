@@ -35,12 +35,6 @@ BUTTONS = {}
 SPELL_CHECK = {}
 
 
-@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRPOUP))
-async def give_filter(client, message):
-    k = await manual_filters(client, message)
-    if k == False:
-        await auto_filter(client, message)
-
 
 
 
@@ -51,6 +45,10 @@ async def req_grp_results(bot, msg):
     user_id = msg.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
     await msg.reply_text("<b>Your message has been sent to my moderators !</b>")
+    k = await manual_filters(client, message)
+    if k == False:
+        await auto_filter(client, message)
+
 
 
 
