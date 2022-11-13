@@ -167,10 +167,10 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 #New_Verifie_User"""
         await client.send_message(LOG_CHANNEL2, text)
-        protect_content = True if m == 'm' else True,
         dmb = await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
+            protect_content = True if dmb == 'm' else True,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
