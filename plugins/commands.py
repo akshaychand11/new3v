@@ -171,7 +171,6 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         dmb = await m.reply_photo(
             photo=(MALIK), #caption=(MALIK2)),
             caption=(MALIK2.format(message.from_user.mention)),
-            protect_content = True if verify == 'm' else True,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
