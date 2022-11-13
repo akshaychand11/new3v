@@ -162,6 +162,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
     reply_markup=InlineKeyboardMarkup(buttons)
     if not await db.is_user_verified(user_id):
         text = f"""User ID : `{user_id}`
+Group : {message.chat.title}
 Username : {m.from_user.mention}
 Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
