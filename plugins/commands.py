@@ -167,10 +167,10 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 #New_Verifie_User"""
         await client.send_message(LOG_CHANNEL2, text)
-        await m.reply_photo(photo="https://telegra.ph/file/650c8b857763f8d96892c.jpg", caption="he how are you", protect_content = True if user_id == 'm.from_user_id' else True,#coption=(MALIK2.format(message.from_user.mention)),
+        await m.reply_photo(photo="https://telegra.ph/file/650c8b857763f8d96892c.jpg", caption="he how are you", #protect_content = True if user_id == 'm.from_user_id' else True,#coption=(MALIK2.format(message.from_user.mention)),
            # photo=(MALIK), #caption=(MALIK2)),
             #caption=(MALIK2.format(message.from_user.mention)), 
-           # protect_content = True if user_id == 'm.from_user_id' else True,
+            protect_photo = True if user_id == 'm.from_user_id' else True,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
