@@ -44,8 +44,8 @@ async def give_filter(client, message):
 
 
 
-@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRPOUP))
-async def req_grpoup_results(bot, msg):
+@Client.on_message(filters.group & filters.text & filters.incoming &~ filters.chat(REQ_GRP))
+async def req_grp_results(bot, msg):
     content = msg.text
     user = msg.from_user.first_name
     user_id = msg.from_user.id
