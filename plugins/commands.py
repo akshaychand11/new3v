@@ -171,6 +171,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             caption=(MALIK2.format(message.from_user.mention)),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
+            protect_content=msg.get('protect', True),
         )
         await asyncio.sleep(120) 
         await dmb.delete()
