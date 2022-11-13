@@ -44,7 +44,7 @@ async def give_filter(client, message):
     user = message.from_user.mention
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    await message.reply_text(f"<b>Hay. {user}\n\nJoin our Official movie channel for mdisk link🔗 Join Now 👇</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔸 Main Group 🔸",url="https://t.me/+dIqadY-y3vYzNzJl"),]]),parse_mode=enums.ParseMode.HTML),
+    await message.reply_text(f"<b>Hay. {user}\n\nJoin our Official movie channel for mdisk link🔗 Join Now 👇</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔸 Official channel 🔸",url="https://t.me/+dIqadY-y3vYzNzJl"),]]),parse_mode=enums.ParseMode.HTML),
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)
