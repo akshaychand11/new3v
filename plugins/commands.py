@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming)
-async def start(client:Client, message):
+async def start(client:Client, message, msg):
     
     m = message
     user_id = m.from_user.id
