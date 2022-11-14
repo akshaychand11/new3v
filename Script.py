@@ -350,7 +350,7 @@ ADDGG = """ʜᴇʏ.
 
 MALIK2 = """Hay. {}. 
 
-You'r not verified today. Please verify now and get unlimited access for 1 day"""
+You'r not verified today. Please verify now and get unlimited access for 1 day\n\nइस बॉट को इस्तेमाल करने के लिए आपको 24 घंटे में एक बार verify करना होगा नहीं तो आप इसका इस्तेमाल नहीं कर पाएंगे"""
 
 
 MALIK7 = """Hay. {}. 
