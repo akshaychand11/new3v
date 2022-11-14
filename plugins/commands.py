@@ -28,9 +28,9 @@ async def start(client:Client, message):
     m = message
     user_id = m.from_user.id
     
-    if len(m.command) == 2 and m.command[1].startswith('verify'):
+    if len(m.command) == 2 and m.command[1].startswith('verifyi'):
         user_id = m.command[1].split("_")[1]
-        await db.update_verify_user(user_id, {"last_verified":datetime.now()})
+        await db.update_verifyi_user(user_id, {"last_verified":datetime.now()})
         text = f"""User ID : `{user_id}`
 Username : {m.from_user.mention}
 Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
@@ -147,7 +147,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
     buttons = [
             [
                 InlineKeyboardButton(
-                    text="🔹 Click to Verify 🔹", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verify_{user_id}")
+                    text="🔹 Click to Verify 🔹", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=verifyi_{user_id}")
                 ),
             ],
             [
