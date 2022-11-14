@@ -145,7 +145,7 @@ class Database:
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
     
-    async def get_verify_user(self, user_id):
+    async def get_verifyi_user(self, user_id):
 
         user_id = int(user_id)
 
@@ -161,19 +161,19 @@ class Database:
 
         return user
 
-    async def update_verify_user(self, user_id, value:dict):
+    async def update_verifyi_user(self, user_id, value:dict):
         user_id = int(user_id)
         myquery = {"user_id": user_id}
         newvalues = { "$set": value }
         await self.misc.update_one(myquery, newvalues)
 
     async def is_user_verified(self, user_id):
-        user = await self.get_verify_user(user_id)
+        user = await self.get_verifyi_user(user_id)
         
         try:
             pastDate = user["last_verified"]
         except:
-            user = await self.get_verify_user(user_id)
+            user = await self.get_verifyi_user(user_id)
             pastDate = user["last_verified"]
 
         if (datetime.now() - pastDate).days > 0.1:
