@@ -1086,7 +1086,7 @@ async def auto_filter(client, msg, spoll=False):
      #   InlineKeyboardButton("HOW TODOWNLOAD", url=malik.int_link)
    # ]) 
    
-        cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
+    cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
         try:
           ab = await message.reply_photo(photo=malik.smart_pic, caption=cap,  reply_markup=InlineKeyboardMarkup(btn))
           await asyncio.sleep(malik.delete)
