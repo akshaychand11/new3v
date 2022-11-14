@@ -1086,32 +1086,61 @@ async def auto_filter(client, msg, spoll=False):
      #   InlineKeyboardButton("HOW TODOWNLOAD", url=malik.int_link)
    # ]) 
    
-    cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>",
-       # try:
-        ab = await message.reply_photo(photo=malik.smart_pic, caption=cap,  reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(malik.delete)
-        await ab.delete()
-        await message.delete()
-      #  except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):  
-            #pic = imdb.get('poster')
-            #poster = pic.replace('.jpg', "._V1_UX360.jpg")
-        await message.reply_photo(photo=malik.smart_pic, caption=cap,  reply_markup=InlineKeyboardMarkup(btn))
-        abb = await asyncio.sleep(malik.delete)
-        await abb.delete()
-        await message.delete()
-       # except Exception as e:
-          #  logger.exception(e)
-        abbb = await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(malik.delete)
-        await abbb.delete()
-        await message.delete()
-   # else:
-        abbb = await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(malik.delete)
-        await abbb.delete()
-        await message.delete()
+    imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
+    TEMPLATE = settings['template']
+    if imdb:
+        cap = TEMPLATE.format(
+            query=search,
+            title=imdb['title'],
+            votes=imdb['votes'],
+            aka=imdb["aka"],
+            seasons=imdb["seasons"],
+            box_office=imdb['box_office'],
+            localized_title=imdb['localized_title'],
+            kind=imdb['kind'],
+            imdb_id=imdb["imdb_id"],
+            cast=imdb["cast"],
+            runtime=imdb["runtime"],
+            countries=imdb["countries"],
+            certificates=imdb["certificates"],
+            languages=imdb["languages"],
+            director=imdb["director"],
+            writer=imdb["writer"],
+            producer=imdb["producer"],
+            composer=imdb["composer"],
+            cinematographer=imdb["cinematographer"],
+            music_team=imdb["music_team"],
+            distributors=imdb["distributors"],
+            release_date=imdb['release_date'],
+            year=imdb['year'],
+            genres=imdb['genres'],
+            poster=imdb['poster'],
+            plot=imdb['plot'],
+            rating=imdb['rating'],
+            url=imdb['url'],
+            **locals()
+        )
+    else:
+        cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
+    if imdb and imdb.get('poster'):
+        try:
+            await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            protect_content = True 
+        except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):  
+            pic = imdb.get('poster')
+            poster = pic.replace('.jpg', "._V1_UX360.jpg")
+            await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            protect_content = True 
+        except Exception as e:
+            logger.exception(e)
+            await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            protect_content = True 
+    else:
+        await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+        protect_content = True 
     if spoll:
         await msg.message.delete()
+
 
 
 async def advantage_spell_chok(client, msg, message):
