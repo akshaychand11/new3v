@@ -45,7 +45,7 @@ async def give_filter(client, message):
         await auto_filter(client, message)
 
 @Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(REQ_GRP))
-async def req_grp(bot, message):
+async def req_grp_text(bot, message):
     content = message.text
     user = message.from_user.mention
     user_id = message.from_user.id
