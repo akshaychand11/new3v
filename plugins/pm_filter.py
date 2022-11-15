@@ -1124,7 +1124,7 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:_V1_UX360.jpg"], reply_markup=InlineKeyboardMarkup(btn))
+            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:"_V1_UX360.jpg"], reply_markup=InlineKeyboardMarkup(btn))
             protect_content = True 
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):  
             pic = imdb.get('poster')
