@@ -38,11 +38,6 @@ SPELL_CHECK = {}
 
 
 
-@Client.on_message(filters.group & filters.text & filters.incoming)
-async def give_filter(client, message):
-    k = await manual_filters(client, message)
-    if k == False:
-        await auto_filter(client, message)
 
 @Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(REQ_GRP))
 async def req_grp_text(bot, message):
@@ -51,6 +46,15 @@ async def req_grp_text(bot, message):
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
     await message.reply_text(f"<b>Heyyy!!! {user}\n\nɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ᴇᴀʀɴ ᴍᴏɴᴇʏ ғᴏʀᴍ sᴛᴏᴄᴋ ᴍᴀʀᴋᴇᴛ (शेयर बाजार) ᴛʜᴇɴ ᴊᴏɪɴ ɴᴏᴡ 💜 & ɢᴇᴛ ᴜᴘᴛᴏ 𝟷𝟶𝟶+ ᴄᴏᴜʀsᴇ 🆓ᴏғ sᴛᴏᴄᴋ ᴍᴀʀᴋᴇᴛ ғᴏʀ ғʀᴇᴇ 🆓\n🅹🅾🅸🅽 🅽🅾🆆 👇</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔸 💹 🇸‌ᴛᴏᴄᴋ ɢʀᴏᴜᴘ 💹 🔸",url="https://t.me/+YJjpnCe3Wiw1Yjdl"),]]),parse_mode=enums.ParseMode.HTML),
+
+@Client.on_message(filters.group & filters.text & filters.incoming)
+async def give_filter(client, message):
+    k = await manual_filters(client, message)
+    if k == False:
+        await auto_filter(client, message)
+
+
+
 
 
 @Client.on_callback_query(filters.regex(r"^nextt"))
