@@ -20,7 +20,6 @@ import base64
 logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
-queryy = {}
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client:Client, message):
@@ -77,7 +76,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             InlineKeyboardButton('♻️ ʜᴇʟᴘ ♻️', callback_data='help'),
             InlineKeyboardButton('⚡️ᴜᴘᴅᴀᴛᴇs⚡️', url='https://t.me/m_house786')
             ],[
-            InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=queryy),
+            InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', url=f'http://t.me/{temp.U_NAME}?start),
             InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
             ],[
             InlineKeyboardButton('✅ sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
@@ -121,7 +120,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             InlineKeyboardButton('♻️ ʜᴇʟᴘ ♻️', callback_data='help'),
             InlineKeyboardButton('⚡️ᴜᴘᴅᴀᴛᴇs⚡️', url='https://t.me/m_house786')
             ],[
-            InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=queryy),
+            InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', url=f'http://t.me/{temp.U_NAME}?start),
             InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
             ],[
             InlineKeyboardButton('✅ sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
