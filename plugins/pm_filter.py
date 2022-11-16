@@ -12,7 +12,7 @@ from database.connections_mdb import active_connection, all_connections, delete_
     make_inactive
 from info import REQ_GRPOUP, LOG_CHANNEL, MAINTENANCE_MODE, MBGH, REQ_GRP, TUTORIAL_LINK, ADMINS, AUTH_CHANNEL, VIDEO_VD, AUTH_USERS, M_NT_F, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums 
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
@@ -39,13 +39,6 @@ SPELL_CHECK = {}
 
 
 
-@Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(REQ_GRP))
-async def req_grp_text(bot, message):
-    content = message.text
-    user = message.from_user.mention
-    user_id = message.from_user.id
-    if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    await message.reply_text(f"<b>Heyyy!!! {user}\n\nɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ᴇᴀʀɴ ᴍᴏɴᴇʏ ғᴏʀᴍ sᴛᴏᴄᴋ ᴍᴀʀᴋᴇᴛ (शेयर बाजार) ᴛʜᴇɴ ᴊᴏɪɴ ɴᴏᴡ 💜 & ɢᴇᴛ ᴜᴘᴛᴏ 𝟷𝟶𝟶+ ᴄᴏᴜʀsᴇ 🆓ᴏғ sᴛᴏᴄᴋ ᴍᴀʀᴋᴇᴛ ғᴏʀ ғʀᴇᴇ 🆓\n🅹🅾🅸🅽 🅽🅾🆆 👇</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔸 💹 🇸‌ᴛᴏᴄᴋ ɢʀᴏᴜᴘ 💹 🔸",url="https://t.me/+YJjpnCe3Wiw1Yjdl"),]]),parse_mode=enums.ParseMode.HTML),
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
