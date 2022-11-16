@@ -504,6 +504,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('✅ sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(ADDGG.format(query.from_user.mention, temp.U_NAME, temp.B_NAME)),
             reply_markup=reply_markup,
@@ -543,6 +548,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶‍♀ 𝐁𝐀𝐂𝐊 🚶‍♀', callback_data='start')
         ]]        
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.HELP_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -557,6 +567,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ᴄʟᴏᴄᴇ', callback_data='close_data')
         ]]  
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.ABOUT_TXT.format(temp.B_NAME),
             reply_markup=reply_markup,
@@ -572,6 +587,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🔐 𝗖𝗹𝗼𝘀𝗲 🔐', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.GHHN_TXT.format(temp.B_NAME),
             reply_markup=reply_markup,
@@ -582,6 +602,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.URLSHORT_TXT,
             disable_web_page_preview=True,
@@ -593,6 +618,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(REPORT),
             disable_web_page_preview=True,
@@ -604,6 +634,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(MUTE),
             disable_web_page_preview=True,
@@ -615,6 +650,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(SHARETXT),
             disable_web_page_preview=True,
@@ -626,6 +666,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(WALL),
             disable_web_page_preview=True,
@@ -637,6 +682,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(GOOGL),
             disable_web_page_preview=True,
@@ -648,6 +698,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(PURGE),
             disable_web_page_preview=True,
@@ -659,6 +714,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(FONTS),
             disable_web_page_preview=True,
@@ -670,6 +730,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(STKR),
             disable_web_page_preview=True,
@@ -681,6 +746,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(MY_DETALS.format(query.from_user.mention)),
             disable_web_page_preview=True,
@@ -692,6 +762,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(WRITE),
             disable_web_page_preview=True,
@@ -703,6 +778,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(TEL),
             disable_web_page_preview=True,
@@ -714,6 +794,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.FILESTORE_TXT,
             disable_web_page_preview=True,
@@ -725,6 +810,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('💢 close 💢', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=(GROUP_Rules),
             disable_web_page_preview=True,
@@ -736,6 +826,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.VIDEO_TXT,
             disable_web_page_preview=True,
@@ -747,6 +842,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.SONG_TXT,
             disable_web_page_preview=True,
@@ -759,6 +859,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('❗️ CONTACT ❗️', url='https://t.me/sahid_malik')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.OWNER_TXT,
             disable_web_page_preview=True,
@@ -770,6 +875,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.URLSHORTN_TXT,
             disable_web_page_preview=True,
@@ -781,6 +891,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('✳️ Add Me To Your Groups ❇️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.GHHM_TXT,
             disable_web_page_preview=True,
@@ -798,6 +913,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.VIDEOS_TXT,
             disable_web_page_preview=True,
@@ -809,6 +929,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.YTTHUMB_TXT,
             disable_web_page_preview=True,
@@ -820,6 +945,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.SOURCE_TXT,
             reply_markup=reply_markup,
@@ -830,6 +960,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.MALIK_TXT,
             reply_markup=reply_markup,
@@ -840,6 +975,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.DINETTE_TXT,
             reply_markup=reply_markup,
@@ -851,6 +991,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⏹️ 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 ⏹', callback_data='button')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.MANUELFILTER_TXT,
             reply_markup=reply_markup,
@@ -861,6 +1006,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='manuelfilter')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.BUTTON_TXT,
             reply_markup=reply_markup,
@@ -871,6 +1021,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.AUTOFILTER_TXT,
             reply_markup=reply_markup,
@@ -881,6 +1036,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.CONNECTION_TXT,
             reply_markup=reply_markup,
@@ -892,6 +1052,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('👮‍♂️ owner👮', callback_data='admin')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.EXTRAMOD_TXT,
             reply_markup=reply_markup,
@@ -902,6 +1067,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🚶 𝗕𝗮𝗰𝗸 🚶', callback_data='extra')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.ADMIN_TXT,
             reply_markup=reply_markup,
