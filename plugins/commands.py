@@ -76,7 +76,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             InlineKeyboardButton('♻️ ʜᴇʟᴘ ♻️', callback_data='help'),
             InlineKeyboardButton('⚡️ᴜᴘᴅᴀᴛᴇs⚡️', url='https://t.me/m_house786')
             ],[
-            InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', url=f'http://t.me/{temp.U_NAME}"),
+            InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', url=f'http://t.me/{temp.U_NAME}'),
             InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
             ],[
             InlineKeyboardButton('✅ sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
@@ -120,7 +120,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             InlineKeyboardButton('♻️ ʜᴇʟᴘ ♻️', callback_data='help'),
             InlineKeyboardButton('⚡️ᴜᴘᴅᴀᴛᴇs⚡️', url='https://t.me/m_house786')
             ],[
-            InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', url=f'http://t.me/{temp.U_NAME}"),
+            InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', url=f'http://t.me/{temp.U_NAME}'),
             InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
             ],[
             InlineKeyboardButton('✅ sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
