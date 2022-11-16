@@ -3,6 +3,7 @@ import asyncio
 import re
 import ast
 import math
+import random
 from plugins import malik 
 from plugins.malik.extra import GHHMT, PPI, RULES_ALERT, GROUP_Rules, SMART_PIC, STTS, MQTT, TEL, MQTTP, PPC, REPORT, PURGE, MUTE, SS_ALERT,  STKR, WRITE, FONTS, MY_DETALS, GOOGL, SHARETXT, WALL
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
