@@ -13,7 +13,7 @@ async def g_text(bot, message):
         await message.reply_text("<b>Your message has been sent to my moderators !</b>")
         await bot.send_message(
             chat_id=LOG_CHANNEL,
-            text=f"<b>#PM_MSG\n\nName : {user}\n\nID : {user_id}\n\nMessage : {contents}</b>"
+            text=f"<b>#PM_MSG\n\nName : {user}\n\nID : {user_id}\n\nMessage : {content}</b>"
         )
 
 
