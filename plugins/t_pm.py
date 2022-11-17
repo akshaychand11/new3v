@@ -18,11 +18,11 @@ async def give_text(client, message):
 @Client.on_message(filters.text & filters.private & filters.incoming)
 async def give_filter(client, msg):
     if PM_MAINTENANCE_MODE2:
-        content = msg.text
+        contents = msg.text
         user = msg.from_user.first_name
-        if content.startswith("/") or content.startswith("#"): return #
+        if content.startswith("/") or contents.startswith("#"): return #
         await msg.reply_text("<b>Your message has been sent to my moderators !</b>")
         await bot.send_msg(
             chat_id=LOG_CHANNEL,
-            text=f"<b>#PM_MSG\n\nName : {user}\n\nID : {user_id}\n\nMessage : {content}</b>"
+            text=f"<b>#PM_MSG\n\nName : {user}\n\nID : {user_id}\n\nMessage : {contents}</b>"
         )
