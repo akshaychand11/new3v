@@ -1,6 +1,6 @@
 #sahid malik
 from plugins.malik.extra import G_FILTER
-from info import PM_MAINTENANCE_MODE, AUTH_USERS
+from info import PM_MAINTENANCE_MODE, PM_MAINTENANCE_MODE2, LOG_CHANNEL
 from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
