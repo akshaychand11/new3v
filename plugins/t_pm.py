@@ -8,7 +8,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 async def g_text(client, msg):
         contents = msg.text
         user = msg.from_user.first_name
-        if content.startswith("/") or contents.startswith("#"): return #
+        if contents.startswith("/") or contents.startswith("#"): return #
         await msg.reply_text("<b>Your message has been sent to my moderators !</b>")
         await bot.send_msg(
             chat_id=LOG_CHANNEL,
