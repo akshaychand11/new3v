@@ -1,6 +1,6 @@
 #sahid malik
 from plugins.malik.extra import G_FILTER
-from info import PM_MAINTENANCE_MODE, LOG_CHANNEL, ADMINS
+from info import PM_MAINTENANCE_MODE, LOG_CHANNEL, ADMINS, REQ_GRP
 from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -32,7 +32,7 @@ async def send_msg(bot, message):
 
 
 
-@Client.on_message(filters.text & filters.private & filters.incoming)
+@Client.on_message(filters.text & filters.incoming & filters.chat(REQ_GRP))
 async def g_text(bot, message):
         content = message.text
         user = message.from_user.first_name
