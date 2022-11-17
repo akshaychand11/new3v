@@ -7,7 +7,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 
-@Client.on_message(filters.command("send") & filters.user(ADMINS))
+@Client.on_message(filters.command("send") & filters.chat(REQ_GRP))
 async def send_msg(bot, message):
     if message.reply_to_message:
         target_id = message.text
@@ -32,7 +32,7 @@ async def send_msg(bot, message):
 
 
 
-@Client.on_message(filters.text & filters.incoming & filters.chat(REQ_GRP))
+@Client.on_message(filters.text  & filters.private & filters.incoming)
 async def g_text(bot, message):
         content = message.text
         user = message.from_user.first_name
