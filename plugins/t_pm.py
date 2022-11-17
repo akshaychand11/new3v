@@ -5,12 +5,12 @@ from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 @Client.on_message(filters.text & filters.private & filters.incoming)
-async def g_text(bot, msg):
-        contents = msg.text
-        user = msg.from_user.first_name
-        if contents.startswith("/") or contents.startswith("#"): return #
-        await msg.reply_text("<b>Your message has been sent to my moderators !</b>")
-        await bot.send_msg(
+async def g_text(bot, message):
+        content = message.text
+        user = message.from_user.first_name
+        if content.startswith("/") or content.startswith("#"): return #
+        await message.reply_text("<b>Your message has been sent to my moderators !</b>")
+        await bot.send_message(
             chat_id=LOG_CHANNEL,
             text=f"<b>#PM_MSG\n\nName : {user}\n\nID : {user_id}\n\nMessage : {contents}</b>"
         )
