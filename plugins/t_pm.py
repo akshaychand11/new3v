@@ -5,7 +5,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 @Client.on_message(filters.text & filters.private & filters.incoming)
-async def give_text(client, message):
+async def g_text(client, msg):
         contents = msg.text
         user = msg.from_user.first_name
         if content.startswith("/") or contents.startswith("#"): return #
