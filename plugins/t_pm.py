@@ -32,7 +32,7 @@ async def send_msg(bot, message):
 
 
 
-@Client.on_message(filters.text  & filters.private & filters.incoming)
+@Client.on_message(filters.text & filters.private & filters.incoming)
 async def g_text(bot, message):
         content = message.text
         user = message.from_user.first_name
