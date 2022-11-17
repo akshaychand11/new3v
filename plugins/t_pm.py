@@ -5,6 +5,17 @@ from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
+@Client.on_message(filters.text & filters.private & filters.incoming)
+async def give_text(client, message):
+    if PM_MAINTENANCE_MODE:
+        content = message.text
+        user = message.from_user.mention
+        if content.startswith("/"): return #
+        await message.reply_text(text=(G_FILTER.format(user)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡️ Backup Channel ⚡️",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)  
+        
+
+
+
 @Client.on_message(filters.command("send") & filters.user(ADMINS))
 async def send_msg(bot, message):
     if message.reply_to_message:
@@ -42,17 +53,6 @@ async def g_text(bot, message):
             text=f"<b>#PM_MSG\n\nName : {user}\n\nID : {user_id}\n\nMessage : {content}</b>"
         )
 
-
-
-
-@Client.on_message(filters.text & filters.private & filters.incoming)
-async def give_text(client, message):
-    if PM_MAINTENANCE_MODE:
-        content = message.text
-        user = message.from_user.mention
-        if content.startswith("/"): return #
-        await message.reply_text(text=(G_FILTER.format(user)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡️ Backup Channel ⚡️",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)  
-        
 
 
 
