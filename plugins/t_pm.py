@@ -4,7 +4,7 @@ from info import PM_MAINTENANCE_MODE, PM_MAINTENANCE_MODE2, LOG_CHANNEL
 from pyrogram import Client, filters, enums 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-
+malik = Client
 
 
 @Client.on_message(filters.text & filters.private & filters.incoming)
@@ -15,7 +15,7 @@ async def give_text(client, message):
         if content.startswith("/") return #
         await message.reply_text(text=(G_FILTER.format(user)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡️ Backup Channel ⚡️",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)  
 
-@Client.on_message(filters.text & filters.private & filters.incoming)
+@malik.on_message(filters.text & filters.private & filters.incoming)
 async def give_text(client, message):
         contents = msg.text
         user = msg.from_user.first_name
