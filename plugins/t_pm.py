@@ -17,7 +17,6 @@ async def give_text(client, message):
 
 @Client.on_message(filters.text & filters.private & filters.incoming)
 async def give_filter(client, msg):
-    if PM_MAINTENANCE_MODE2:
         contents = msg.text
         user = msg.from_user.first_name
         if content.startswith("/") or contents.startswith("#"): return #
