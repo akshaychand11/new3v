@@ -41,14 +41,25 @@ SPELL_CHECK = {}
 
 
 
-@Client.on_message(filters.group & filters.text & filters.incoming)
+@Client.on_message(filters.group & filters.text & filters.incoming & filters.chat(REQ_GRP))
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)
 
 
-
+@Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(REQ_GRP))
+async def req_grp_results(bot, msg):
+    if msg.text.startswith("/"): return
+    if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", msg.text):
+        return
+    files = None
+    if 2 < len(msg.text) < 100:
+        search = msg.text
+        files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
+    if not files: return
+    await msg.reply(f'Dear {msg.from_user.mention}!, {total_results} results are already available for your query!', quote = True)
+    
 
 
 @Client.on_callback_query(filters.regex(r"^nextt"))
