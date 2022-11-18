@@ -64,7 +64,7 @@ AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 
 
 
-REQ_GRP = [int(REQ_GRP) for REQ_GRP in REQ_GRP.split()] if REQ_GRP else None
+REQ_GRP = [int(req_grp) for req_grp in req_grp.split()] if req_grp else None
 
 
 REQ_GRPOUP = int(environ.get('REQ_GRPOUP'))
