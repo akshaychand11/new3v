@@ -62,7 +62,10 @@ FILTER_BUTTONS = os.environ.get("FILTER_BUTTONS", "10")
 DB_AUTO_DELETE = is_enabled((environ.get('DB_AUTO_DELETE', "True")), True)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 
-REQ_GRP = [int(req_grp) if id_pattern.search(req_grp) else req_grp for req_grp in environ.get('REQ_GRP', '0').split()]
+
+
+REQ_GRP = [int(REQ_GRP) for REQ_GRP in REQ_GRP.split()] if REQ_GRP else None
+
 
 REQ_GRPOUP = int(environ.get('REQ_GRPOUP'))
 
