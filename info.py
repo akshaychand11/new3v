@@ -64,9 +64,7 @@ AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 
 
 
-REQ_GRP= [int(req_grp) if id_pattern.search(req_grp) else req_grp for req_grp in environ.get('REQ_GRP', '0').split()]
-
-REQ_GRPOUP = int(environ.get('REQ_GRPOUP'))
+REQ_GRP = int(environ.get('REQ_GRP', '0').split()
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
