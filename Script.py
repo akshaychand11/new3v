@@ -338,7 +338,7 @@ ADDG = """ʜᴇʏ. {}..😎
 
 M_NT_FND = """<b>⭕️ This Movie Not Found my Database. Request to admin..\n\n⭕️ Ye movie Hamare database me Available nahi hai Niche admin se request kare... \n\n⭕️ Request to admin.. 👇</b>"""
 
-ADDGG = """ʜᴇʏ.
+ADDGG = """ʜᴇʏ. {}
 
 ɪᴍ ⚡️ ᴘᴏᴡᴇʀғᴜʟ ᴀᴜᴛᴏ-ғɪʟᴛᴇʀ ʙᴏᴛ...
 😎 ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ᴀs ᴀ ᴀᴜᴛᴏ-ғɪʟᴛᴇʀ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ....
