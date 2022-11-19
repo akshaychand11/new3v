@@ -64,7 +64,6 @@ AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 
 
 
-REQ_GRP = [int(environ.get('REQ_GRP', '0').split()]
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
@@ -129,5 +128,10 @@ PM_MAINTENANCE_MODE = is_enabled((environ.get('PM_MAINTENANCE_MODE', "False")), 
 SHORT_URLL = is_enabled((environ.get('SHORT_URLL', "False")), False)
 SHORTENER_API2 = environ.get("SHORTENER_API", None)
 LONG_MEGHA_URL = environ.get("LONG_MEGHA_URL", False)
+
+
+
+REQ_GRP = int(environ.get('REQ_GRP', '0').split()
+
 
 
