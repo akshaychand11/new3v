@@ -131,7 +131,7 @@ LONG_MEGHA_URL = environ.get("LONG_MEGHA_URL", False)
 
 
 
-REQ_GRP = int(environ.get('REQ_GRP', '0').split()
+REQ_GRP = int(environ.get('REQ_GRP'))
 
 
 
