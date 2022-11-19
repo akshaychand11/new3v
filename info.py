@@ -130,8 +130,9 @@ SHORTENER_API2 = environ.get("SHORTENER_API", None)
 LONG_MEGHA_URL = environ.get("LONG_MEGHA_URL", False)
 
 
+REQ_GRPOUP = int(environ.get('REQ_GRPOUP'))
 
 REQ_GRP = int(environ.get('REQ_GRP', '0').split(),
 
 
-REQ_GRPOUP = int(environ.get('REQ_GRPOUP'))
+
