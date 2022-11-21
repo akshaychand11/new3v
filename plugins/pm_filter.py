@@ -147,7 +147,7 @@ async def next_page(bot, query):
     try:
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
-        protect_content = True 
+            protect_content = True,
         )
     except MessageNotModified:
         pass
