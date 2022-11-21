@@ -1272,8 +1272,8 @@ async def auto_filter(client, msg, spoll=False):
    
 
 
-        cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
-        await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+    cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
+    await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
 
