@@ -292,6 +292,9 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         except:
             pass
         return await message.reply('No such file exist.')
+    mv_rqst = msg.text
+    reqstr1 = msg.from_user.id if msg.from_user else 0
+    reqstr = await client.get_users(reqstr1)
     files = files_[0]
     title = files.file_name
     size=get_size(files.file_size)
