@@ -87,6 +87,7 @@ async def next_page(bot, query):
         return
     settings = await get_settings(query.message.chat.id)
     if settings['button']:
+    protect_content = True,
         btn = [
             [
                 InlineKeyboardButton(
@@ -147,7 +148,6 @@ async def next_page(bot, query):
     try:
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
-            protect_content = True,
         )
     except MessageNotModified:
         pass
