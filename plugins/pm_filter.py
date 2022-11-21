@@ -1271,7 +1271,8 @@ async def auto_filter(client, msg, spoll=False):
    # ]) 
    
 
-        cap = f"<b>Hey...😎 {message.from_user.mention},\n\n🖥 Movie Name : {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"),
+    cap = f"<b>Hey...😎 {message.from_user.mention},\n\n🖥 Movie Name : {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"),
+        try:    
             await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
             protect_content = True 
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):  
