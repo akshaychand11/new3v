@@ -7,7 +7,7 @@ Umongo==3.0.1
 shortzy
 Requests
 Aiofiles
-imdbpy==2021.4.18
+imdbpy==2022.4.10
 googletrans==3.1.0a0 # Google Translater 
 gTTS # Google Translater
 youtube-dl
