@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming)
-async def start(client:Client, msg, message):
+async def start(client:Client, message):
     
     m = message
     user_id = m.from_user.id
@@ -292,8 +292,8 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         except:
             pass
         return await message.reply('No such file exist.')
-    mv_rqst = msg.text
-    reqstr1 = msg.from_user.id if msg.from_user else 0
+    mv_rqst = message.text
+    reqstr1 = message.from_user.id if message.from_user else 0
     reqstr = await client.get_users(reqstr1)
     files = files_[0]
     title = files.file_name
