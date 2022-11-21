@@ -1271,22 +1271,9 @@ async def auto_filter(client, msg, spoll=False):
    # ]) 
    
 
-    cap = f"<b>Hey...😎 {message.from_user.mention},\n\n🖥 Movie Name : {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
-        try:    
-            await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            protect_content = True 
-        except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):  
-            pic = imdb.get('poster')
-            poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            protect_content = True 
-        except Exception as e:
-            logger.exception(e)
-            await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            protect_content = True 
-    else:
-        await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        protect_content = True 
+    cap = f"<b>Hey...😎 {message.from_user.mention},\n\n🖥 Movie Name : {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"  
+    await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+
     if spoll:
         await msg.message.delete()
 
