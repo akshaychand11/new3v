@@ -65,14 +65,14 @@ async def req_grp_results(bot, msg):
 @Client.on_callback_query(filters.regex(r"^nextt"))
 async def next_page(bot, query):
 
-    ident, reqq, keyy, offset = query.data.split("_")
-    if int(reqq) not in [query.from_user.id, 0]:
+    ident, req, key, offset = query.data.split("_")
+    if int(req) not in [query.from_user.id, 0]:
         return await query.answer(f"⚠️ 𝗛𝗲𝘆, {query.from_user.first_name}.. \n\n𝗦𝗲𝗮𝗿𝗰𝗵 𝗬𝗼𝘂𝗿 𝗢𝘄𝗻𝗲𝗿 𝗙𝗶𝗹𝗲,\n\n⚠️𝗗𝗼𝗻'𝘁 𝗖𝗹𝗶𝗰𝗸 𝗢𝘁𝗵𝗲𝗿𝘀 𝗥𝗲𝘀𝘂𝗹𝘁𝘀 😬", show_alert=True)
     try:
         offset = int(offset)
     except:
         offset = 0
-    search = BUTTONS.get(keyy)
+    search = BUTTONS.get(key)
     if not search:
         await query.answer("You are using one of my old messages, please send the request again.", show_alert=True)
         return
@@ -1271,53 +1271,8 @@ async def auto_filter(client, msg, spoll=False):
    # ]) 
    
 
-    imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
-    TEMPLATE = settings['template']
-    if imdb:
-        cap = TEMPLATE.format(
-            query=search,
-            title=imdb['title'],
-            votes=imdb['votes'],
-            aka=imdb["aka"],
-            seasons=imdb["seasons"],
-            box_office=imdb['box_office'],
-            localized_title=imdb['localized_title'],
-            kind=imdb['kind'],
-            imdb_id=imdb["imdb_id"],
-            cast=imdb["cast"],
-            runtime=imdb["runtime"],
-            countries=imdb["countries"],
-            certificates=imdb["certificates"],
-            languages=imdb["languages"],
-            director=imdb["director"],
-            writer=imdb["writer"],
-            producer=imdb["producer"],
-            composer=imdb["composer"],
-            cinematographer=imdb["cinematographer"],
-            music_team=imdb["music_team"],
-            distributors=imdb["distributors"],
-            release_date=imdb['release_date'],
-            year=imdb['year'],
-            genres=imdb['genres'],
-            poster=imdb['poster'],
-            plot=imdb['plot'],
-            rating=imdb['rating'],
-            url=imdb['url'],
-            **locals()
-        )
-    else:
+
         cap = f"<b>🏷  Title: {search}\n📡Group : {message.chat.title}\n🤦Requested By : {message.from_user.mention}</b>"
-    if imdb and imdb.get('poster'):
-        try:
-            await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):  
-            pic = imdb.get('poster')
-            poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        except Exception as e:
-            logger.exception(e)
-            await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-    else:
         await message.reply_photo(photo=malik.smart_pic, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
