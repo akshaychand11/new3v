@@ -1282,6 +1282,7 @@ async def advantage_spell_chok(client, msg, message):
     reqstr1 = msg.from_user.id if msg.from_user else 0
     reqstr = await client.get_users(reqstr1)
     settings = await get_settings(message.chat.id)
+    user = msg.from_user.id if msg.from_user else 0
     query = re.sub(
         r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|br((o|u)h?)*|^h(e|a)?(l)*(o)*|mal(ayalam)?|t(h)?amil|file|that|find|und(o)*|kit(t(i|y)?)?o(w)?|thar(u)?(o)*w?|kittum(o)*|aya(k)*(um(o)*)?|full\smovie|any(one)|with\ssubtitle(s)?)",
         "", msg.text, flags=re.IGNORECASE)  # plis contribute some common words
@@ -1290,7 +1291,6 @@ async def advantage_spell_chok(client, msg, message):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-    user = msg.from_user.id if msg.from_user else 0
         reply = malik.replace(" ", '+')  
         reply_markup = InlineKeyboardMarkup([[
         InlineKeyboardButton("🔍 𝗖𝗹𝗶𝗰𝗸 𝗧𝗼 𝗖𝗵𝗲𝗰𝗸 𝗦𝗽𝗶𝗹𝗹𝗶𝗻𝗴 ✅", url=f"https://www.google.com/search?q={reply}")
