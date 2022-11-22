@@ -135,7 +135,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
         'poster': movie.get('full-size cover url'),
         'plot': plot,
         'rating': str(movie.get("rating")),
-        'url':f'https://www.imdb.com/title/tt{movieid}'
+        'url':f'https://www.google.com/title/tt{movieid}'
     }
 
 
