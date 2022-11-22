@@ -1290,6 +1290,7 @@ async def advantage_spell_chok(client, msg, message):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
+    user = msg.from_user.id if msg.from_user else 0
         reply = malik.replace(" ", '+')  
         reply_markup = InlineKeyboardMarkup([[
         InlineKeyboardButton("🔍 𝗖𝗹𝗶𝗰𝗸 𝗧𝗼 𝗖𝗵𝗲𝗰𝗸 𝗦𝗽𝗶𝗹𝗹𝗶𝗻𝗴 ✅", url=f"https://www.google.com/search?q={reply}")
