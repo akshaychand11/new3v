@@ -1306,6 +1306,7 @@ async def advantage_spell_chok(client, msg, message):
         await asyncio.sleep(10) 
         await a.delete()
         return
+    g_s = list(dict.fromkeys(g_s)) # removing duplicates
 
     SPELL_CHECK[msg.id] = g_s
     btn = [[
