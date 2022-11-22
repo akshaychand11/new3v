@@ -1318,7 +1318,7 @@ async def advantage_spell_chok(client, msg, message):
                 gs_parsed.append(match.group(1))
     user = msg.from_user.id if msg.from_user else 0
 
-    SPELL_CHECK[msg.id] = g_s
+    SPELL_CHECK[msg.id] = g_s.replace('IMDB' , '')
     btn = [[
         InlineKeyboardButton(
             text=movie.strip(),
