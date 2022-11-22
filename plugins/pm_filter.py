@@ -1346,13 +1346,13 @@ async def advantage_spell_chok(client, msg, message):
         await asyncio.sleep(12) 
         await a.delete()
         return
-    SPELL_CHECK[msg.id] = movielist
+    SPELL_CHECK[msg.id] = g_s
     btn = [[
         InlineKeyboardButton(
             text=movie.strip(),
             callback_data=f"spolling#{user}#{k}",
         )
-    ] for k, movie in enumerate(movielist)]
+    ] for k, movie in enumerate(g_s)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     dll = await msg.reply(f"<b>Hey, {msg.from_user.mention}...😎\n\nᴄʜᴇᴄᴋ ᴀɴᴅ sᴇʟᴇᴄᴛ ᴛʜᴇ ᴍᴏᴠɪᴇ ғʀᴏᴍ ᴛʜᴇ ɢɪᴠᴇɴ ʟɪsᴛ.. \n\n दी गई सूची में अपनी फिल्म देखें और अपनी फिल्म चुनें 👇👇👇</b>",
                     reply_markup=InlineKeyboardMarkup(btn))
