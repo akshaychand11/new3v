@@ -136,5 +136,4 @@ REQ_GRPOUP = int(environ.get('REQ_GRPOUP'))
 REQ_GRP = int(environ.get('REQ_GRP', '-1001566860282')
 
 
-UPSTREAM_REPO = environ.get("UPSTREAM_REPO", "https://Sahidmalik07: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@github.com/Sahidmalik07/verify2")
 
