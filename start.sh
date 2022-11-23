@@ -1,12 +1,12 @@
 if [ -z $UPSTREAM_REPO ]
 then
   echo "Cloning main Repository"
-  git clone https://github.com/Sahidmalik07/verify2.git /verify2
+  git clone https://github.com/Rajneesh058/moviefinderextra /moviefinderextra
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
-  git clone $UPSTREAM_REPO /verify2
+  git clone $UPSTREAM_REPO /moviefinderextra
 fi
-cd /verify2
+cd /moviefinderextra
 pip3 install -U -r requirements.txt
 echo "Starting Bot....💥"
 python3 bot.py
