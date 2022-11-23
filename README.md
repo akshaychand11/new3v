@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://telegra.ph/file/00bdb8145479df9436ae1.jpg" alt="Ajax Techz">
+  <img src="https://user-images.githubusercontent.com/105805201/192936277-dcc0fa25-a8d1-41c8-8039-00d383ea56c7.jpg" alt="Filmy pitara">
 </p>
 <h1 align="center">
-  <b>file-filter-bot</b>
+  <b>Movie_Finder_bot</b>
 </h1>
-<a href="https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A">
-  <img src="https://img.shields.io/badge/𝚂𝚄𝙱𝚂𝙲𝚁𝙸𝙱𝙴-red?logo=youtube" width="150">
+<a href="https://youtube.com/channel/UCFDpDpnOgcoztiiIkjnJYfw">
+  <img src="https://user-images.githubusercontent.com/105805201/193200984-945641aa-05c9-41ce-b6a2-13a876a8832b.svg" width="150">
 
 [![Stars](https://img.shields.io/github/stars/malik7983/file-filter-bot?style=flat-square&color=orange)](https://github.com/malik7983/file-filter-bot/stargazers)
 [![Forks](https://img.shields.io/github/forks/malik7983/file-filter-bot?style=flat-square&color=blue)](https://github.com/malik7983/file-filter-bot/fork)
