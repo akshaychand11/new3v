@@ -23,7 +23,7 @@ USER_SESSION = environ.get('USER_SESSION', 'User_Bot')
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
-USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_
+USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
 PICS = (environ.get('PICS', '         https://telegra.ph/file/ebef13d4970e8b3890b8f.jpg https://telegra.ph/file/eb40522f8856591fa4c1b.jpg https://telegra.ph/file/b2179df41ca9c35f3dee3.jpg https://telegra.ph/file/1aff95f3fd9e5b1263243.jpg https://telegra.ph/file/bc0db6afb659a9b81c4ad.jpg https://telegra.ph/file/5c8fc7cc44e099332aef5.jpg          
 TUTORIAL = environ.get("M_NT_F", "https://telegra.ph/file/b9c8a8240590623ba43ee.jpg")
 
