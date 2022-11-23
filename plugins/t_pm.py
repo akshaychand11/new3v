@@ -52,5 +52,5 @@ async def give_text(client, message):
         content = message.text
         user = message.from_user.mention
         if content.startswith("/"): return #
-        await message.reply_text(text=(G_FILTER.format(user)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡️ Backup Channel ⚡️",url="https://t.me/+FAgX05kGByNkZjJl"),]]),parse_mode=enums.ParseMode.HTML)  
+        await message.reply_text(text=(G_FILTER.format(user)), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡️ Backup Channel ⚡️",url="https://t.me/F_pitara"),]]),parse_mode=enums.ParseMode.HTML)  
         
