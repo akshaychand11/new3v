@@ -45,8 +45,8 @@ TUTORIAL = environ.get("M_NT_F", "https://telegra.ph/file/b9c8a8240590623ba43ee.
 DEL_SEC = int(os.environ.get("DEL_SEC", "10"))
 
 DEL_SECOND = int(os.environ.get("DEL_SECOND", "300"))
-CREATOR_USERNAME = os.environ.get("CREATOR_USERNAME", "sahid_malik")
-CREATOR_NAME = os.environ.get("CREATOR_NAME", "sahid malik")
+CREATOR_USERNAME = os.environ.get("CREATOR_USERNAME", "Rajneesh Singh")
+CREATOR_NAME = os.environ.get("CREATOR_NAME", "Rajneesh Singh")
 BOT_USERNAME = os.environ.get("BOT_USERNAME", "hjhjvjjjvbot")
 
 #part 2
