@@ -168,7 +168,7 @@ async def get_ststs(bot, message):
                reply_markup=InlineKeyboardMarkup(
                                       [[
                                         InlineKeyboardButton('🔙ᴄʟᴏꜱᴇ⚠️', callback_data='close_data'),
-                                        InlineKeyboardButton('', callback_data='rfrsh')
+                                        InlineKeyboardButton('🔄ʀᴇꜰʀᴇꜱʜ🔄', callback_data='rfrsh')
                                       ]]
                ),
                parse_mode=enums.ParseMode.HTML
