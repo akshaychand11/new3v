@@ -70,26 +70,18 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
-        buttons = [[
-
-            ('ᴀᴅᴅ ᴛᴏ ɢʀᴏᴜᴘ', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-
+        buttons =[[
+            InlineKeyboardButton('ᴀᴅᴅ ᴛᴏ ɢʀᴏᴜᴘ', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-
             InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url='https://t.me/+Dek49ihM4u5iNWQ1'),
-
             InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/Epic_creation_bots')
-
             ],[
-
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
-
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-
-           
-
-           
-
+            ],[
+            InlineKeyboardButton('ꜱᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('ᴜʀʟ ꜱʜᴏʀᴛɴᴇʀ', callback_data='urlshortn')
+             ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -108,7 +100,7 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         btn = [
             [
                 InlineKeyboardButton(
-                    "👉 Join Updates Channel 👈", url=invite_link.invite_link
+                    "ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=invite_link.invite_link
                 )
             ]
         ]
@@ -125,16 +117,17 @@ Time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('❇️ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘs ❇️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('ᴀᴅᴅ ᴛᴏ ɢʀᴏᴜᴘ', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('♻️ ʜᴇʟᴘ ♻️', callback_data='help'),
-            InlineKeyboardButton('⚡️ᴜᴘᴅᴀᴛᴇs⚡️', url='https://t.me/m_house786')
+            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url='https://t.me/+Dek49ihM4u5iNWQ1'),
+            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/Epic_creation_bots')
             ],[
-            InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', url=f'http://t.me/{temp.U_NAME}'),
-            InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
+            InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
+            InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
             ],[
-            InlineKeyboardButton('✅ sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')
-        ]]
+            InlineKeyboardButton('ꜱᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('ᴜʀʟ ꜱʜᴏʀᴛɴᴇʀ', callback_data='urlshortn')
+             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
