@@ -41,9 +41,9 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-            InlineKeyboardButton('♻️ Help ♻️', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('💎 Updates 💎', url='https://t.me/m_house786')
-        ],[InlineKeyboardButton('🌴 Bots Channel 🌴', url='https://t.me/malik_bots')]]
+            InlineKeyboardButton('🆘ʜᴇʟᴘ🆘', url=f"https://t.me/{temp.U_NAME}?start=help"),
+            InlineKeyboardButton('🔺ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ🔺', url='https://t.me/+Dek49ihM4u5iNWQ1')
+        ],[InlineKeyboardButton('🤖ʙᴏᴛ ᴄʜᴀɴɴᴇʟ🤖', url='https://t.me/Epic_creation_bots')]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=(PHT),
@@ -64,7 +64,7 @@ async def save_group(bot, message):
                                                  caption=(WCM.format(u.mention, message.chat.title)),
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
-                                                                           InlineKeyboardButton('♻️ GROUP RULES ♻️', callback_data='group_rules')
+                                                                           InlineKeyboardButton('📋ɢʀᴏᴜᴘ ʀᴜʟᴇꜱ📋', callback_data='group_rules')
                                                                          ]]
                                                  ),
                                                  parse_mode=enums.ParseMode.HTML
