@@ -18,12 +18,12 @@ async def left(client,message):
                                 [
                                     [
                                         InlineKeyboardButton(
-                                            "Update Channel", url='https://t.me/m_house786'
+                                            "🔺ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ🔺", url='https://t.me/+Dek49ihM4u5iNWQ1'
                                         ),
                                     ],
 				    [
                                         InlineKeyboardButton(
-                                            "𝘊𝘭𝘰𝘴𝘦", callback_data="close_data"
+                                            "ᴄʟᴏꜱᴇ", callback_data="close_data"
                                         )
                                     ],
                                 ]
