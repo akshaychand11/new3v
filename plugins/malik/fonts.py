@@ -52,7 +52,7 @@ async def style_buttons(c, m, cb=False):
 
         ],[
 
-        InlineKeyboardButton('Next ➡️', callback_data="nxt"),
+        InlineKeyboardButton('ɴᴇxᴛ➡️', callback_data="nxt"),
         ],[
         InlineKeyboardButton("🙅ᴄʟᴏꜱᴇ🙅", callback_data="close_data")
     ]]
@@ -91,9 +91,9 @@ async def nxt(c, m):
             InlineKeyboardButton('S̶t̶r̶i̶k̶e̶', callback_data='style+strike'),
             InlineKeyboardButton('F༙r༙o༙z༙e༙n༙', callback_data='style+frozen')
             ],[
-            InlineKeyboardButton('', callback_data='nxt+0'),
+            InlineKeyboardButton('⏭️ɴᴇxᴛ⏭️', callback_data='nxt+0'),
             ],[
-            InlineKeyboardButton("💢 Close 💢", callback_data="close_data")
+            InlineKeyboardButton("ᴄ🙅ʟᴏꜱᴇ🙅", callback_data="close_data")
         ]]
         await m.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
