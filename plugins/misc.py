@@ -170,14 +170,14 @@ async def help(client, message):
 @Client.on_message(filters.command("about"))
 async def about(client, message):
         buttons = [[
-            InlineKeyboardButton('🌴 ʙᴏᴛs ᴄʜᴀɴɴᴇʟ 🌴', url='https://t.me/malik_bots'),
-            InlineKeyboardButton('♥️ sᴏᴜʀᴄᴇ', callback_data='source')
+            InlineKeyboardButton('ʙᴏᴛs ᴄʜᴀɴɴᴇʟ', url='https://t.me/Epic_creation_bots'),
+            InlineKeyboardButton('sᴏᴜʀᴄᴇ', callback_data='source')
         ], [
             InlineKeyboardButton('ʜᴏᴍᴇ ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏᴄᴇ', callback_data='close_data')
         ], [
-            InlineKeyboardButton('📞 ᴏᴡɴᴇʀ', url='https://t.me/sahid_malik'),
-            InlineKeyboardButton('❤️ ᴅᴏɴᴀᴛɪᴏɴ ❤️', callback_data='malik')
+            InlineKeyboardButton('ᴏᴡɴᴇʀ', url='https://t.me/Rajneesh_Singh_Tomar'),
+            InlineKeyboardButton('ᴅᴏɴᴀᴛɪᴏɴ', callback_data='owner')
         ], [
             InlineKeyboardButton('🚶‍♀ 𝐛𝐚𝐜𝐤 🚶‍♀', callback_data='close_data')
         ]]
