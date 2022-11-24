@@ -498,16 +498,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('➕ ᴀᴅᴅ ᴛᴏ ɢʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('ᴀᴅᴅ ᴛᴏ ɢʀᴏᴜᴘ', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🆘 ʜᴇʟᴘ 🆘', callback_data='help'),
-            InlineKeyboardButton('🔺 ᴜᴘᴅᴀᴛᴇ 🔺', url='https://t.me/Epic_creation_bots')
+            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url='https://t.me/+Dek49ihM4u5iNWQ1'),
+            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/Epic_creation_bots')
             ],[
-            InlineKeyboardButton('🔎ꜱᴇᴀʀᴄʜ ɪɴʟɪɴᴇ🔍', url=f'http://t.me/{temp.U_NAME}'),
-            InlineKeyboardButton('📋 ᴀʙᴏᴜᴛ 📋', callback_data='about')
+            InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
+            InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
             ],[
-            InlineKeyboardButton('🔺 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴛ ᴄʜᴀɴɴᴇʟ 🔺', url='https://youtube.com/channel/UCFDpDpnOgcoztiiIkjnJYfw')
-        ]]
+            InlineKeyboardButton('ꜱᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('ᴜʀʟ ꜱʜᴏʀᴛɴᴇʀ', callback_data='urlshortn')
+             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id, 
