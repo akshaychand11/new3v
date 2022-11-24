@@ -65,7 +65,7 @@ class evamaria(Client):
 async def botinfo(client, message):
     if len(message.command):
         buttons = [[
-            InlineKeyboardButton('❇️ Add Me To Your Groups ❇️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕ᴀᴅᴅ ᴛᴏ ɢʀᴏᴜᴘ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -85,7 +85,7 @@ async def get_ststs(bot, message):
                text=(GHHMT.format(total_users)),
                reply_markup=InlineKeyboardMarkup(
                                       [[
-                                        InlineKeyboardButton('🌐 Add Me To Your Groups 🌐', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                                        InlineKeyboardButton('➕ᴀᴅᴅ ᴛᴏ ɢʀᴏᴜᴘ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                                       ]]
                ),
                parse_mode=enums.ParseMode.HTML
@@ -97,7 +97,7 @@ async def get_ststs(bot, message):
 async def owner(client, message):
     if len(message.command):
         buttons = [[
-            InlineKeyboardButton('💢 close 💢', callback_data='close_data')
+            InlineKeyboardButton('🙅ᴄʟᴏꜱᴇ🙅', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -114,7 +114,7 @@ async def owner(client, message):
 async def rules(client, message):
     if len(message.command):
         buttons = [[
-            InlineKeyboardButton('💢 close 💢', callback_data='close_data')
+            InlineKeyboardButton('🙅ᴄʟᴏꜱᴇ🙅', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
