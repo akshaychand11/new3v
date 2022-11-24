@@ -818,17 +818,17 @@ GROUP_Rules = """<b>
 
 MY_DETALS = """<b>Hey {}. Welcome ❤️
 
-🔹 ᴍʏ ɴᴀᴍᴇ : sᴀʜɪᴅ ᴍᴀʟɪᴋ
-🔹 ᴜsᴇʀɴᴀᴍᴇ: @sahid_malik
-🔹 ᴘᴍᴛ. ᴅᴍ ʟɪɴᴋ: <a href=https://t.me/sahid_malik>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
-🔹 ᴘʟᴀᴄᴇ: sᴀʜᴀʀᴀɴᴘᴜʀ | ᴜᴘ | ɪɴᴅɪᴀ
+🔹 ᴍʏ ɴᴀᴍᴇ : ʀᴀᴊɴᴇᴇꜱʜ ꜱɪɴɢʜ ᴛᴏᴍᴀʀ
+🔹 ᴜsᴇʀɴᴀᴍᴇ: @Rajneesh_Singh_Tomar
+🔹 ᴘᴍᴛ. ᴅᴍ ʟɪɴᴋ: <a href=https://t.me/Rajneesh_Singh_Tomar>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
+🔹 ᴘʟᴀᴄᴇ: ɢᴡᴀʟɪᴏʀ | ᴍᴘ | ɪɴᴅɪᴀ
 🔹 ᴋɴᴏᴡ ʟᴀɴɢᴜᴀɢᴇ: ʜɪɴᴅɪ, ᴇɴɢʟɪsʜ,
-      ᴍᴀʟʏᴀʟᴀᴍ
-🔹 ʀᴇʟɪɢɪᴏɴ ᴄᴀsᴛ: ᴍᴜsʟɪᴍ
-🔹 ᴅᴏʙ: 00 | 09 | 2005
+
+🔹 ʀᴇʟɪɢɪᴏɴ ᴄᴀsᴛ: ʜɪɴᴅᴜ
+🔹 ᴅᴏʙ: 10 | 01 | 2006
 🔹 Aɢᴇ: ᴊᴜsᴛ ᴄᴀʟᴄᴜʟᴀᴛᴇ
-🔹 ʟᴇᴠᴇʟ: ғʀɪsᴛ ʏᴇᴀʀ ʙᴛᴇᴄ ᴇᴄᴇ
-🔹 ғᴀᴠ ᴄᴏʟᴏᴜʀ: ʀᴇᴅ, ɢʀᴇᴇɴ, ʙʟᴜᴇ..</b>"""
+🔹 ʟᴇᴠᴇʟ: ᴊᴜꜱᴛ ꜱᴄʜᴏᴏʟɪɴɢ
+🔹 ғᴀᴠ ᴄᴏʟᴏᴜʀ: ʙʟᴜᴇ..</b>"""
 
 
 GOOGL = """🔹𝗛𝗲𝗹𝗽 𝗚𝗼𝗼𝗴𝗹𝗲 𝗧𝗿𝗮𝗻𝘀𝗹𝗮𝘁𝗲🔹
@@ -929,6 +929,6 @@ DP_YRS = environ.get("DL_YRS", "https://youtu.be/v7Vbu3u_VrE")
 
 G_FILTER = """Hy. {}.\n\n Service is 𝕔𝕝𝕠𝕤𝕖𝕕 for 30 minutes .\n\n<u>bot in Maintenance plz wait 30 minutes</u>.\n\nJoin Backup channel for updates 👇🏻"""
 
-PM_FILTER = """Hy. {}.\n\nDo not request here😡\nThis chat is only for <u>movie delevery</u>.\n\n<b>Tell your query in Movies House group👇🏻</b>"""
+PM_FILTER = """Hy. {}.\n\nDo not request here😡\nThis chat is only for <u>movie delevery</u>.\n\n<b>Tell your query in Movies Request group👇🏻</b>"""
 
 
