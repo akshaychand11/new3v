@@ -167,8 +167,8 @@ async def get_ststs(bot, message):
                caption=(STTS.format(files, total_users, totl_chats, size, free)),
                reply_markup=InlineKeyboardMarkup(
                                       [[
-                                        InlineKeyboardButton('💢 Close 💢', callback_data='close_data'),
-                                        InlineKeyboardButton('♻️ Refresh ♻️', callback_data='rfrsh')
+                                        InlineKeyboardButton('🔙ᴄʟᴏꜱᴇ⚠️', callback_data='close_data'),
+                                        InlineKeyboardButton('', callback_data='rfrsh')
                                       ]]
                ),
                parse_mode=enums.ParseMode.HTML
